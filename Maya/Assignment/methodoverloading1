@@ -1,0 +1,16 @@
+public class methodoverloading1 {
+  static int add(int a, int b) {
+    return a + b;
+  }
+  
+  static double add(double a, double b) {
+    return a + b;
+  }
+  
+  public static void main(String[] args) {
+    int num1 = add(8, 5);
+    double num2 = add(4.3, 6.26);
+    System.out.println("int: " + num1);
+    System.out.println("double: " + num2);
+  }
+}
