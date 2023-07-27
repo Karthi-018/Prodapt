@@ -11,7 +11,7 @@ public class Properties
 		System.out.println("--------------------------------------------------------");
 		System.out.println("2) a*1 is always equal to one");
 		System.out.println("   a is equal to "+a);
-		System.out.println("   Here, a*0 is equal to "+a*1);
+		System.out.println("   Here, a*1 is equal to "+a*1);
 		System.out.println("   This is the Identity Property.");
 		System.out.println("--------------------------------------------------------");
 	}
