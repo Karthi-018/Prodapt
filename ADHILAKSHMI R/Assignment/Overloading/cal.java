@@ -1,8 +1,8 @@
 class cal {
 public static void main(String[] args) {
 Calculator calculator = new Calculator();
-System.out.println(calculator.calc(1,2)); // method with two parameter is called
-System.out.println(calculator.calc(2,3,4)); // method with three parameter is called
+System.out.println(calculator.calc(1,2)); 
+System.out.println(calculator.calc(2,3,4)); 
 System.out.println(calculator.calc(2.0f,1.0f));
 System.out.println(calculator.calc(2,3,4,1)); 
 System.out.println(calculator.calc(100l,10l));
