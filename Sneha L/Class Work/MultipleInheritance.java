@@ -93,3 +93,33 @@ public static void main(String[] args)
     System.out.println(eng);
 }
 }
+/*Output
+Manager Details
+id:101
+Name:Sam
+Salary:10000
+department:Senior Manager
+______________________
+Admin details
+id:102
+Name:Rex
+Salary:20000
+department:IT
+______________________
+Director details
+id:103
+Name:Tom
+Salary:30000
+department:CSE
+budget:50000.0
+______________________
+Employee Details
+id:100
+Name:peter
+Salary:25000
+______________________
+Engineer details
+id:106
+Name:andy
+Salary:0
+*/
