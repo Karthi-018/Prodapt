@@ -16,7 +16,7 @@ class Tablets extends Pharma{
 		super(medicine_name,Expiry_year);
 		this.dosage=dosage;
 	}
-	//@override
+	@override
 	public void lable_Details(){
 	super.lable_Details();
 	System.out.println("DOSAGE:"+dosage+"mg");
@@ -27,7 +27,7 @@ class Syrup extends Pharma{
 		super(medicine_name,Expiry_year);
 		this.flavour=flavour;
 		}
-	//@override
+	@override
 	public void lable_Details(){
 		super.lable_Details();
 		System.out.println("SYRUP FLAVOUR:"+flavour);
