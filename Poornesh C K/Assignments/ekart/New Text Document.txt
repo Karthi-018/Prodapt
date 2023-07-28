@@ -1,0 +1,9 @@
+class searchType(){
+	public void search(String productId){
+		System.out.println("watterbottle");
+	}
+	public void search(String productName){
+		System.out.println("watterbottle");
+	}
+
+}
