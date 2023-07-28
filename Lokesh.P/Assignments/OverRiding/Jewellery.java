@@ -1,9 +1,9 @@
 public class Jewellery {
     public static void main(String[] args) {
-        //static binding and loosely coupling
+        //static Polymorphism and loosely coupling
         Bracelet b =new Bracelet();
         b.Design(200000,"Diamond");
-        //Dynamic binding and tightly coupling
+        //Dynamic Polymorphism and tightly coupling
         Bracelet r =new Ring();
         r.Design(30000,"Gold");
 
