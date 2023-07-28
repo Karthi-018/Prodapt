@@ -77,7 +77,7 @@ class Director extends Admin{
         return "Director details\nid:"+super.getEid()+"\nName:"+getEname()+"\nSalary:"+super.getSal()+"\ndepartment:" + super.getDept()+"\nbudget:" + budget;
     }
 }
-public class MultipleInheritance{
+public class MultiLevelInheritance{
 public static void main(String[] args)
 {
     Employee ep=new Employee(100,"peter",25000);
