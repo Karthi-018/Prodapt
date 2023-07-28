@@ -1,1 +1,23 @@
+class Planet
+{  
+void revolve()
+{
+System.out.println("planet revolves");
+}  
+}  
+ 
+class Sun extends Planet
+{  
+void revolve()
+{
+System.out.println("sun rotates");      
+}  
+}
 
+class Main
+{
+  public static void main(String args[]){  
+  Sun sun = new Sun();  
+  sun.revolve();
+}
+}
