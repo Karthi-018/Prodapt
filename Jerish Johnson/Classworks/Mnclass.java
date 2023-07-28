@@ -1,3 +1,5 @@
+//Static nested class
+
 class Nested{
 	String movie="John wick";
 	static String movreview="Good";
