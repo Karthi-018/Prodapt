@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 class Main{
-    static Employee[] employees = new Employee[10];
-    static int noOfEmployees = 0;
-    static Scanner sc = new Scanner(System.in);
+    private static Employee[] employees = new Employee[10];
+    private static int noOfEmployees = 0;
+    private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args){
         int choice;
@@ -34,7 +34,7 @@ class Main{
         while(choice!=5);
     }
 
-    static Employee findEmployee(int id){
+    private static Employee findEmployee(int id){
         for(Employee e : employees){
             if(e.getId() == id){
                 return e;
@@ -43,7 +43,7 @@ class Main{
         return null;
     }
 
-    public static void createEmployee(){
+    private static void createEmployee(){
         System.out.print("\nEnter employee name : ");
         String name = sc.next();
         System.out.print("\nEnter employee designation : ");
@@ -60,7 +60,7 @@ class Main{
 
     }
 
-    static void updateEmployee(){
+    private static void updateEmployee(){
         System.out.print("Enter employee id : ");
         int id = sc.nextInt();
         Employee employee = findEmployee(id);
@@ -89,7 +89,7 @@ class Main{
         }
     }
 
-    static void deleteEmployee(){
+    private static void deleteEmployee(){
         System.out.print("\nEnter employee id : ");
         int id = sc.nextInt();
         Employee employee = findEmployee(id);
@@ -108,7 +108,7 @@ class Main{
         }
     }
 
-    static void displayEmployee(){
+    private static void displayEmployee(){
         System.out.print("\n1.Display employee by id");
         System.out.println("\n2.Display all");
         int choice = sc.nextInt();
