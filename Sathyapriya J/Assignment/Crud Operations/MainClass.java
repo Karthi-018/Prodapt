@@ -117,7 +117,7 @@ public class MainClass{
         System.out.println("Employee Name : "+emp[index].ename);
         System.out.println("Employee  : "+emp[index].edes);
         System.out.println("Employee id : "+emp[index].esalary);
-
+	System.out.println();
     }
 	public static void main(String args[])
 	{
