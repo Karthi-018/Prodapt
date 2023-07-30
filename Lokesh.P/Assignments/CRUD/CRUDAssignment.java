@@ -7,7 +7,7 @@ public class CRUDAssignment {
     {
     }
 
-    CRUDAssignment(int EmpId,long EmpSalary,String EmpName)
+    CRUDAssignment(int EmpId,String EmpName,long EmpSalary)
     {
         this.EmpId=EmpId;
         this.EmpName=EmpName;
