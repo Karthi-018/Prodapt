@@ -39,17 +39,28 @@ Employee_Assignment()
 static int n=111;
 
 
-public void create(Employee_Assignment...empArr)
+public void create(Employee_Assignment... empArr)
 {
+for(int i=0;i<empArr.length;i++)
+{
+//if(empArr[i]!=null)
+System.out.println(empArr[i]);
+}
+
 if(n<limit)
 {
-empArr[n-100].empId=n;
+System.out.println(n);
+System.out.println(limit);
+System.out.println(empArr[11]);
+
+//empArr[n-100].empId=n;
 System.out.println("Enter name");
-String createName=sc.nextLine();
-empArr[n-100].empName=createName;
+String createName=sc.next();
+//empArr[n-100].empName=createName;
 System.out.println("Enter Salary");
 long createSalary=sc.nextLong();
-empArr[n-100].salary=createSalary;
+//empArr[n-100].salary=createSalary;
+empArr[n-100] = new Employee_Assignment(n,createName,createSalary);
 n=n+1;
 }
 else
@@ -57,6 +68,7 @@ else
 System.out.println("Database is full\nCannot create new employee");
 }
 }
+
 
 
 
