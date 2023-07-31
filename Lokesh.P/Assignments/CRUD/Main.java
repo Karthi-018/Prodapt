@@ -89,6 +89,11 @@ public class Main {
                 Employee d = employeeService.deleteEmployee();
                 userchoice();
                 break;
+            case 6:
+                System.exit(0);
+            default:
+                System.out.println("INVALID CHOICE");
+                System.exit(0);
         }
     }
 
