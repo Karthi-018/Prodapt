@@ -103,8 +103,8 @@ class CRUD{
 						if(elist[i].empno==DID){
 							for(int j=i;i<elist.length-1;j++){
 								elist[j]=elist[j+1];
+								elist[j]=null;
 							}
-							elist[elist.length-1]=null;
 							Employee.size--;
 							System.out.println("Details Deleted");	
 							break;
