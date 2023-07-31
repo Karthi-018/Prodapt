@@ -49,9 +49,9 @@ System.out.println(empArr[i]);
 
 if(n<limit)
 {
-System.out.println(n);
-System.out.println(limit);
-System.out.println(empArr[11]);
+//System.out.println(n);
+//System.out.println(limit);
+//System.out.println(empArr[11]);
 
 //empArr[n-100].empId=n;
 System.out.println("Enter name");
