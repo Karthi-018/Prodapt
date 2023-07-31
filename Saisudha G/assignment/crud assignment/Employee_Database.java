@@ -92,8 +92,8 @@ class Employee_Database{
 			//System.out.println(5);
 			break;
 		case 6:
-			deleteemp_details(sc);
-			//System.out.println(6);
+			//deleteemp_details(sc);
+			System.out.println(6);
 			break;
 		default:
 			System.out.println("Invalid choice");
@@ -165,26 +165,8 @@ static void displayall_details(){
 		for(Employee e:emp){
 			System.out.println(e);
 	}}
-static void deleteemp_details(Scanner sc){
-	System.out.println("Enter Employee ID to delete :");
-	int Eid=sc.nextInt();
-	int delete_index=-1;
-	for(int e=0;e<no_of_emp;e++){
-		if(emp[e].getEid()==Eid){
-			delete_index=e;
-			break;
-	}}
-	if(delete_index==-1){
-		System.out.println("Employee not found");
-		}else{
-		for(int e=delete_index;e<no_of_emp-1;e++){
-			emp[e]=emp[e+1];
-	}
-	no_of_emp--;
-	System.out.println("Employee deleted");
-	
 
-}}
+	
 
 
 
