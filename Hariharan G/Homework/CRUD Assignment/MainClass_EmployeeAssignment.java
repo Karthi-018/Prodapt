@@ -36,7 +36,7 @@ Employee_Assignment()
 //Employee_Assignment obj=new Employee_Assignment();            //for local use
 
 
-static int n=102;
+static int n=111;
 
 
 public void create(Employee_Assignment...empArr)
