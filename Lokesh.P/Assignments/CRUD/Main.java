@@ -58,6 +58,8 @@ public class Main {
                     }
                     System.out.println(updateEmp);
                 }
+                userchoice();
+                break;
             case 3:
                 System.out.println("Searching Employee Details");
                 System.out.println("Enter the EmpId to  Search:");
