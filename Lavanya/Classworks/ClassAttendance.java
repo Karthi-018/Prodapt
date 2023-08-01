@@ -1,4 +1,4 @@
-
+#varargs
 public class ClassAttendance
 {
 	public static void main(String[] args) {
