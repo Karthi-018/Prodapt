@@ -15,12 +15,7 @@ class Employeemain
 	    Employee obj = new Employee();
         Scanner s1 = new Scanner(System.in);
         Employee[] empArr = new Employee[20];
-        //ArrayList<Employee> empdetail = new ArrayList<Employee>();
-	
        
-        
-        
-        
             switch(i)
             {
                 case 1:
