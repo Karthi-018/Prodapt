@@ -1,5 +1,3 @@
-
-
 import java.util.*;
 
 class Employee{
@@ -92,8 +90,8 @@ class Employee_Database{
 			//System.out.println(5);
 			break;
 		case 6:
-			//deleteemp_details(sc);
-			System.out.println(6);
+			deleteemp_details(sc);
+			//System.out.println(6);
 			break;
 		default:
 			System.out.println("Invalid choice");
@@ -120,7 +118,7 @@ static void addemp (Scanner sc){
 		System.out.println("Employee ID Already Exist");
 	}}
 
-static void updateemp_name(Scanner sc){
+static void updateemp_details(Scanner sc){
 	System.out.println("Enter Employee ID to update Name:");
 	int Eid=sc.nextInt();
 	Employee updateemp =detect(Eid);
@@ -163,9 +161,24 @@ static void searchemp(Scanner sc){
 static void displayall_details(){
 	System.out.println("\nEmployee Details:");
 		for(Employee e:emp){
+			if(e!=null){
 			System.out.println(e);
-	}}
+	}}}
 
+static void deleteemp_details(Scanner sc){
+	Employee[] newemp= new Employee[Max_emp];
+	int index=0;
+	System.out.println("Enter Employee ID :");
+	int Eid=sc.nextInt();
+	for(Employee e:emp){
+		if(e!=null && e.getEid()!=Eid){
+			newemp[index]=e;
+			index++;
+		}}
+	emp=newemp;
+	displayall_details();
+}
+			
 	
 
 
@@ -178,5 +191,17 @@ static Employee detect(int Eid) {
 	return null;
 	}}
 
+
+	
+
+
+
+		
+		
+		
+		
+	
+	
+		
 
 	
