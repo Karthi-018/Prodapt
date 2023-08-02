@@ -1,0 +1,45 @@
+class Quiz
+{
+
+private String questions;
+private char answers;
+
+public Quiz(String questions, char answers)
+{
+
+this.questions = questions;
+
+this.answers = answers;
+
+}
+
+public void setQuestions(String questions)
+
+{
+this.questions = questions;
+}
+
+public String getQuestions()
+
+{
+return questions;
+}
+
+public void setAnswers(char answers)
+
+{
+this.answers = answers;
+}
+
+public char getAnswers()
+{
+return answer;
+}
+
+public String toString()
+{
+return "Questions: " + questions + "\nAnswers: " + answers;
+}
+}
+
+
