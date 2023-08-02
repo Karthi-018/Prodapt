@@ -1,9 +1,9 @@
 package org.example.quiz;
 
 public class Quiz {
-    String qn;
-    char actAns;
-    char userAns;
+    private String qn;
+    private char actAns;
+    private char userAns;
 
     public Quiz(String qn, char actAns, char userAns) {
         this.qn = qn;
