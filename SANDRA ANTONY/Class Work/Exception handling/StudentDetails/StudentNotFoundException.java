@@ -2,6 +2,6 @@ public class StudentNotFoundException extends Exception
 {
     StudentNotFoundException(int sId)
     {
-        System.out.println(sId+" Not there");
+        System.out.println("Student id "+sId+" not found.");
     }
 }
