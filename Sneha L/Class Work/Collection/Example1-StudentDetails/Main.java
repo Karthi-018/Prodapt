@@ -45,6 +45,8 @@ public class Main {
             default:
                 System.out.println("Invalid option");
         }
+        System.out.println("Student Details");
+        System.out.println("Id"+"   "+"Name"+"   "+"Marks");
         for (StudentDetails i:finalList) {
             System.out.println(i);
         }
