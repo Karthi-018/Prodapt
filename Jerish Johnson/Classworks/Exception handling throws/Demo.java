@@ -24,7 +24,7 @@ class Mnthrow{
 	public static void main(String []a){
 		Demo d=new Demo();
 		try{
-			d.myfun(10,5,5,null);
+			d.myfun(10,5,5,null);//instead of null use any String value to know the length
 		}
 		catch(Exception e){
 			System.out.println(e);
