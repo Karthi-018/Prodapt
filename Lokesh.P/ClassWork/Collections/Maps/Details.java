@@ -38,7 +38,7 @@ public class Details {
         switch(choice)
         {
             case 1:
-
+                    //sortbyname
                     l.sort(new Comparator<TelephoneBook>() {
                         @Override
                         public int compare(TelephoneBook telephoneBook, TelephoneBook t1) {
