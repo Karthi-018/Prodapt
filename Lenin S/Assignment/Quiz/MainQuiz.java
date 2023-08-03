@@ -4,7 +4,7 @@ class QuizMain
 
 public static void main(String args[])
 {
-System.out.println("ALL THE BEST\nTotal no. of question = 10\nTotal marks = 20");
+System.out.println("ALL THE BEST\nTotal no. of question = 5\nTotal marks = 10");
 System.out.println("---------------------------------------------------------------------------------");
 
 int marks = 0;
