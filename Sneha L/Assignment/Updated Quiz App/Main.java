@@ -1,12 +1,12 @@
 import java.util.Scanner;
-import java.util.*;
 
+// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
+// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
+        QuizApp[] ques = new QuizApp[10];
         Scanner sc = new Scanner(System.in);
         int score = 0;
-      
-        QuizApp[] ques = new QuizApp[10];
         ques[0] = new QuizApp(" \n" +
                 "1. In which of the following is toString() method defined?\n", new String[]{"A. java.lang.Object", "B. java.lang.String", "C. java.lang.util", "D. None"}, 'A');
         ques[1] = new QuizApp(" \n" +
@@ -30,18 +30,17 @@ public class Main {
         ques[9] = new QuizApp(" \n" +
                 "10. Which one of the following is not a Java feature?", new String[]{
                 "A. Object-oriented", "B. Use of pointers", "C. Portable", "D. Dynamic and Extensible"}, 'B');
-      
         System.out.println("Your Assessment Starts Now.........");
         System.out.println("Answer the following questions");
         int currIndex = 0;
-        char s;
+       char s;
         while (currIndex >= 0 && currIndex < 10) {
             QuizApp currQues = ques[currIndex];
             System.out.println(currQues.getQuestion());
             for (String j : currQues.getOptions()) {
                 System.out.println(j);
             }
-            System.out.println("Enter your option/enter the Question number(0-9) to change ans /'N' to move next/'P' to move previous");
+            System.out.println("Enter your option/enter the Question number(0-9) to change ans /1 to move previous/2 to move next/3 jump to particular question");
             s = sc.next().toUpperCase().charAt(0);
             switch (s) {
                 case 'A':
@@ -54,23 +53,25 @@ public class Main {
                         currQues.setUserAnswer(s);
                     currIndex++;
                     break;
-                case 'P':
+                case '1':
                     currIndex--;
                     break;
-                case 'N':
+                case '2':
                     currIndex++;
                     break;
-                case 'M':
-                    System.out.println("Enter the new option");
-                    char newOption=sc.next().toUpperCase().charAt(0);
-                    currQues.setCorrectOption(newOption);
+                case '3':
+                    int n=sc.nextInt();
+                    if(n>=0 && n<=9)
+                    {
+                        currIndex=n;
+                    }
                     break;
                 default:
-                    if(s>='0' && s<='9')
-                    {
-                        currIndex=s-'0';
-                    }
+                    System.out.println("Exit");
+                    break;
+
             }
+
         }
         System.out.println("Your Score is "+score+" out of 10");
     }
