@@ -41,8 +41,8 @@ public class Main {
         data.forEach(System.out::println);
 
 
-        System.out.println("1--> Sort by student name list in Ascending order");
-        System.out.println("2--> Sort by student marks in descending order");
+        System.out.println("1--> Sort by student marks in descending order");
+        System.out.println("2--> Sort by student name list in Ascending order");
         System.out.println("Enter the choice of order : ");
         Scanner sc= new Scanner(System.in);
         int ch =sc.nextInt();
