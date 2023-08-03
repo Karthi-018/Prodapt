@@ -5,7 +5,7 @@ public class Details {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //by using map we can get phone number
-        Map map = new HashMap();
+        Map<String,String> map = new HashMap();
         map.put("Lokesh","9800966909");
         map.put("Arun","9580896690");
         map.put("Charan","6970096780");
