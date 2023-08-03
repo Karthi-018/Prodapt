@@ -61,9 +61,9 @@ public class Main {
                     break;
                 case '3':
                     int n=sc.nextInt();
-                    if(n>=0 && n<=9)
+                    if(n>=1 && n<=10)
                     {
-                        currIndex=n;
+                        currIndex=n-1;
                     }
                     break;
                 default:
