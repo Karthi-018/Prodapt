@@ -11,7 +11,13 @@ public class Main {
         telephone.put("Ragzz", "7654328796");
         telephone.put("Sudha", "3421567890");
         telephone.put("Hari", "123456790");
-        telephone.put("Sneha", "6573425679");
+        telephone.putIfAbsent("Sneha", "6573425679");
+        //telephone.put("Sneha", "6573425679");
+
+        for(String key:telephone.keySet())
+        {
+            System.out.println(key + " " + telephone.get(key));
+        }
 
         System.out.println(telephone.get("Sneha"));
         System.out.println(telephone.keySet());
