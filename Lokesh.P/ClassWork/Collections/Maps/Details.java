@@ -14,6 +14,11 @@ public class Details {
         System.out.println(map.keySet());
         System.out.println(map.values());
         System.out.println(map.entrySet());
+        //iteration in map
+        for(String key: map.keySet())
+        {
+            System.out.println(key+" "+map.get(key));
+        }
         //by using list if we call name it will display details
         List<TelephoneBook> l = new ArrayList<>();
         l.add(new TelephoneBook("Lokesh","9800966909"));
