@@ -21,14 +21,14 @@ public class Quiz_Service
             }
             System.out.print("\nEnter N for Next question and P for previous question: ");
             String choice = sc.next();
-            if(i!=0 && choice.equals("N"))
+            if(i!=9 && choice.equals("N"))
             {
                 System.out.println("\n"+quest[i]);
                 System.out.println("Enter the option: ");
                 answer[i]=sc.next();
                 i+=1;
             }
-            else if(i!=9 && choice.equals("P"))
+            else if(i!=0 && choice.equals("P"))
             {
                 i-=2;
                 System.out.println("\n"+quest[i]);
