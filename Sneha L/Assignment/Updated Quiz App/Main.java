@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
         QuizApp[] ques = new QuizApp[10];
@@ -54,9 +52,17 @@ public class Main {
                     currIndex++;
                     break;
                 case '1':
-                    currIndex--;
+                    if(currIndex<0){
+                        currIndex=ques.length-1;
+                    }
+                    else{
+                        currIndex--;
+                    }
                     break;
                 case '2':
+                    if(currIndex>=ques.length){
+                        currIndex=0;
+                    }
                     currIndex++;
                     break;
                 case '3':
@@ -66,11 +72,15 @@ public class Main {
                         currIndex=n-1;
                     }
                     break;
+
+
                 default:
                     System.out.println("Exit");
                     break;
 
+
             }
+
 
         }
         System.out.println("Your Score is "+score+" out of 10");
