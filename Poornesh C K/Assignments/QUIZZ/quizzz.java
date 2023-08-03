@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class quizzz {
     static Scanner sc = new Scanner(System.in);
     static String[] ans = new String[10];
-    static String[] strAns = {"B", "B", " B"," C","A"," A","B"," B","B","B"};
+    static String[] strAns = {"B", "B", "B","C","A","A","B","B","B","B"};
     static int i=0;
     public  static void sd(String j){
         //boolean r= true;
@@ -209,7 +209,7 @@ public class quizzz {
                 for(int t=0;t<10;t++){
                     System.out.println(ans[t]);
                 }
-                System.out.println(countMatch(ans,strAns));
+                //System.out.println(countMatch(ans,strAns));
                 System.out.println(count_pairs(ans,strAns));
         }
 
