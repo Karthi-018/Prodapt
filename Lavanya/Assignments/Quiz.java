@@ -59,13 +59,9 @@ public class Quiz {
 
     @Override
     public String toString() {
-        return "Quiz{" +
-                "Ques='" + Ques + '\'' +
-                ", op1='" + op1 + '\'' +
-                ", op2='" + op2 + '\'' +
-                ", op3='" + op3 + '\'' +
-                ", op4='" + op4 + '\'' +
-                '}';
+        return
+                 Ques + "\n" + op1 + "\n" +
+                 op2 + "\n" + op3 + "\n" + op4 + "\n" ;
     }
 
     public Quiz(String ques, String op1, String op2, String op3, String op4, int ans) {
@@ -81,66 +77,47 @@ public class Quiz {
         Scanner scan = new Scanner(System.in);
         int count = 0;
         int i = 0;
+        int answer[] = new int[3];
         Quiz[] a = new Quiz[3];
-        a[0] = new Quiz("\nThe ______ keyword is used to call the constructor of the parent class", "1 this",
+        a[0] = new Quiz("\n1)The ______ keyword is used to call the constructor of the parent class", "1 this",
                 "2 parent class name", "3 super", "4 parent", 3);
-        a[1] = new Quiz("\nWhich of the following options compares only object references", "1 toString()",
+        a[1] = new Quiz("\n2)Which of the following options compares only object references", "1 toString()",
                 "2 equals()", "3 ==", "4 hashCode()", 3);
-        a[2] = new Quiz("\nNumber of primitive data types in Java are", "1 6", "2 7", "3 8", "4 9", 3);
+        a[2] = new Quiz("\n3)Number of primitive data types in Java are", "1 6", "2 7", "3 8", "4 9", 3);
 
         while (true) {
+
             System.out.println(a[i]);
             System.out.println("Enter your answer : ");
-            int answer = scan.nextInt();
+            answer[i] = scan.nextInt();
             System.out.println("Enter your choice as prev or next : ");
             String choice = scan.next();
             if (choice.equalsIgnoreCase("next")) {
                 i++;
-                if (i >=a.length) {
+                if (i >= a.length) {
                     System.out.println("Quiz over");
                     break;
                 }
-                if (answer == a[i].getAns()) {
-                    count++;
-                }
 
-               /* else{
-                    System.out.println(a[i]);
-                    System.out.println("Enter your answer : ");
-                    answer = scan.nextInt();
-                    if (answer == a[i].getAns()) {
-                        count++;
-                    }
-                   // i++;
-                    if(i>=a.length)
-                    {
-                        System.out.println("Quiz over");
-                        break;
-                    }
-                }*/
-            }
-            else if (choice.equalsIgnoreCase("prev")) {
-                if(i==0){
-                    System.out.println("its 1st question");
+               } else if (choice.equalsIgnoreCase("prev")) {
+
+                if (i == 0) {
+                    System.out.println("Its 1st question");
                     i++;
                     break;
                 }
                 i--;
-                if (answer == a[i].getAns()) {
+            }
+            for(int j=0;j<a.length;j++){
+                if (answer[j] == a[j].getAns())
+                {
                     count++;
                 }
-
-//                else{
-//                    System.out.println(a[i]);
-//                    i+=2;
-//                    if(i>=a.length){
-//                        break;
-//                    }
-//
-//                }
             }
-        }
-        System.out.println(count);
+        }      
+        System.out.println("Your score is "+count);
     }
+
 }
+
 
