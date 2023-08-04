@@ -31,7 +31,7 @@ class QuizApp1 {
 
         int mark = 0;
 
-        for(int i=0;i<Question.length;i++) {
+        for(int i=0;i<Question.length;) {
             System.out.println(Question[i].getQuestion());
             System.out.println(Question[i].getOption1());
             System.out.println(Question[i].getOption2());
