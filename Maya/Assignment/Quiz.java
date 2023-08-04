@@ -37,7 +37,7 @@ import java.util.Scanner;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int score = 0;
-        char inputVal;
+        char[] inputVal = new char[questions.length];
 
         System.out.println("Choose the correct answer");
 
@@ -50,13 +50,10 @@ import java.util.Scanner;
 
             do
 	    {
-                inputVal = scanner.next().charAt(0);
-            } while (inputVal < 'a' || inputVal > 'd');
+		System.out.println("Enter valid option");
+                inputVal[i] = scanner.next().charAt(0);
+            } while (inputVal[i] < 'a' || inputVal[i] > 'd');
 
-            if (inputVal == questions[i].getAnswer()) 
-	    {
-                // score++;
-            }
 
             System.out.println("Enter 'p' for previous and 'n' for next question");
             char norp = scanner.next().charAt(0);
@@ -70,11 +67,19 @@ import java.util.Scanner;
 		    }
 		    i = i - 2;
 
-                }
+                }														
           
 	}
 
-        //System.out.println("Your score: " + score);
+	for(int i=0;i<questions.length;i++)
+            if (inputVal[i] == questions[i].getAnswer()) 
+	    {
+                 score++;
+            }
+	{
+	}
+
+        System.out.println("Your score: " + score);
         System.out.println("Quiz finished");
     }
 }
