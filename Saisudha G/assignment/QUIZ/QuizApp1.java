@@ -49,12 +49,13 @@ class QuizApp1 {
                 switch (choice) {
                     case 1:
                         if (i < Question.length-1) {
-                            int i1 = i;
+                            
                             if (user_ans.equals(Question[i].getAns())) {
                                 mark++;
                             }
 
                         }
+                        i++;
                         break;
                     case 2:
                         if (i > 0 && i < Question.length-1) {
@@ -63,6 +64,7 @@ class QuizApp1 {
                                 mark++;
                             }
                         }
+                        i--;
                         break;
 
                 }
@@ -70,7 +72,7 @@ class QuizApp1 {
 
             }
 
-        System.out.println("Your score is :" +mark);
+        System.out.println("Your score is :"  +mark+  "out of 10);
 
 
            }
