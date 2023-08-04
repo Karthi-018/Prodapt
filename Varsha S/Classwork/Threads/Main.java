@@ -1,7 +1,7 @@
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters
-
-/* ---- Normal multi thread ----
+--------------------------------------------------------------------------------------------------------------------------
+// ---- Normal multi thread ----
 class Demo extends Thread
 {
     public void run()
@@ -28,23 +28,21 @@ class Test extends Thread
             System.out.println("World");
         }
     }
-}*/
+}
 
 class Main
 {
     public static void main(String[] args) throws Exception{
-//        Demo d = new Demo();
-//        Test t = new Test();
-//        d.start();
-//        t.start();
-        String s1 = new String("Arun");
-        String s2 = "Arun";
-        System.out.println(s1.equals(s2));
-}
+        Demo d = new Demo();
+        Test t = new Test();
+        d.start();
+        t.start();
+       }
 }
 
+----------------------------------------------------------------------------------------------------------------------------
 
-/* ---- to print character one by one ----
+// ---- to print character one by one ----
 public class Main
 {
     public static void main(String[] args) throws Exception{
@@ -62,10 +60,11 @@ public class Main
             }
         }
     }
-}*/
+}
 
+---------------------------------------------------------------------------------------------------------------------------------------------
 
-/* ---- another way to create a thread ----
+// ---- another way to create a thread ----
 class Demo extends Thread
 {
     public void run()
@@ -96,5 +95,5 @@ class Main
         d.start();
     }
 }
-*/
+-------------------------------------------------------------------------------------------------------------------------------------------
 
