@@ -61,14 +61,12 @@ class MainPQuiz
                break;
             }
         }
+        
         if(cone>ctwo && cone>cthree && cone>cfour)
         {
             System.out.println("You're a Husky");
             System.out.println("Congratulations!!! You personality matches that of the Husky.");
-            System.out.println("You tend to be a lone wolf and not rely on others to do your job.");
-            System.out.println("This may result in you struggling to open up to others but you can very much tackle the challenges that come your way head-on.");
-    
-
+            System.out.println("You tend to be a lone wolf and not rely on others to do your job. This may result in you struggling to open up to others but your fearless nature enables you to very much tackle the challenges that come your way head-on.");
         }
         
 
@@ -85,8 +83,7 @@ class MainPQuiz
         {
             System.out.println("You're a Great Dane");
             System.out.println("Congratulations!!! You personality matches that of the Great Dane.");
-            System.out.println("You are protective of the people you love and would very much do anything for them.");
-            System.out.println("Although you are prone to making poor decisions and jeopardizing your relationships in that process, people around you know that you are an absolute keper...");
+            System.out.println("You are protective of the people you love and would very much do anything for them. Although you are prone to making poor decisions and jeopardizing your relationships in that process, people around you know that you are an absolute keper...");
         }
 
         else 
