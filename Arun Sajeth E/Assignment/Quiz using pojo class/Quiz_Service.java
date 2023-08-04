@@ -34,7 +34,7 @@ public class Quiz_Service
                 System.out.println("\n"+quest[i]);
                 System.out.println("Enter the option: ");
                 answer[i]=sc.next();
-                i+=2;
+                i+=1;
             }
             else
             {
