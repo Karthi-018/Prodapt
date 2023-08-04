@@ -59,7 +59,7 @@ class QuizApp1 {
                         break;
                     case 2:
                         if (i > 0 && i < Question.length-1) {
-                            i=i-2;
+                           
                             if (user_ans.equals(Question[i].getAns())) {
                                 mark++;
                             }
