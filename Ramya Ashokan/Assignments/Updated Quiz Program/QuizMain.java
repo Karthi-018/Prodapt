@@ -32,16 +32,18 @@ public class QuizMain {
                 System.out.println(temp[i].getOpt3());
                 System.out.println(temp[i].getOpt4());
                 u_ans[i] = sc.next().charAt(0);
+                i++;
             }
             else if(i<10 && choice==1)
             {
-
+               // i=i;
                 System.out.println(temp[i].getQuestion());
                 System.out.println(temp[i].getOpt1());
                 System.out.println(temp[i].getOpt2());
                 System.out.println(temp[i].getOpt3());
                 System.out.println(temp[i].getOpt4());
                 u_ans[i] = sc.next().charAt(0);
+
             }
 
 
