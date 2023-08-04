@@ -11,15 +11,16 @@ public class Quiz_Service
         int i=0;
         while(i<10)
         {
-            if(i==0)
+            if(i==0 || i==1)
             {
                 System.out.println(quest[i]);
                 System.out.print("Enter the option: ");
                 answer[i]=sc.next();
                 i+=1;
+                System.out.println();
                 continue;
             }
-            System.out.print("\nEnter N for Next question and P for previous question: ");
+            System.out.print("Enter N for Next question and P for previous question: ");
             String choice = sc.next();
             if(i!=9 && choice.equals("N"))
             {
