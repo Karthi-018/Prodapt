@@ -64,7 +64,7 @@ class MainPQuiz
         
         if(cone>ctwo && cone>cthree && cone>cfour)
         {
-            System.out.println("You're a Husky");
+            System.out.println("You're a HUSKY");
             System.out.println("Congratulations!!! You personality matches that of the Husky.");
             System.out.println("You tend to be a lone wolf and not rely on others to do your job. This may result in you struggling to open up to others but your fearless nature enables you to very much tackle the challenges that come your way head-on.");
         }
@@ -72,7 +72,7 @@ class MainPQuiz
 
         else if(ctwo>cthree && ctwo>cfour)
         {
-            System.out.println("You're a Chihuahua");
+            System.out.println("You're a CHIHUAHUA");
             System.out.println("Congratulations!!! You personality matches that of the Chihuahua.");
             System.out.println("You mostly tend to keep to yourself and so people may end up underestimate you but you definitely pack a punch. You're witty, agile and bursting with ideas and solutions");
     
@@ -81,14 +81,14 @@ class MainPQuiz
 
         else if(cthree>cfour)
         {
-            System.out.println("You're a Great Dane");
+            System.out.println("You're a GREAT DANE");
             System.out.println("Congratulations!!! You personality matches that of the Great Dane.");
             System.out.println("You are protective of the people you love and would very much do anything for them. Although you are prone to making poor decisions and jeopardizing your relationships in that process, people around you know that you are an absolute keper...");
         }
 
         else 
         {
-            System.out.println("You're a Golden Retriever");
+            System.out.println("You're a GOLDEN RETRIEVER");
             System.out.println("Congratulations!!! You personality matches that of the Golden Retriever.");
             System.out.println("You are very much the life of the party and your mere presence lights up the entire place. People love you just for it and you make friends with people easily. Sometimes, you may get a tad bit possessive towards the people you love but your infectious energy makes people want to have you around.");
         
