@@ -1,84 +1,146 @@
 import java.util.Scanner;
 public class Quiz {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int count=0;
-        int a =3;
-        System.out.println("\nThe ______ keyword is used to call the constructor of the parent class");
-        System.out.println("1 this");
-        System.out.println("2 parent class name");
-        System.out.println("3 super");
-        System.out.println("4 parent");
-        System.out.println("Enter your choice: \t");
-        int answer1 = scanner.nextInt();
-        if(answer1<=4){
+    String Ques;
+    String op1;
+    String op2;
+    String op3;
 
-            if(a==answer1) {
-            count++;
-        }
-        else{
-            System.out.println("Wrong answer , correct option is "+a);
-        }}
-        else{
-            System.out.println("Option not found");
-        }
-      //  System.out.println(count);
-        int b = 3;
-        System.out.println("\nWhich of the following options compares only object references");
-        System.out.println("1 toString()");
-        System.out.println("2 equals()");
-        System.out.println("3 ==");
-        System.out.println("4 hashCode()");
-        System.out.println("Enter your choice: \t");
-        int answer2 = scanner.nextInt();
-        if(answer2<=4){
+    String op4;
+    int ans;
 
-            if(b==answer2) {
-            count++;
-        }
-        else{
-            System.out.println("Wrong answer , correct option is "+b);
-        }}
-         else{
-            System.out.println("Option not found");
-        }
-        int c=3;
-        System.out.println("\nNumber of primitive data types in Java are");
-        System.out.println("1 6");
-        System.out.println("2 7");
-        System.out.println("3 8");
-        System.out.println("4 9");
-        System.out.println("Enter your choice: \t");
-        int answer3 = scanner.nextInt();
-        if(answer3<=4){
-
-            if(c==answer3) {
-            count++;
-        }
-        else{
-            System.out.println("Wrong answer , correct option is "+c);
-        }}
-        else{
-            System.out.println("Option not found");
-        }
-        int d=2;
-        System.out.println("\nJava permits a class to extend only one other class directly. This is called __________");
-        System.out.println("1 Hierarchical inheritance");
-        System.out.println("2 single inheritance");
-        System.out.println("3 multilevel inheritance");
-        System.out.println("4 hybrid inheritance");
-        System.out.println("Enter your choice: \t");
-        int answer4 = scanner.nextInt();
-        if(answer4<=4){
-            if(d==answer4) {
-            count++;
-        }
-        else{
-            System.out.println("Wrong answer , correct option is "+d);
-        }}
-     else{
-        System.out.println("Option not found");
+    public int getAns() {
+        return ans;
     }
-        System.out.println("Your score is "+count);
+
+    public void setAns(int ans) {
+        this.ans = ans;
+    }
+
+
+    public String getQues() {
+        return Ques;
+    }
+
+    public void setQues(String ques) {
+        Ques = ques;
+    }
+
+    public String getOp1() {
+        return op1;
+    }
+
+    public void setOp1(String op1) {
+        this.op1 = op1;
+    }
+
+    public String getOp2() {
+        return op2;
+    }
+
+    public void setOp2(String op2) {
+        this.op2 = op2;
+    }
+
+    public String getOp3() {
+        return op3;
+    }
+
+    public void setOp3(String op3) {
+        this.op3 = op3;
+    }
+
+    public String getOp4() {
+        return op4;
+    }
+
+    public void setOp4(String op4) {
+        this.op4 = op4;
+    }
+
+    @Override
+    public String toString() {
+        return "Quiz{" +
+                "Ques='" + Ques + '\'' +
+                ", op1='" + op1 + '\'' +
+                ", op2='" + op2 + '\'' +
+                ", op3='" + op3 + '\'' +
+                ", op4='" + op4 + '\'' +
+                '}';
+    }
+
+    public Quiz(String ques, String op1, String op2, String op3, String op4, int ans) {
+        Ques = ques;
+        this.op1 = op1;
+        this.op2 = op2;
+        this.op3 = op3;
+        this.op4 = op4;
+        this.ans = ans;
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int count = 0;
+        int i = 0;
+        Quiz[] a = new Quiz[3];
+        a[0] = new Quiz("\nThe ______ keyword is used to call the constructor of the parent class", "1 this",
+                "2 parent class name", "3 super", "4 parent", 3);
+        a[1] = new Quiz("\nWhich of the following options compares only object references", "1 toString()",
+                "2 equals()", "3 ==", "4 hashCode()", 3);
+        a[2] = new Quiz("\nNumber of primitive data types in Java are", "1 6", "2 7", "3 8", "4 9", 3);
+
+        while (true) {
+            System.out.println(a[i]);
+            System.out.println("Enter your answer : ");
+            int answer = scan.nextInt();
+            System.out.println("Enter your choice as prev or next : ");
+            String choice = scan.next();
+            if (choice.equalsIgnoreCase("next")) {
+                i++;
+                if (i >=a.length) {
+                    System.out.println("Quiz over");
+                    break;
+                }
+                if (answer == a[i].getAns()) {
+                    count++;
+                }
+
+               /* else{
+                    System.out.println(a[i]);
+                    System.out.println("Enter your answer : ");
+                    answer = scan.nextInt();
+                    if (answer == a[i].getAns()) {
+                        count++;
+                    }
+                   // i++;
+                    if(i>=a.length)
+                    {
+                        System.out.println("Quiz over");
+                        break;
+                    }
+                }*/
+            }
+            else if (choice.equalsIgnoreCase("prev")) {
+                if(i==0){
+                    System.out.println("its 1st question");
+                    i++;
+                    break;
+                }
+                i--;
+                if (answer == a[i].getAns()) {
+                    count++;
+                }
+
+//                else{
+//                    System.out.println(a[i]);
+//                    i+=2;
+//                    if(i>=a.length){
+//                        break;
+//                    }
+//
+//                }
+            }
+        }
+        System.out.println(count);
     }
 }
+
