@@ -48,7 +48,7 @@ class QuizApp1 {
 
                 switch (choice) {
                     case 1:
-                        if (i < Question.length) {
+                        if (i < Question.length-1) {
                             int i1 = i;
                             if (user_ans.equals(Question[i].getAns())) {
                                 mark++;
@@ -57,8 +57,8 @@ class QuizApp1 {
                         }
                         break;
                     case 2:
-                        if (i > 0 && i < Question.length) {
-                            i--;
+                        if (i > 0 && i < Question.length-1) {
+                            i=i-2;
                             if (user_ans.equals(Question[i].getAns())) {
                                 mark++;
                             }
