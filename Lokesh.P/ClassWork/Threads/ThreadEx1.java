@@ -34,6 +34,12 @@ public class ThreadEx1 {
         Test t = new Test();
         d.start();
         t.start();
+        int count = Thread.activeCount();
+        System.out.println("currently active threads = " + count);
+        d.join();
+        t.join();
+        int count1 = Thread.activeCount();
+        System.out.println("currently active threads = " + count1);
 
     }
 }
