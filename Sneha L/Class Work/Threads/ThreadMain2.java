@@ -41,7 +41,7 @@ public class ThreadMain2{
         }
         catch(InterruptedException e){
             e.printStackTrace();
-        } //to start the thread and run() method is implicitly calls
+        } 
         obj2.start();
     
     }
