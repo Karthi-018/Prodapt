@@ -34,7 +34,7 @@ public class ThreadMain2{
         Test obj2=new Test();
         obj2.setPriority(Thread.MAX_PRIORITY);
         obj1.setPriority(2);
-        System.out.println(obj1.getPriority());//by default the getPriority is 5 here it is 2
+        System.out.println(obj1.getPriority());//by default the getPriority is 5 here it is 2.
         obj1.start(); 
         try{
         Thread.sleep(10);
