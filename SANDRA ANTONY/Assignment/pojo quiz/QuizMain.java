@@ -21,7 +21,7 @@ public class QuizMain
             System.out.println(qArr[i].getOption3());
 
             System.out.println("Choose your option.");
-            String choose = s.nextLine();
+            String choose = s.next();
             System.out.println("1.next");
             System.out.println("2.previous");
             int choice = s.nextInt();
@@ -36,7 +36,7 @@ public class QuizMain
                             System.out.println("Congratulations");
                             score+=10;
                         }
-                        break;
+                        
                     }
                     i++;
                     break;
