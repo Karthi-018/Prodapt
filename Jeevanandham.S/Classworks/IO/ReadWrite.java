@@ -28,7 +28,7 @@ class ReadWrite
 		BufferedReader br = new BufferedReader(fr);)
 		{
 			
-			System.out.println(br.read());// reads the whole content as a character not as bytes
+			System.out.println(br.readLine());// reads the whole content as a character not as bytes
 			
 		}
 		catch(Exception e)
