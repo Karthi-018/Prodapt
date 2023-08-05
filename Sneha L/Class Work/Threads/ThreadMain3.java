@@ -34,7 +34,7 @@ public class ThreadMain3{
         Demo obj1=new Demo();
         Test obj2=new Test();
         Thread t1=new Thread(obj1); 
-        Thread t2=new Thread(obj2);//While accessing Runnable Interface since there is no Thread method we have to create a object with it
+        Thread t2=new Thread(obj2);//While accessing Runnable Interface since there is no start() method we have to create a object with it
         t1.start();
         t2.start();
     
