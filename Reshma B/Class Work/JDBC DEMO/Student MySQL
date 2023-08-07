@@ -1,0 +1,5 @@
+create schema prodapt;
+use prodapt;
+show Tables;
+select * from Student;
+insert into Student values(101, "ABC", 90);
