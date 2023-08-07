@@ -11,11 +11,11 @@ class QuizApp
 
         Question[0] = new quizPojo("4.Number of primitive data types in Java are ","b","\na.7","\nb.8","\nc.6","\nd.9");
 
-        Question[1] = new App("2.Which of the following options is a valid class identifier in Java","c","\na.creditcard","\nb.creditCard","\nc.CreditCard","\nd.1creditCard");
+        Question[1] = new quizPojo("2.Which of the following options is a valid class identifier in Java","c","\na.creditcard","\nb.creditCard","\nc.CreditCard","\nd.1creditCard");
 
         Question[2] = new quizPojo("3.The ______ keyword is used to call the constructor of the parent class","c","\na.this","\nb.parent class name","\nc.super","\nd.parent");
 
-        Question[3] = new App("3.Which of the following variable declaration would NOT compile in a java program","c","\na.int var","\nb.int VAR","\nc.int var_1","\nd.int 1_var");
+        Question[3] = new quizPojo("3.Which of the following variable declaration would NOT compile in a java program","c","\na.int var","\nb.int VAR","\nc.int var_1","\nd.int 1_var");
 
         Question[4] = new quizPojo("4.Which of the following is a member of the java.lang package","a","\na.Math","\nb.List","\nc)Queue","\nd.Stack");
 
