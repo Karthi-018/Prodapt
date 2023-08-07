@@ -1,7 +1,7 @@
 import java.util.*;
 class QuizApp 
 {
-    static App Question[] = new App[10];
+    static QuizApp Question[] = new App[5];
     static int i=0;
 
     public static void main(String[] args)
