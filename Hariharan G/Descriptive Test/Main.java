@@ -25,7 +25,7 @@ public void songOperations(int choice) throws SongNotFoundException,Exception
 
 	case 1:
 	System.out.println("Sorting song based upon duration:");
-	l.sort((obj1,obj2)->(obj1.getDuration()).compareTo(obj2.getDuration()));
+	Collections.sort(l,(obj1,obj2)->(obj1.getDuration()).compareTo(obj2.getDuration()));
 	System.out.format("%-20s %-10s %-12s %-12s\n","Title","Genre","Duration","Rating");
 	for(Song i:l)
 	{
@@ -36,7 +36,7 @@ public void songOperations(int choice) throws SongNotFoundException,Exception
 	
 	case 2:
 	System.out.println("Sorting song based upon rating");
-	l.sort((obj1,obj2)->((obj1.getRating())>(obj2.getRating())?1:-1));
+	Collections.sort(l,(obj1,obj2)->((obj1.getRating())>(obj2.getRating())?1:-1));
 	System.out.format("%-20s %-10s %-12s %-12s\n","Title","Genre","Duration","Rating");
 	for(Song i:l)
 	{
