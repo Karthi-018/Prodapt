@@ -1,13 +1,12 @@
 import java.util.*;
 public class RandomGenerator {
     public static void main(String[] args) {
-        //Random r = new Random();
-        //r.nextInt(100);
+        Random r = new Random();
+        
         List<Integer> l = new ArrayList<>();
-        int arr[] = new int[50];
-        for(int i=0;i< arr.length;i++)
+        for(int i=0;i< 50;i++)
         {
-            l.add(i);
+            l.add(r.nextInt(100););
         }
         int sum=0;
         for(int i=0;i<l.size();i++)
