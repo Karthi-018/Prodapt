@@ -25,7 +25,7 @@ int choice=sc.nextInt();
 switch(choice)
 {
 case 1:
- l.sort((t1, t2) -> (t1.getDuration().compareTo(t2.getDuration())));
+ Collections.sort(l,(t1, t2) -> (t1.getDuration().compareTo(t2.getDuration())));
 System.out.format("%-15s %-20s %-12s %-12s\n","Title","Genre","Duration","Rating");
 for(Song s: l)
 {
@@ -35,7 +35,7 @@ System.out.format("%-15s %-20s %-12s %-12s\n",s.getTitle(),s.getGenere(),df.form
  break;
 
 case 2:
-l.sort((t1, t2) -> (t1.getRating()<t2.getRating())?-1:(t1.getRating()>t2.getRating())?1:0);
+Collections.sort(l,(t1, t2) -> (t1.getRating()<t2.getRating())?-1:(t1.getRating()>t2.getRating())?1:0);
 System.out.format("%-15s %-20s %-12s %-12s\n","Title","Genre","Duration","Rating");
 for(Song s: l)
 {
