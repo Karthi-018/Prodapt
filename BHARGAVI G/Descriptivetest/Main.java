@@ -3,7 +3,8 @@ import java.util.ArrayList;
 import java.util.*;
 import java.io.*;
 import java.text.*;
-class Main{
+import java.io.Serializable;
+class Main implements Serializable{
 public static void main(String args[])throws Exception
 {
 	List<Song> song=new ArrayList<>();
