@@ -45,6 +45,7 @@ public class JdbcExample {
 			e.printStackTrace();
 		}
 	}
+	
 	public static void createEmployee(Connection con) throws SQLException {
 		System.out.println("Enter Employee Id:");
 		int id=sc.nextInt();
@@ -87,31 +88,14 @@ public class JdbcExample {
 				System.out.println("Employee Department:"+employee.getEdept());
 				System.out.println("Employee Salary:"+employee.getEsal());
 			}
-		/*	if(rs.next()) {
-				System.out.println("Employee Details");
-				System.out.println("Employee ID:"+rs.getInt("eid"));
-				System.out.println("Employee Name:"+rs.getString("ename"));
-				System.out.println("Employee Department:"+rs.getString("edept"));
-				System.out.println("Employee Salary:"+rs.getDouble("esal"));
-			}*/
+		
 			else
 				throw new EmployeeNotFoundException("Employee Not Found with ID:"+id);
 			
-			/*catch(SQLException e)
-			{
-				e.printStackTrace();
-			}
-			finally {
-				if(con!=null)
-				try {
-				con.close();
-				}
-				catch(Exception e) {
-					e.printStackTrace();
-				}
-		}*/
+			
 		}
 	}
+	
 	public static void updateEmployee(Connection con)throws Exception{
 		
 		  System.out.println("Enter Employee Id:"); 
@@ -144,11 +128,7 @@ public class JdbcExample {
 		  System.out.println("Enter value to update");
 		  String updateval=sc.next();
 		  
-		 /* System.out.println("Enter Employee Name to update:"); String name=sc.next();
-		 * System.out.println("Enter Employee Department to update:"); String
-		 * dept=sc.next(); System.out.println("Enter Employee Salary to update:");
-		 * double sal=sc.nextDouble();
-		 */
+		
 		try (PreparedStatement ps=con.prepareStatement("update employeedetail set "+col+" =? where eid=?")){
 			//PreparedStatement ps=con.prepareStatement("update employeedetail set ename=?,edept=?,esal=? where eid=?");
 			ps.setString(1, updateval);
@@ -166,6 +146,7 @@ public class JdbcExample {
 		  }while(choice!=4);
 		
 	}
+	
 	public static void deleteEmployee(Connection con)throws SQLException, EmployeeNotFoundException
 	{
 		System.out.println("Enter Employee Id:");
@@ -181,6 +162,7 @@ public class JdbcExample {
 				throw new EmployeeNotFoundException("Employee Not Found with ID:"+n);
 		}
 	}
+	
 	public static void displayEmployee(Connection con)throws SQLException{
 		try(PreparedStatement ps=con.prepareStatement("select * from employeedetail")){
 			ResultSet rs=ps.executeQuery();
@@ -203,6 +185,7 @@ public class JdbcExample {
 				
 		}
 	}
+	
 	public static EmployeePojo initializeData(ResultSet rs)throws SQLException{
 		int eid=rs.getInt("eid");
 		String ename=rs.getString("ename");
