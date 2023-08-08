@@ -54,7 +54,7 @@ System.out.println("Enter song:");
 			System.out.println("SONG FOUND");
 			System.out.format("%-20s %-10s %-12s %-12s\n","Title","Genre","Duration","Rating");
 			System.out.format("%-20s %-10s %-12s %-12s\n",ss.gettitle(),ss.getgenre(),df.format(ss.getduration()),ss.getrating());
-			oos.writeObject(ss);
+			
 
         	}
 		}
