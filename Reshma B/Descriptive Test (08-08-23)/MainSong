@@ -1,10 +1,14 @@
 package org.example.songcreation;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.*;
 import java.text.*;
-class MainSong {
+public class MainSong 
+{
     public static void main(String args[]) throws Exception {
         Scanner sc = new Scanner(System.in);
         List<Song> sng = new ArrayList<Song>();
@@ -23,12 +27,16 @@ class MainSong {
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
-                    sng.sort((t1, t2) -> t1.getDuration().compareTo(t2.getDuration()));
-                    sng.forEach(System.out::println);
+                    Collections.sort(sng,(t1, t2) -> t1.getDuration().compareTo(t2.getDuration()));
+                    System.out.format("%-20s %-10s %-12s %-12s\n","Title","Genre","Duration","Rating"); 
+                    for(Song obj:sng)
+   		    {
+			System.out.format("%-20s %-10s %-12s %-12s  \n",obj.getTitle(),obj.getGenre(),new SimpleDateFormat("mm:ss").format(obj.getDuration()),obj.getRating());
+		    }
                     break;
 
                 case 2:
-                    sng.sort(new Comparator<Song>() {
+                    Collections.sort(sng,new Comparator<Song>() {
                         @Override
                         public int compare(Song song, Song t1) {
                             if (song.getRating() > t1.getRating())
@@ -40,40 +48,55 @@ class MainSong {
                             }
                         }
                     });
-                    sng.forEach(System.out::println);
+                    System.out.format("%-20s %-10s %-12s %-12s \n","Title","Genre","Duration","Rating"); 
+                    for(Song obj:sng)
+   		    {
+			System.out.format("%-20s %-10s %-12s %-12s  \n",obj.getTitle(),obj.getGenre(),new SimpleDateFormat("mm:ss").format(obj.getDuration()),obj.getRating()); }
                     break;
                 case 3:
                     System.out.println("Enter name to be searched:");
                     String title = sc.next();
                     int f = 0;
-                    try (FileOutputStream fis = new FileOutputStream("file.txt");
-                         ObjectOutputStream oos = new ObjectOutputStream(fis);) {
-                        for (Song s : sng) {
-                            if (s.getTitle().equals(title)) {
-                                System.out.println(s);
-                                f = 1;
 
-                                    oos.writeObject(s);
-                                    System.out.println("Done");
-                                break;
-                            }
+                    for (Song s : sng) {
+                        if (s.getTitle().equals(title)) {
+                            System.out.format("%-20s %-10s %-12s %-12s\n","Title","Genre","Duration","Rating"); 
+                    		for(Song obj:sng)
+   		    		{
+					System.out.format("%-20s %-10s %-12s %-12s  \n",obj.getTitle(),obj.getGenre(),new SimpleDateFormat("mm:ss").format(obj.getDuration()),obj.getRating()); }
+                            		f = 1;
+                            		try (FileOutputStream fis = new FileOutputStream("song.txt");
+                                 	ObjectOutputStream oos = new ObjectOutputStream(fis);)
+                            		{
+                                		oos.writeObject(s);
+                                		System.out.println("Done");
+                            		}
+                            		catch (Exception e)
+                            		{
+                                		System.out.println(e);
+                            		}
 
-                            if(f==0) {
-                                throw new TitleNotFoundException(title);
-                            }
 
+                        	}
+                    }
+                    if (f == 0)
+                    {
+                        try
+                        {
+                            throw new TitleNotFoundException(title);
+                        }
+                        catch (Exception e)
+                        {
+                            System.out.println(e);
                         }
                     }
-                    catch (Exception e)
-                    {
-                        System.out.println(e);
-                    }
+
                     break;
 
-                case 4:
-                    System.exit(0);
-                    break;
             }
         }
     }
 }
+
+
+
