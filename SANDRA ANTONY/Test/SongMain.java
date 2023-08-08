@@ -32,12 +32,14 @@ class SongMain
             	case 1:
                 
 			SongArr.sort((s1,s2) ->(s2.getDuration().compareTo(s1.getDuration())));
+			System.out.format("%-20s %-10s %-12s %-12s\n","title","genre","duration","rating");
 			SongArr.forEach(System.out::println);
 			break;
                 	
                 case 2:	
 
 			SongArr.sort((s1,s2) ->(s2.getRating().compareTo(s1.getRating())));
+			System.out.format("%-20s %-10s %-12s %-12s\n","title","genre","duration","rating");
 			SongArr.forEach(System.out::println);
 			break;
 
