@@ -17,7 +17,7 @@ int choice=sc.nextInt();
 switch (choice){
 
 case 1:
-song.sort((s1, s2) -> (s1.getduration()).compareTo(s2.getduration()));
+Collections.sort(song,((s1, s2) -> (s1.getduration()).compareTo(s2.getduration())));
 System.out.format("%-20s %-10s %-12s %-12s\n","Title","Genre","Duration","Rating");
 
 for(Song i:song)
@@ -29,7 +29,7 @@ break;
 
 
 case 2:
-song.sort((s1,s2)->(s1.getrating()<s2.getrating())?-1:(s1.getrating()>s2.getrating())?1:0);
+Collections.sort(song,((s1,s2)->(s1.getrating()<s2.getrating())?-1:(s1.getrating()>s2.getrating())?1:0));
 
 for(Song i:song)
 {
