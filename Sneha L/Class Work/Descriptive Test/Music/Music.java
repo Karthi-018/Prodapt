@@ -6,13 +6,12 @@ public class Music implements Serializable{
 	static ArrayList<MusicPojo> song=new ArrayList<>();
 	static DateFormat df=new SimpleDateFormat("mm:ss");
 	public static void main(String args[]){
-	
-
 	song.add(MusicPojo.createSong("calmDown,Vibe,04:38,5.0"));
 	song.add(MusicPojo.createSong("Toofan,Bass,08:57,4.5"));
 	song.add(MusicPojo.createSong("Lulu,Motivation,06:50,3.5"));
 	song.add(MusicPojo.createSong("CallOutMyName,Sad,04:50,4.0"));
 	song.add(MusicPojo.createSong("Pooru,Rap,05:07,4.8"));
+	
 	System.out.println("Enter your choice\n 1. Sort the song lists based on duration\n 2. Sort Song lists based on rating\n 3. Display the song");
 	int ch=sc.nextInt();
 	
@@ -27,7 +26,7 @@ public class Music implements Serializable{
 		break;
 	case 2: 
 		System.out.println("Sorted Song list based on duration");
-		song.sort((o1,o2)->((o1.getRating()>o2.getRating()?1:-1)));
+		Collections.sort(song,(o1,o2)->((o1.getRating()>o2.getRating()?1:-1)));
 		System.out.format("%-20s %-10s %-12s %-12s\n","TITLE", "GENRE", "DURATION", "RATING");
 		for(MusicPojo i:song){
 			
