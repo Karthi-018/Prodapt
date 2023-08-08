@@ -16,7 +16,7 @@ public class Music implements Serializable{
 	song.add(MusicPojo.createSong("aaaa,Vibe,06:37,4.3"));
 	song.add(MusicPojo.createSong("Surviva,Bass,07:00,2.5"));
 	song.add(MusicPojo.createSong("bbbb,Motivation,03:35,3.2"));
-	song.add(MusicPojo.createSong("withoutme,Sad,05:50,4.8"));
+	song.add(MusicPojo.createSong("withoutme,Sad,05:50,4.9"));
 	song.add(MusicPojo.createSong("ProMax,Rap,06:10,4.2"));
 	System.out.println("Enter your choice\n 1. Sort the song lists based on duration\n 2. Sort Song lists based on rating\n 3. Display the song");
 	int ch=sc.nextInt();
