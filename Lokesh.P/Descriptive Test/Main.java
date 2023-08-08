@@ -13,8 +13,10 @@ static List<Song> l = new ArrayList<>();
 	
 	
 	l.add(new Song().createSong("aaa,pop,04:58,5.0"));
-	l.add(new Song().createSong("bbb,jazz,05:44,4.0"));
-	l.add(new Song().createSong("ccc,folk,03:44,3.0"));
+	l.add(new Song().createSong("ddd,classic,05:02,4.2"));
+	l.add(new Song().createSong("bbc,folk,03:44,3.5"));
+	l.add(new Song().createSong("ccc,jazz,02:44,4.7"));
+	l.add(new Song().createSong("fff,mass,03:18,4.1"));
 	}
 
 	public static void main(String[] args) throws SongNotFoundException,Exception
