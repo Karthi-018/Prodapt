@@ -41,16 +41,13 @@ void search()
 {
 System.out.println("Enter the element to be searched: ");
 int e=s.nextInt();
-for(int i=0;i<e;i++)
+int flag=0;
+for(int i=0;i<10;i++)
 {
 if(a1[i]==e)
 {
-System.out.println("The element is found in " +(i+1) +"Position");
+System.out.println("The element is found in " +(i+1) +" Position");
 break;
-}
-else
-{
-System.out.println("Element not found");
 }
 }
 }
@@ -59,17 +56,22 @@ void delete()
 {
 System.out.println("Enter the Id to be deleted: ");
 int d=s.nextInt();
-int ar1[]=new int[9];
+int ar1[]=new int[a1.length];
 int j=0;
-for (int i=0;i<9;i++)
+for (int i=0;i<a1.length;i++)
 {
-if(a1[i]!=d)
+if(a1[i]==d)
 {
-ar1[j]=d;
+continue;
+}
+ar1[j]=a1[i];
 j++;
 }
-}
+System.out.println("The Id's after deleting");
+for(j=0;j<(a1.length-1);j++)
+{   
 System.out.println(ar1[j]+ " ");
+}
 }
 }
 
