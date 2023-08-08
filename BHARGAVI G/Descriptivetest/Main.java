@@ -2,8 +2,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.*;
 import java.io.*;
-import java.text.*;
 import java.io.Serializable;
+import java.text.*;
 class Main implements Serializable{
 public static void main(String args[])throws Exception
 {
@@ -15,15 +15,16 @@ public static void main(String args[])throws Exception
 	song.add(Song.createSong("ddd,pop,79:25,9.0"));
 
 	Scanner sc=new Scanner(System.in);
-	int s=sc.nextInt();
 	System.out.println("Enter your choice:");
-	System.out.println("\1.sort by duration,\2.sort by rating,\3.song name in the list");
+	int s=sc.nextInt();
+	
+	//System.out.println("\1.sort by duration,\2.sort by rating,\3.song name in the list");
 
 	int choice =1;
-        switch(choice){
+        switch(s){
 		case 1:
 		{
-                song.sort((t1,t2)->(t1.getduration()).compareTo(t2.getduration()));
+                Collections.sort(song,((t1,t2)->(t1.getduration()).compareTo(t2.getduration())));
 	        //song.forEach(System.out::println);//
 		for(Song sg:song)
                 {
@@ -33,7 +34,7 @@ public static void main(String args[])throws Exception
 		}
 		case 2:
 		{
-		song.sort((t1,t2)->(t1.getrating()).compareTo(t2.getrating()));
+		Collections.sort(song,((t1,t2)->(t1.getrating()<t2.getrating())?-1:(t1.getrating()>t2.getrating())?1:0));
 	        for(Song sg:song)
                 {
                 System.out.format("%-20s %-10s %-8s %-12s\n",sg.gettitle(),sg.getgenre(),new SimpleDateFormat("mm:ss").format(sg.getduration()),sg.getrating());
@@ -45,7 +46,10 @@ public static void main(String args[])throws Exception
 		{
 		System.out.println("Enter song:");
 		String songname =sc.next();
+		
 		int x=0;
+
+
 		File file=new File("demo.txt");
 		try(FileOutputStream fos = new FileOutputStream(file);
              	   ObjectOutputStream oos = new ObjectOutputStream(fos);)
@@ -54,8 +58,9 @@ public static void main(String args[])throws Exception
 		if(ss.gettitle().equals(songname))
 		{
 			x=1;
-			System.out.println(ss);
-			oos.writeObject(ss);
+			System.out.format("%-20s %-10s %-8s %-12s\n",ss.gettitle(),ss.getgenre(),new SimpleDateFormat("mm:ss").format(ss.getduration()),ss.getrating());
+			//System.out.println(ss);
+			//oos.writeObject(ss);
            	 	System.out.println("sucess");
         	}
 		} 
