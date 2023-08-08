@@ -56,7 +56,9 @@ for(Song l1:l)
 if(l1.getTitle().equals(search))
 {
 System.out.println("Search song found");
-System.out.println(l1);
+System.out.format("%-15s %-20s %-12s %-12s\n","Title","Genre","Duration","Rating");
+DateFormat df=new SimpleDateFormat("mm:ss");
+System.out.format("%-15s %-20s %-12s %-12s\n",l1.getTitle(),l1.getGenere(),df.format(l1.getDuration()),l1.getRating());
 os.writeObject(l1);
 flag=true;
 break;
