@@ -1,0 +1,7 @@
+public class TitleNotFoundException extends Exception
+{
+    public TitleNotFoundException(String s)
+    {
+        System.out.println("SONG NOT FOUND");
+    }
+}
