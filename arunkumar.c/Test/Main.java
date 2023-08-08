@@ -46,9 +46,12 @@ class Main{
 							newList1.add(s);
 						}
 					}
-
-					
-					System.out.println(newList1);
+                                        System.out.format("%-20s %-10s %-12s %-12s\n","TITLE", "GENRE", "DURATION", "RATING");
+					DateFormat df=new SimpleDateFormat("mm:ss");
+					for(int i=0;i<newList1.size();i++){
+					    
+					    System.out.format("%-20s %-10s %-12s %-12s\n",newList1.get(i).getTitle(),newList1.get(i).getGenre(),df.format(newList1.get(i).getDuration()),newList1.get(i).getRating());
+                                        }
 					break;
 
 				case 2 :	
@@ -56,10 +59,10 @@ class Main{
 					Set<Double> ratings = new LinkedHashSet<>();
 					Collections.sort(songList,(Song ss1,Song ss2)->{
 							if(ss1.getRating()<ss2.getRating()){	
-								return 1;
+								return -1;
 							}
 							else{
-								return -1;	
+								return 1;	
 							}
 						}
 					);
@@ -73,8 +76,12 @@ class Main{
 						}
 					}
 
-					
-					System.out.println(newList);
+					DateFormat df=new SimpleDateFormat("mm:ss");
+					System.out.format("%-20s %-10s %-12s %-12s\n","TITLE", "GENRE", "DURATION", "RATING");
+					for(int i=0;i<newList.size();i++){
+					   
+					    System.out.format("%-20s %-10s %-12s %-12s\n",newList.get(i).getTitle(),newList.get(i).getGenre(),df.format(newList.get(i).getDuration()),newList.get(i).getRating());
+                                        }
 					break;
 				case 3 :
 					System.out.println("Enter song name : ");
