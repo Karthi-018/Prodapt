@@ -1,6 +1,7 @@
 import java.util.*;
 import java.text.*;
-class Song
+import java.io.*;
+class Song extends Exception
 {
 private String title;
 private String genre;
