@@ -15,7 +15,12 @@ class Main{
 		songs.add(s4.createSong("SONG4,LOVE,01:34,3.0"));
 		int choice  = 0;
 		System.out.println(songs);
-		
+		System.out.println("Enter no of songs :");
+		int n = sc.nextInt();
+		while(n-->0){
+			String title = sc.next();
+			songs.add(new Song().createSong(title));
+		}
 		while(choice !=4 ){
 
 			System.out.println("1.SORT SONG BASED ON DURATION ");
