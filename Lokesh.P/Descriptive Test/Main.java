@@ -76,14 +76,14 @@ static List<Song> l = new ArrayList<>();
 	}
 
 	}
-	public static Song searchSong(List<Song> l,String name) 
+	public static Song searchSong(List<Song> l,String name) throws IOException,SongNotFoundException
 	{ 
 		File f = new File("song.txt");
                 int flag=0;
 		Song g = null;
-		try(
-	        FileOutputStream fos = new  FileOutputStream(f); ObjectOutputStream obj = new ObjectOutputStream(fos); )
-		{
+	        FileOutputStream fos = new  FileOutputStream(f);
+ 		ObjectOutputStream obj = new ObjectOutputStream(fos);
+		
 			
 		for(Song i : l)
 		{
@@ -97,13 +97,8 @@ static List<Song> l = new ArrayList<>();
 		}
                 if(flag==0)
 		{ throw new SongNotFoundException();}
-		}
-		catch(Exception e)
-		{
-			System.out.println(e);
-		}
 		return g;
-				
+					
 	}
 }
 
