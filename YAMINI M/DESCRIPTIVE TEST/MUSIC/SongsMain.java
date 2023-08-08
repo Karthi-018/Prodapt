@@ -16,10 +16,10 @@ public static void main(String args[]) throws Exception
 	SongsList.add(Song.createSong("EEE, podcasts, 04:11,4.0"));
 
         System.out.println("FEEL THE MUSIC");
-        for (Song s : SongsList) 
+        /*for (Song s : SongsList) 
 	{
             System.out.println(s);
-        }
+        }*/
 
 	Scanner sc = new Scanner(System.in);
 	System.out.println("1--> Sort the Song List based on Duration \n"); 
@@ -34,7 +34,7 @@ public static void main(String args[]) throws Exception
 	
 	case 1:
 		System.out.println("Sort the Song List based on Duration");
-		SongsList.sort((s1,s2)->(s1.getDuration().compareTo(s2.getDuration())));
+		Collections.sort(SongsList,(s1,s2)->(s1.getDuration().compareTo(s2.getDuration())));
 		System.out.format("%-15s %-20s %-12s %-12s\n","Title","Genre","Duration","Rating");
 		for(Song s: SongsList)
 		{
@@ -76,7 +76,8 @@ public static void main(String args[]) throws Exception
 		{
 			if(songname.equals(s.getTitle()))
 			{
-				System.out.println(s);
+				System.out.format("%-15s %-20s %-12s %-12s\n","Title","Genre","Duration","Rating");
+				System.out.format("%-15s %-20s %-12s %-12s\n",s.getTitle(),s.getGenre(),new SimpleDateFormat("mm:ss").format(s.getDuration()),s.getRating());									
 				oos.writeObject(s); 
                                 flag=1; 
                                 break;
