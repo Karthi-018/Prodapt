@@ -12,11 +12,11 @@ static List<Song> l = new ArrayList<>();
 	{
 	
 	
-	l.add(new Song().createSong("aaa,pop,04:58,5.0"));
-	l.add(new Song().createSong("ddd,classic,05:02,4.2"));
-	l.add(new Song().createSong("bbc,folk,03:44,3.5"));
-	l.add(new Song().createSong("ccc,jazz,02:44,4.7"));
-	l.add(new Song().createSong("fff,mass,03:18,4.1"));
+	l.add(Song.createSong("aaa,pop,04:58,5.0"));
+	l.add(Song.createSong("ddd,classic,05:02,4.2"));
+	l.add(Song.createSong("bbc,folk,03:44,3.5"));
+	l.add(Song.createSong("ccc,jazz,02:44,4.7"));
+	l.add(Song.createSong("fff,mass,03:18,4.1"));
 	}
 
 	public static void main(String[] args) throws SongNotFoundException,Exception
@@ -39,12 +39,12 @@ static List<Song> l = new ArrayList<>();
 	switch(choice)
 	{
 		case 1:
-			l.sort((obj1,obj2)->(obj1.getDuration().compareTo(obj2.getDuration())));
+			Collections.sort(l,(obj1,obj2)->(obj1.getDuration().compareTo(obj2.getDuration())));
 			System.out.format("%-20s %-10s %-12s %-12s\n","Title","Genre","Duration","Rating");
 			displaySong(l);
 			break;
 		case 2:
-			l.sort((obj1,obj2)->((obj1.getRating())>(obj2.getRating())?1:-1));
+			Collections.sort(l,(obj1,obj2)->((obj1.getRating())>(obj2.getRating())?1:-1));
 			System.out.format("%-20s %-10s %-12s %-12s\n","Title","Genre","Duration","Rating");
 			displaySong(l);
 			break;
@@ -52,8 +52,7 @@ static List<Song> l = new ArrayList<>();
 			
 			String name = sc.next();
 			Song foundSong=searchSong(l,name);
-			System.out.println("Song Found");
-			System.out.println(foundSong);
+			
 			
 			break;
 		case 4:
@@ -89,9 +88,11 @@ static List<Song> l = new ArrayList<>();
 		{
 			if(i.getTitle().equals(name))
 			{
+				System.out.println("SONG FOUND");
+				DateFormat df=new SimpleDateFormat("mm:ss");
+				System.out.format("%-20s %-10s %-12s %-12s\n",i.getTitle(),i.getGenre(),df.format(i.getDuration()),i.getRating());
 				obj.writeObject(i);
                                 flag=1;
-				
 				g =  i;
 			}
 		}
