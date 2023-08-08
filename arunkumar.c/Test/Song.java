@@ -4,10 +4,10 @@ class Song{
 	private String title;
 	private String genre;
 	private Date duration;
-	private double rating;
+	private Double rating;
 	public Song(){
 	}
-	public Song(String title,String genre,Date duration,double rating){
+	public Song(String title,String genre,Date duration,Double rating){
 		this.title = title;
 		this.genre = genre;
 		this.duration = duration;
@@ -23,7 +23,7 @@ class Song{
 	public void setDuration(Date duration){
 		this.duration = duration;
 	}
-	public void setRating(double rating){
+	public void setRating(Double rating){
 		this.rating = rating;
 	}
 
@@ -36,18 +36,18 @@ class Song{
 	public Date getDuration(){
 		return this.duration;
 	}
-	public double getRating(){
+	public Double getRating(){
 		return this.rating;
 	}
 	public String toString(){
-		return "Song +\nTitle : "+title+"\nGenre : "+genre+"\nDuration : "+duration+"\nRating : "+rating;
+		return "\nTitle : "+title+"\nGenre : "+genre+"\nDuration : "+duration.getMinutes()+":"+duration.getSeconds()+"\nRating : "+rating;
 	}
 
 	Song createSong(String line) throws ParseException{
 		String[] s = line.split(",");
 		this.title = s[0];
 		this.genre = s[1];
-		DateFormat df = new SimpleDateFormat("MM:SS");
+		DateFormat df = new SimpleDateFormat("mm:ss");
 		this.duration = df.parse(s[2]);
 		this.rating = Double.parseDouble(s[3]);
 		return this;
