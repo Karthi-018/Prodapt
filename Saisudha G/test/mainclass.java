@@ -25,7 +25,7 @@ class mainclass {
 		{
 		
 			case 1:
-				data.sort((s1,s2)-> ((s1.getduration().compareTo(s2.getduration()))));
+				Collections.sort(data,(s1,s2)-> ((s1.getduration().compareTo(s2.getduration()))));
 				System.out.format("%-20s %-10s %-12s %-12s\n","title","genre","duration","rating");
 				for(Song i:data){
 					DateFormat df= new SimpleDateFormat("mm:ss");
@@ -33,7 +33,7 @@ class mainclass {
 				}
 				break;
 			case 2:
-				data.sort((s1,s2)-> ((s1.getrating()>s2.getrating())?1:(s1.getrating()<s2.getrating())?-1:0));
+				Collections.sort(data,(s1,s2)-> ((s1.getrating()>s2.getrating())?1:(s1.getrating()<s2.getrating())?-1:0));
 				System.out.format("%-20s %-10s %-12s %-12s\n","title","genre","duration","rating");
 				for(Song i:data){
 					DateFormat df= new SimpleDateFormat("mm:ss");
