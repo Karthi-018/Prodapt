@@ -42,7 +42,7 @@ public class Main
 			switch(choice)
 			{
 				case 1:
-					L.sort((s1, s2) -> (s1.getDuration().compareTo(s2.getDuration())));
+					Collections.sort(L,(s1, s2) -> (s1.getDuration().compareTo(s2.getDuration())));
 					for(Song l1:L)
 					{
 						DateFormat df = new SimpleDateFormat("mm:ss");
@@ -50,7 +50,7 @@ public class Main
 					}
 					break;
 				case 2:
-					L.sort((s1, s2) -> (s1.getRating()<s2.getRating())?-1:(s1.getRating()>s2.getRating())?1:0);
+					Collections.sort(L,(s1, s2) -> (s1.getRating()<s2.getRating())?-1:(s1.getRating()>s2.getRating())?1:0);
 					for(Song l1:L)
 					{
 						DateFormat df = new SimpleDateFormat("mm:ss");
