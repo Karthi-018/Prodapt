@@ -1,0 +1,8 @@
+package org.example.HotelManagementSystem;
+
+public class HotelNameNotFound extends Throwable {
+    public HotelNameNotFound()
+    {
+        System.out.println("The Hotel Name is Not Found");
+    }
+}
