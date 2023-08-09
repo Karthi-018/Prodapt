@@ -86,7 +86,7 @@ public class Employee {
 		String newname=sc.next();
 		System.out.println("Enter Employee new Salary:");
 		double newSal=sc.nextDouble();
-		PreparedStatement ps=con.prepareStatement("UPDATE Employee SET name=?,sal=?, Where Eid=?");
+		PreparedStatement ps=con.prepareStatement("UPDATE Employee SET name=?,Sal=? Where Eid=?");
 		ps.setString(1,newname);
 		ps.setDouble(2, newSal);
 		ps.setInt(3, id);
