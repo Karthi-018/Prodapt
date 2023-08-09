@@ -1,1 +1,142 @@
+package edu.prodapt.emp;
+
+import java.sql.*;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+
+public class Employee {
+	// TODO Auto-generated method stub
+			int Eid;
+			String name;
+			double Sal;
+	public static void main(String[] args) throws ClassNotFoundException {
+		
+		
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		System.out.println("Loaded success");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/prodapt","root","root");
+		con.createStatement();
+		
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Employee Database Management");
+		System.out.println("Options:");
+		System.out.println("1.Add Employee");
+		System.out.println("2.Update Employee Details");
+		
+		System.out.println("3.Search Employee");
+		System.out.println("4.Display all Employee Details");
+		System.out.println("5.Delete Employee details");
+		System.out.println("Enter your choice:");
+		int choice=sc.nextInt();
+		
+		switch (choice) {
+		case 1:
+			addemp (con,sc);
+			break;
+		case 2:
+			updateemp_details(con,sc);
+			
+			break;
+		
+		case 3:
+			search_emp(con,sc);
+			
+			break;
+		case 4:
+			display(con);
+			
+			break;
+		case 5:
+			del_emp(con,sc);
+			
+			break;
+		default:
+			System.out.println("Invalid choice");
+			System.out.println("Try Again");
+			break;
+		}}
+		catch(SQLException e) {
+			System.out.println(e);
+		}}
+	private static void addemp (Connection con,Scanner sc) throws SQLException{
+		System.out.println("Enter Eid:");
+		int Eid=sc.nextInt();
+		System.out.println("Enter name:");
+		String name=sc.next();
+		System.out.println("Enter sal:");
+		double sal=sc.nextDouble();
+		PreparedStatement ps=con.prepareStatement("insert into Employee values(?,?,?)");
+		ps.setInt(1, Eid);
+		ps.setString(2,name);
+		ps.setDouble(3,sal);
+		ps.executeUpdate();
+		System.out.println("successfully added to database");
+		
+	}
+	private static void updateemp_details(Connection con,Scanner sc) throws SQLException {
+		System.out.println("Enter Employee ID to update Name:");
+		int Eid =sc.nextInt();
+		System.out.println("Enter Employee new Name:");
+		String newname=sc.next();
+		System.out.println("Enter Employee new Salary:");
+		double newSal=sc.nextDouble();
+		PreparedStatement ps=con.prepareStatement("UPDATE Employee SET name=?,sal=?, Where Eid=?");
+		ps.setString(1,newname);
+		ps.setDouble(2, newSal);
+		ps.setInt(3, id);
+		int temp=ps.executeUpdate();
+	
+	}
+	private static void del_emp(Connection con,Scanner sc) throws SQLException {
+		System.out.println("enter eid:");
+		int Eid=sc.nextInt();
+		PreparedStatement ps=con.prepareStatement("DELETE FROM Employee Where Eid=?");
+		ps.setInt(1, Eid);
+		int temp=ps.executeUpdate();
+
+
+	}
+	private static void search_emp(Connection con,Scanner sc) throws SQLException {
+		System.out.println("enter eid:");
+		int Eid=sc.nextInt();
+		PreparedStatement ps=con.prepareStatement("SELECT*FROM Employee Where Eid=?");
+		ps.setInt(1, Eid);
+		ResultSet rs =ps.executeQuery();
+		if(rs.next()) {
+			int eid=rs.getInt("Eid");
+			String name=rs.getString("name");
+			double Sal=rs.getDouble("Salary");
+			System.out.println("Employee details:");
+			System.out.println("ID: "+Eid+",Name: "+name+",salary: "+Sal);
+			
+		}else {
+			System.out.println("Employee not found");
+		}
+	}
+	private static void display (Connection con) throws SQLException {
+		con.createStatement();
+		PreparedStatement ps=con.prepareStatement("SELECT*FROM Employee");
+		ResultSet rs =ps.executeQuery();
+		while(rs.next()) {
+			int Eid=rs.getInt("Eid");
+			String name=rs.getString("name");
+			double Sal=rs.getDouble("Salary");
+			System.out.println("Employee details:");
+			System.out.println("ID: "+Eid+",Name: "+name+",salary: "+Sal);
+		
+	}}
+	
+		
+			
+		
+	
+		
+
+}
 
