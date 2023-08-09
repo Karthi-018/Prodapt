@@ -41,7 +41,9 @@ public class Main {
 		if(e!=null) {
 			EmployeeDAO.deleteById(id);
 		}
-		System.out.println("No employee with id "+id);
+		else {
+			throw new EmployeeNotFoundException("No employee with id "+id);
+		}
 	}
 
 
@@ -67,7 +69,7 @@ public class Main {
 			
 		}
 		else {
-			System.out.println("No employee found");
+			throw new EmployeeNotFoundException("No employee with id "+id);
 		}
 		
 	}
@@ -80,8 +82,15 @@ public class Main {
 		switch(choice) {
 			case 1: 
 				System.out.println("Enter employee ID : ");
-				Employee e = EmployeeDAO.findById(sc.nextInt());
-				System.out.println(e);
+				int id = sc.nextInt();
+				Employee e = EmployeeDAO.findById(id);
+				if(e!=null) {
+					System.out.println(e);
+				}
+				else {
+					throw new EmployeeNotFoundException("No employee with id "+id);
+				}
+				
 				break;
 			case 2 :
 				List<Employee> employeeList = EmployeeDAO.findAll();
