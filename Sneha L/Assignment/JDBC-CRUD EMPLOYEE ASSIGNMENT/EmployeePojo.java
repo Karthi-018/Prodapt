@@ -36,6 +36,8 @@ public class EmployeePojo {
 	public void setEsal(double esal) {
 		this.esal = esal;
 	}
-	
+	public String toString() {
+		return String.format("%-10d| %-12s| %-12s| %-10s",eid,ename,edept,esal);
+	}
 
 }
