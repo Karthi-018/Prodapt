@@ -1,10 +1,6 @@
 import com.sun.corba.se.impl.orbutil.ObjectWriter;
 
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.sql.SQLOutput;
+import java.io.*;
 import java.text.*;
 import java.util.*;
 public class Songs
