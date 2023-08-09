@@ -1,0 +1,74 @@
+package org.example.HotelManagementSystem;
+
+public class Hotel {
+    int Hid;
+    String Hname;
+    String Hdes;
+    String Hfac;
+    double Hrat;
+
+    public Hotel(int Hid, String Hname, String Hdes, String Hfac, double Hrat) {
+        this.Hid = Hid;
+        this.Hname = Hname;
+        this.Hdes = Hdes;
+        this.Hfac = Hfac;
+        this.Hrat = Hrat;
+    }
+
+    public int getHid() {
+        return Hid;
+    }
+
+    public void setHid(int Hid) {
+        this.Hid = Hid;
+    }
+
+    public String getHname()
+    {
+        return Hname;
+    }
+
+    public void setHname(String Hname)
+    {
+        this.Hname = Hname;
+    }
+
+    public String getHdes()
+    {
+        return Hdes;
+    }
+
+    public void setHdes(String Hdes)
+    {
+        this.Hdes = Hdes;
+    }
+
+    public String getHfac()
+    {
+        return Hfac;
+    }
+
+    public void setHfac(String Hfac)
+    {
+        this.Hfac = Hfac;
+    }
+
+    public double getHrat()
+    {
+        return Hrat;
+    }
+
+    public void setHrat(double Hrat)
+    {
+        this.Hrat = Hrat;
+    }
+
+    @Override
+    public String toString() {
+        return Hid +
+                "   " + Hname +
+                "     " + Hdes +
+                "     " + Hfac +
+                "     " + Hrat;
+    }
+}
