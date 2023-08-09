@@ -1,15 +1,6 @@
-class SongNotFoundException extends Exception
-{
-    private String songName; 
 
-    public SongNotFoundException(String songName) 
-    {
-        this.songName = songName; 
-    }
-
-    @Override
-    public String toString()
-    {
-        return songName + " not found in the List"; 
+public class SongNotFoundException extends Exception {
+    public SongNotFoundException(String songName) {
+        System.out.println("Song not found: " + songName);
     }
 }
