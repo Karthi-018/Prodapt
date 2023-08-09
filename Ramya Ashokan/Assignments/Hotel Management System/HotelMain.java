@@ -47,27 +47,17 @@ public class HotelMain {
                    boolean b = false;
                    System.out.println("Enter the hotel name to search");
                    String search = sc.next();
-                   //sc.nextLine();
-                   System.out.println(search);
 
-                   try {
-
-                       for (Hotel l : list) {
+                   for (Hotel l : list) {
                            if (l.getHName().equals(search)) {
                                System.out.print(l);
                                b = true;
                                break;
-                           }
+                           }}
+                           if (b == false) {
+                           throw new HotelNotFoundException(search+" not in the list");
                        }
-                       if (b == false) {
-                           throw new HotelNotFoundException(search);
-                       }
-                   } catch (HotelNotFoundException e) {
-                       System.out.println(e.getMessage());
-                       e.printStackTrace();
-
-                   }
-                   break;
+                           break;
                case 4:
                    System.exit(0);
            }
