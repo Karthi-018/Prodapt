@@ -4,14 +4,14 @@ public class Employee {
 	private int eid;
 	private String ename;
 	private long salary;
-	private String dep;
+	private String desg;
 	Employee(){}
-	Employee(int eid,String ename,long salary,String dep)
+	Employee(int eid,String ename,long salary,String desg)
 	{
 	this.eid=eid;
 	this.ename=ename;
 	this.salary=salary;
-	this.dep=dep;
+	this.desg=desg;
 	}
 
 	public void setEid(int eid)
@@ -40,12 +40,12 @@ public class Employee {
 	{
 	return salary;
 	}
-	public void setDep(String dep)
+	public void setDesg(String desg)
 	{
-	this.dep=dep;
+	this.desg=desg;
 	}
-	public String getDep()
+	public String getDesg()
 	{
-	return dep;
+	return desg;
 	}
 }

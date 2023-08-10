@@ -3,6 +3,7 @@ import java.util.*;
 import java.sql.*;
 public class EmployeeDb {
 static Scanner sc=new Scanner(System.in);
+static Employee emp=new Employee();
 public static void main(String args[])
 {
 	try
@@ -45,21 +46,25 @@ public static void create(Connection con)throws Exception
 {
 	System.out.println("Enter the Employee id:");
 	int eid=sc.nextInt();
+	emp.setEid(eid);
 	sc.nextLine();
 	System.out.println("Enter the Name:");
 	String ename=sc.nextLine();
+	emp.setEname(ename);
 	System.out.println("Enter the salary");
 	long salary=sc.nextLong();
+	emp.setSalary(salary);
 	sc.nextLine();
 	System.out.println("Enter the Designation:");
 	String desg=sc.nextLine();
+	emp.setDesg(desg);
 	try
 	{
 		PreparedStatement ps=con.prepareStatement("insert into employee1 values(?,?,?,?);");
-		ps.setInt(1,eid);
-		ps.setString(2,ename);
-		ps.setLong(3,salary);
-		ps.setString(4,desg);
+		ps.setInt(1,emp.getEid());
+		ps.setString(2,emp.getEname());
+		ps.setLong(3,emp.getSalary());
+		ps.setString(4,emp.getDesg());
 		int temp=ps.executeUpdate();
 		System.out.println("Employee created successfully");
 	}
@@ -151,10 +156,10 @@ switch(choice1)
 case 1:
 	System.out.println("Enter name:");
 	String upname=sc.nextLine();
-	
+	emp.setEname(upname);
 
 		PreparedStatement ps=con.prepareStatement("update employee1 set ename=? where eid=?");
-		ps.setString(1,upname);
+		ps.setString(1,emp.getEname());
 		ps.setInt(2,uid);
 		int updation1=ps.executeUpdate();
 		if(updation1==1)
@@ -171,9 +176,9 @@ case 1:
 case 2:
 	System.out.println("Enter salary:");
 	long upsalary=sc.nextLong();
-	
+	emp.setSalary(upsalary);
 		PreparedStatement ps1=con.prepareStatement("update employee1 set salary=? where eid=?");
-		ps1.setLong(1,upsalary);
+		ps1.setLong(1,emp.getSalary());
 		ps1.setInt(2,uid);
 		int updation2=ps1.executeUpdate();
 		if(updation2==1)
@@ -190,9 +195,9 @@ case 2:
 case 3:
 	System.out.println("Enter Designation:");
 	String updesg=sc.nextLine();
-	
+	emp.setDesg(updesg);
 		PreparedStatement ps2=con.prepareStatement("update employee1 set desg=? where eid=?");
-		ps2.setString(1,updesg);
+		ps2.setString(1,emp.getDesg());
 		ps2.setInt(2,uid);
 		int updation3=ps2.executeUpdate();
 		if(updation3==1)
@@ -221,10 +226,11 @@ public static void delete(Connection con)throws Exception
 {
 	System.out.println("Enter the Employee id to delete");
 	int did=sc.nextInt();
+	emp.setEid(did);
 	try
 	{
 		PreparedStatement ps=con.prepareStatement("delete from employee1 where eid=?");
-		ps.setInt(1,did);
+		ps.setInt(1,emp.getEid());
 		int del=ps.executeUpdate();
 		if(del==1)
 		{
