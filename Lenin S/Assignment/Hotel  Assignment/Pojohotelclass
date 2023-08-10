@@ -1,0 +1,75 @@
+//pojo class
+
+import java.util.*;
+
+class pojoHotelclass
+{
+int Hotelrating;
+String HotelName;
+int HotelId;
+String HotelFac;
+String HotelDes;
+
+pojoHotel()
+{
+}
+pojoHotel(int HotelId,String HotelName,String HotelFac,String HotelDes,int Hotelrating)
+{
+this.Hotelrating=Hotelrating;
+this.HotelName=HotelName;
+this.HotelId=HotelId;
+this.HotelFac=HotelFac;
+this.HotelDes=HotelDes;
+}
+void setid(int HotelId)
+{
+this.HotelId=HotelId;
+}
+int getid()
+{
+return HotelId;
+}
+void setrating(int Hotelrating)
+{
+this.Hotelrating=Hotelrating;
+}
+int getrating()
+{
+return Hotelrating;
+}
+void setname(String HotelName)
+{
+ 	this.HotelName=HotelName;
+}
+String getname()
+{
+	return HotelName;
+}
+void setfacility(String HotelFac)
+{
+	this.HotelFac=HotelFac;
+}
+String getfacility()
+{	
+	return HotelFac;
+}
+void setdescription(String Des)
+{
+	this.HotelDes=HotelDes;
+}
+String getdescription()
+{
+	return HotelDes;
+}
+public static pojoHotel createdata(String line)
+{
+  String[] details=new String[4];
+  details=line.split(",");
+  int HotelId=Integer.parseInt(details[0]);
+  String HotelName=details[1];
+  String HotelFac=details[2];
+  String HotelDes=details[3];
+  int Hotelrating=Integer.parseInt(details[4]);
+  return new pojoHotel(HotelId,HotelName,HotelFac,HotelDes,Hotelrating);
+}
+}
