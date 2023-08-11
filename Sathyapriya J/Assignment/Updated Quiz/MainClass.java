@@ -1,17 +1,17 @@
-package test;
+package org.example;
 
 import java.util.*;
 class MainClass {
-	
-	public static int evaluvate(Question qArray[]) {
-		int score = 0;
-		for(Question Q : qArray) {
-			score+=Q.getScore();
-		}
-		return score;
-		
-	}
-	
+
+    public static int evaluate(Question qArray[]) {
+        int score = 0;
+        for(Question Q : qArray) {
+            score+=Q.getScore();
+        }
+        return score;
+
+    }
+
     public static void main(String a[]) {
         Question q[] = new Question[10];
         q[0] = new Question(1, " Which of the following option leads to the portability and security of Java?", new String[]{"1.Bytecode is executed by JVM", "2.The applet makes the Java code secure and portable", "3.Use of exception handling", "4.Dynamic binding between objects\n"}, 1);
@@ -47,59 +47,72 @@ class MainClass {
 
         System.out.println("------------------Welcome-----------------------");
         Scanner sc = new Scanner(System.in);
-        int i=0;
-        while(i < q.length) {
+        int i = 0;
+        int[] userAnswers = new int[q.length]; // to store user's answers
+
+        while (i < q.length) {
             System.out.println("Q" + q[i].getQno() + ")" + q[i].getQ());
-            System.out.println((q[i].getOptions())[0]);
-            System.out.println(q[i].getOptions()[1]);
-            System.out.println(q[i].getOptions()[2]);
-            System.out.println(q[i].getOptions()[3]);
-            if(i==0) {
-            	System.out.println("6 for next question");
-            }else if(i==q.length-1){
-            	System.out.println("\n5 for prev question");
-            }else {
-            	System.out.println("5 for prev question\t6 for next question");
+            for (String option : q[i].getOptions()) {
+                System.out.println(option);
             }
-            System.out.println();
-            
+
             int ans;
-            Boolean condition = false;
-            
+            boolean condition = false;
+
             do {
-            	 System.out.println("Enter your choice : ");
-                 ans = sc.nextInt();
-                 condition = (ans<1 || ans>6);
-                 
-                 if(condition) {
-                	 System.out.println("Invalid option, Try again!");
-                 }else {
-                	 if(ans==5) {
-                		 if(i!=0) {
-                			i--; 
-                		 }else {
-                			 System.out.println("Invalid option, Try again!");
-                			 condition = true;
-                		 }
-                	 }else if(ans==6) {
-                		 if(i!=q.length-1) {
-                 			i++; 
-                 		 }else {
-                 			 System.out.println("Invalid option, Try again!");
-                 			 condition = true;
-                 		 }
-                	 }else if(q[i].answerCheck(ans)) {
-                		 q[i].setScore(1);
-                		 i++;
-                	 }else {
-                		 q[i].setScore(0);
-                		 i++;
-                	 }
-                 }
-                 
-            }while(condition);
+                System.out.println("Enter your choice : ");
+                ans = sc.nextInt();
+                condition = (ans < 1 || ans > q[i].getOptions().length);
+
+                if (condition) {
+                    System.out.println("Invalid option, Try again!");
+                } else {
+                    userAnswers[i] = ans; // store user's answer
+
+                    int opt;
+
+                    if (i == 0 && i == q.length - 1) {
+                        System.out.println("Invalid option, Try again!");
+                        condition = true;
+                    } else if (i == 0) {
+                        System.out.println("6 for next question");
+                        opt = sc.nextInt();
+                        if (opt == 6) {
+                            i++;
+                        } else {
+                            System.out.println("Invalid option, Try again!");
+                            condition = true;
+                        }
+                    } else if (i == q.length - 1) {
+                        System.out.println("5 for prev question");
+                        opt = sc.nextInt();
+                        if (opt == 5) {
+                            i--;
+                        } else {
+                            System.out.println("Invalid option, Try again!");
+                            condition = true;
+                        }
+                    } else {
+                        System.out.println("5 for prev question\t6 for next question");
+                        opt = sc.nextInt();
+                        if (opt == 5) {
+                            i--;
+                        } else if (opt == 6) {
+                            i++;
+                        } else {
+                            System.out.println("Invalid option, Try again!");
+                            condition = true;
+                        }
+                    }
+                }
+            } while (condition);
         }
-            
-            System.out.println("Your Score is: " + evaluvate(q) + "/" + q.length);
+
+        for (i = 0; i < q.length; i++) {
+            q[i].answerCheck(userAnswers[i]); // check and set scores
+        }
+
+        System.out.println("Your Score is: " + evaluate(q) + "/" + q.length);
     }
 }
+    
