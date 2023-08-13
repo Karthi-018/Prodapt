@@ -39,12 +39,10 @@ public class Main {
 				System.out.println("Enter item type to add:");
 				String addtype=sc.next();
 				Item obj1=new Item(addname,addprice,addtype);
-				
 				itemArr.add(obj1);
+				}
 				itdao.bulkCopy(itemArr);
 				items.addAll(itemArr);
-				itemArr.clear();
-				}
 				break;
 			 case 3: 
 				 System.out.println("Enter item to search based on type"); 
