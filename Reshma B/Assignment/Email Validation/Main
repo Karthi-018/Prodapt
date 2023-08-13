@@ -1,0 +1,32 @@
+package org.example.collections;
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Main {
+
+    public static void main(String [] args)
+    {
+        System.out.println("ENTER YOUR EMAIL ID:");
+        Scanner sc=new Scanner(System.in);
+        String mail=sc.next();
+        validateEmail(mail);
+        if(validateEmail(mail))
+        {
+            System.out.println("EMAIL IS VALID");
+        }
+        else
+        {
+            System.out.println("EMAIL IS NOT VALID");
+        }
+    }
+
+    public static boolean validateEmail(String email)
+    {
+        String regex="[a-z]?[a-z 0-9_\\.]+[@][a-z]+[\\.][a-z]{2,6}";
+        Pattern epat=Pattern.compile(regex);
+        Matcher ematch=epat.matcher(email);
+        return ematch.find();
+    }
+}
