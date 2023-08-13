@@ -11,7 +11,6 @@ public class Main {
         System.out.println("ENTER YOUR EMAIL ID:");
         Scanner sc=new Scanner(System.in);
         String mail=sc.next();
-        validateEmail(mail);
         if(validateEmail(mail))
         {
             System.out.println("EMAIL IS VALID");
@@ -24,9 +23,9 @@ public class Main {
 
     public static boolean validateEmail(String email)
     {
-        String regex="[a-z]?[a-z 0-9_\\.]+[@][a-z]+[\\.][a-z]{2,6}";
+        String regex="[a-z][a-zA-Z0-9_\\.]+[@][a-z]+[\\.][a-z]{2,6}";
         Pattern epat=Pattern.compile(regex);
         Matcher ematch=epat.matcher(email);
-        return ematch.find();
+        return ematch.matches();
     }
 }
