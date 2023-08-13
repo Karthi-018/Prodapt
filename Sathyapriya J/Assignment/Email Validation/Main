@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter email address :\n");
+        String e = sc.nextLine();
+
+        if(validateEmail(e))
+        {
+            System.out.println("Email ID is valid.");
+        }
+        else
+        {
+            System.out.println("Email ID is invalid.");
+        }
+
+    }
+
+    static boolean validateEmail(String e)
+    {
+        String mail = "^[a-zA-Z0-10_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@"+
+                "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        return e.matches(mail);
+    }
+}
