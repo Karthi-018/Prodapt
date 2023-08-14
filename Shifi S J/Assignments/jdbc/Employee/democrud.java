@@ -8,7 +8,7 @@ public class democrud {
     public static void main(String[] args) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/crudemo", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/shifi", "root", "root");
             while (true) {
                 System.out.println("Select Option");
                 System.out.println("1.Create Employee");
@@ -52,7 +52,7 @@ public class democrud {
         System.out.println("Enter Employee Salary:");
         double sal = sc.nextDouble();
         try {
-            PreparedStatement ps = con.prepareStatement("insert into employeedetail values(?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("insert into crudemo values(?,?,?,?)");
             ps.setInt(1, id);
             ps.setString(2, name);
             ps.setString(3, dept);
