@@ -7,12 +7,12 @@ import java.util.*;
 public class ItemDAO 
 {
 	Scanner s = new Scanner(System.in);
-	Class.forName("com.mysql.cj.jdbc.Driver");
-	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/prodapt","root","root");
 	public void addItem(Item iobj)
 	{
 		try 
 		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/prodapt","root","root");
 			PreparedStatement ps = con.prepareStatement("insert into food values (?,?,?)");
 		
 //			System.out.println("Enter the food name");
@@ -60,6 +60,8 @@ public class ItemDAO
 	{
 		try 
 		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/prodapt","root","root");
 			PreparedStatement ps = con.prepareStatement("select * from food where type = ?");
 			ps.setString(1,type);
 			ResultSet rs = ps.executeQuery();
@@ -91,6 +93,8 @@ public class ItemDAO
 	{
 		try
 		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/prodapt","root","root");
 			PreparedStatement ps = con.prepareStatement("select * from food where price = ?");
 			ps.setInt(1,price.intValue());
 			ResultSet rs = ps.executeQuery();
