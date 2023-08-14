@@ -93,7 +93,7 @@ public class ItemDAO
 	{
 		try
 		{
-			Class.forName("com.mysql.java.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/prodapt","root","root");
 			PreparedStatement ps = con.prepareStatement("select * from food value where price = ?");
 			ps.setInt(1,price.intValue());
