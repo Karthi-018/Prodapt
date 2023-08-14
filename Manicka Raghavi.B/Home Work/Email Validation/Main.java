@@ -54,8 +54,6 @@ public class Main
     {
         //creating an EmailPojo object
         EmailPojo object=new EmailPojo();
-
-        //Getting the email id from the user
         System.out.println("ENTER YOUR EMAIL ID");
         object.setEmail(sc.next());
 
