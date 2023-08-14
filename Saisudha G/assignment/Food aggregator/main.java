@@ -32,7 +32,7 @@ public class main {
                 String searchbytype=sc.next();
 
                 itemList = o2.findItem(searchbytype);
-                System.out.format("%-20s %-5s %s\n","Name","Price","Type");
+                //System.out.format("%-20s %-5s %s\n","Name","Price","Type");
                 for(Item i:itemList) {
                     System.out.format("%-20s %-5s %s\n",i.getName() +","+i.getPrice()+","+i.getType());
                 }
@@ -44,7 +44,7 @@ public class main {
                 System.out.println("Enter price");
                 double searchbyprice= sc.nextDouble();
                 itemList=o3.findItem(searchbyprice);
-                System.out.format("%-20s %-5s %s\n","Name","Price","Type");
+               //System.out.format("%-20s %-5s %s\n","Name","Price","Type");
                 for(Item i:itemList) {
                     System.out.format("%-20s %-5s %s\n",i.getName() +","+i.getPrice()+","+i.getType());
                 }
