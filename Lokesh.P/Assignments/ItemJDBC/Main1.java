@@ -24,15 +24,17 @@ public class Main1 {
     static ItemDAO i = new ItemDAO();
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        System.out.println("Enter the choice");
 
-        System.out.println("1.createRecor \n 2.findbytype \n 3.findbyprice");
-        int choice = sc.nextInt();
+        int choice;
+        do {
+            System.out.println("Enter the choice");
+            System.out.println("1.BULK COPY \n 2.findbytype \n 3.findbyprice \n4.Exit");
+            choice = sc.nextInt();
             switch (choice) {
                 case 1:
                     System.out.println("Enter How many Numbers to add in List");
-                    int num= sc.nextInt();
-                    for(int i=0;i<num;i++) {
+                    int num = sc.nextInt();
+                    for (int i = 0; i < num; i++) {
                         createRecord();
                     }
                     System.out.println("Adding each item in list...");
@@ -48,15 +50,16 @@ public class Main1 {
                     Double price = sc.nextDouble();
                     i.findItem(price);
                     break;
+                case 4:
+                    System.exit(0);
                 default:
                     System.out.println("Invalid Choice");
             }
+        }
+        while(choice!=4);
 
     }
 }
-
-
-
 
 
 
