@@ -1,1 +1,5 @@
-
+create schema prodapt;
+use prodapt;
+show tables;
+select*from item;
+insert into item values("biriyani",250,"veg");
