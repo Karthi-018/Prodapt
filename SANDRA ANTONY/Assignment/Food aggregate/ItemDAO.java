@@ -62,7 +62,7 @@ public class ItemDAO
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/prodapt","root","root");
-			PreparedStatement ps = con.prepareStatement("select * from food value where type = ?");
+			PreparedStatement ps = con.prepareStatement("select * from food where type = ?");
 			ps.setString(1,type);
 			ResultSet rs = ps.executeQuery();
 			List<Item> itemList = new ArrayList<>();
@@ -95,7 +95,7 @@ public class ItemDAO
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/prodapt","root","root");
-			PreparedStatement ps = con.prepareStatement("select * from food value where price = ?");
+			PreparedStatement ps = con.prepareStatement("select * from food where price = ?");
 			ps.setInt(1,price.intValue());
 			ResultSet rs = ps.executeQuery();
 			List<Item> itemList = new ArrayList<>();
