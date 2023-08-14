@@ -4,6 +4,8 @@ import java.util.*;
 public class Main
 {
     static Scanner sc=new Scanner(System.in);
+    
+    //Validation Method
     static boolean validateEmail(String email)
     {
        //Splitting the email into a emailArray with username in 0th index and domain address in 1st Index
@@ -50,6 +52,8 @@ public class Main
        //Returns true if email validations have been passed
        return true;
    }
+
+   //Main Method 
    public static void main(String[] args)
    {
         //Creating an EmailPojo object
