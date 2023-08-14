@@ -1,18 +1,21 @@
 import java.util.*;
 import java.lang.*;
 
-import static java.lang.Character.isLowerCase;
+public class EmailMain 
+{
 
-public class EmailMain {
-
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         Scanner sc = new Scanner(System.in);
         System.out.println("Hello!! Enter your Mail ID:");
         String e_mail = sc.nextLine();
         Email email = new Email(e_mail);
-        if (validateEmail(email.getMail())) {
+        if (validateEmail(email.getMail())) 
+        {
             System.out.println("Email is valid");
-        } else {
+        } 
+        else 
+        {
             System.out.println("Email is invalid");
         }
     }
