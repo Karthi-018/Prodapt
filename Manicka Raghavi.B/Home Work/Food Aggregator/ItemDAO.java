@@ -113,7 +113,7 @@ public class ItemDAO
 						   System.out.format("%-20s %5s %s\n",item.getName(),item.getPrice(),item.getType());
 				           }
 			           }
-			        break;
+			           break;
 			  
 		     case 4:
 				   System.out.println("OPTIONS 4- FINDING THE ITEMS BASED ON PRICE\n"); 
@@ -137,6 +137,6 @@ public class ItemDAO
 		}
 		System.out.println("WISH TO CONTINUE ->1 EXIT->0");
 		flag=sc.nextInt();
-	 }
+        }
     }
 }
