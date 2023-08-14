@@ -25,9 +25,11 @@ public class Main {
     }
 
 
-    static boolean validateEmail(String email) {
+    static boolean validateEmail(String email) 
+    {
 
-        if (email.matches("^[a-z]([a-z0-9_.])+@[a-z]+.[a-z]{2,6}$")) {
+        if (email.matches("^[a-z]([a-z0-9_.])+@[a-z]+.[a-z]{2,6}$"))   //checks condition as per requirements
+        {
 
             return true;
 
