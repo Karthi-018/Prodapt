@@ -25,7 +25,7 @@ class ServiceCrud
 			
 		}
 		
-		return null;
+		return crud;
 		
 	}
 	
@@ -48,11 +48,9 @@ class ServiceCrud
 			int temp = ps.executeUpdate();
 			
 			if(temp == 1) 
-			{
-				
+			{	
 				System.out.println(cj);
 				System.out.println("New details created!");
-				
 			}
 			
 			else
@@ -79,7 +77,8 @@ class ServiceCrud
 		cj.setEid(s.nextInt());
 		crudJDBC crud = findId(cj.getEid(),con);
 		
-		if(crud == null) {
+		if(crud == null) 
+		{
 			
 			System.out.println(cj.getEid()+" not found!");
 			
@@ -100,7 +99,7 @@ class ServiceCrud
 				
 				System.out.println("Enter the new name");
 				cj.setEname(s.next());
-				ps = con.prepareStatement("update employee set eName=? where eId=?");
+				ps = con.prepareStatement("update employee set ename=? where eid=?");
 				ps.setString(1,cj.getEname());
 				ps.setInt(2, cj.getEid());
 				int uName = ps.executeUpdate();
@@ -127,7 +126,7 @@ class ServiceCrud
 				
 				System.out.println("Enter the new salary");
 				cj.setSal(s.next());
-				ps = con.prepareStatement("update employee set salary=? where eId=?");
+				ps = con.prepareStatement("update employee set sal=? where eid=?");
 				ps.setString(1, cj.getSal());
 				ps.setInt(2, cj.getEid());
 				int uSal = ps.executeUpdate();
@@ -170,7 +169,7 @@ class ServiceCrud
 		else 
 		{
 			int temp=0;
-			ps = con.prepareStatement("delete from employee where eId=?");
+			ps = con.prepareStatement("delete from employee where eid=?");
 			ps.setInt(1, cj.getEid());
 			temp = ps.executeUpdate();
 			
