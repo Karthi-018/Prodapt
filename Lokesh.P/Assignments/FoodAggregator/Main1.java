@@ -8,19 +8,6 @@ import java.util.Scanner;
 public class Main1 {
     static Scanner sc = new Scanner(System.in);
     static List<Item> itemList = new ArrayList<>();
-
-    public static void createRecord() throws SQLException, ClassNotFoundException {
-
-        System.out.println("Enter Item Name:");
-        String name = sc.next();
-        System.out.println("Enter Item Price:");
-        Double price = sc.nextDouble();
-        System.out.println("Enter Item Type:");
-        String type = sc.next();
-        itemList.add(new Item(name, price, type));
-
-    }
-
     static ItemDAO i = new ItemDAO();
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
