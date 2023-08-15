@@ -23,8 +23,8 @@ public class Main{
 
     public static boolean validateEmail(String email)
     {
-        String exp = "[a-z][a-zA-Z0-9._]+[@][a-z]+[.][a-z]{2,6}";
-        Pattern pa = Pattern.compile(exp);
+        String check = "[a-z][a-zA-Z0-9._]+[@][a-z]+[.][a-z]{2,6}";
+        Pattern pa = Pattern.compile(check);
         Matcher mat = pa.matcher(email);
         flag = mat.matches();
         return flag;
