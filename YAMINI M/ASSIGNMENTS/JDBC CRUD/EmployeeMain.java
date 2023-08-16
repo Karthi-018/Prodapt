@@ -12,6 +12,7 @@ public class EmployeeMain {
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("connection success");
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/prodapt","root","root");
 
 			System.out.println("1.Create the Employee Details\n 2.Display the Employee Details\n 3.Search the Employee Details\n 4.Update the Employee Details\n 5.Delete the Employee Details\n Enter your choice");
@@ -38,7 +39,7 @@ public class EmployeeMain {
 		}
 		catch(Exception e)
 		{
-			System.out.println(e.getMessage());
+			System.out.println(e);
 		}
 	}
 	
