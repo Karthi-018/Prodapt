@@ -4,10 +4,10 @@ import java.util.*;
 import java.sql.*;
 
 public class EmployeeMain {
-	
-	Scanner sc=new Scanner(System.in);
 
 	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
 		
 		try
 		{
@@ -23,7 +23,7 @@ public class EmployeeMain {
 				createDetails(con);
 				break;
 			case 2:
-				displayUpdate(con);
+				displayDetails(con);
 				break;
 			case 3:
 				searchDetails(con);
@@ -44,6 +44,7 @@ public class EmployeeMain {
 	
 	public static void createDetails(Connection con)throws Exception
 	{
+		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the Employee id:");
 		int eid=sc.nextInt();
 		sc.nextLine();
@@ -74,6 +75,7 @@ public class EmployeeMain {
 	public static void displayDetails(Connection con)throws Exception
 	{
 		System.out.println("1.Display by Employee Id\n 2.Display all");
+		Scanner sc=new Scanner(System.in);
 		int choice1=sc.nextInt();
 		sc.nextLine();
 		
@@ -125,6 +127,7 @@ public class EmployeeMain {
 		try
 		{
 		System.out.println("Enter the Employee Id:");
+		Scanner sc=new Scanner(System.in);
 		int sid=sc.nextInt();
 		sc.nextLine();
 		PreparedStatement ps=con.prepareStatement("select * from Employee where eid=?");
@@ -137,13 +140,14 @@ public class EmployeeMain {
 		}	
 		catch(SQLException e)
 		{
-			System.out.println(e));
+			System.out.println(e);
 		}
 	}
 	
 	public static void updateDetails(Connection con)throws Exception
 	{
 	System.out.println("Enter the Employee Id to update:");
+	Scanner sc=new Scanner(System.in);
 	int updateid=sc.nextInt();
 
 	System.out.println("1.Update Name\n2.Update Salary\n3.Update Designation\nEnter your choice:");
@@ -226,6 +230,7 @@ public class EmployeeMain {
 	public static void deleteDetails(Connection con)throws Exception
 	{
 		System.out.println("Enter the Employee Id to delete");
+		Scanner sc=new Scanner(System.in);
 		int deleteid=sc.nextInt();
 		try
 		{
