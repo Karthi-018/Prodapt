@@ -44,7 +44,7 @@ PreparedStatement ps = con.prepareStatement(sql)) {
 	        PreparedStatement ps = con.prepareStatement(sql)) {
 	        ps.setString(1, type);
 	        ResultSet resultSet = ps.executeQuery();
-	        if (resultSet.next()) {
+	        while (resultSet.next()) {
 	            String name = resultSet.getString("name");
 	            double price = resultSet.getDouble("price");
 	            String item1 = resultSet.getString("type");
@@ -66,7 +66,7 @@ PreparedStatement ps = con.prepareStatement(sql)) {
        try (PreparedStatement ps = con.prepareStatement(sql)){
         ps.setDouble(1, price);
         ResultSet resultSet = ps.executeQuery();
-        if (resultSet.next()) {
+        while (resultSet.next()) {
 		    String name = resultSet.getString("name");
 		    double price1 = resultSet.getDouble("price");
 		    String type = resultSet.getString("type");
