@@ -9,10 +9,10 @@ public class CollegeBO
     static Scanner sc=new Scanner(System.in);  
     ResultSet rs;
     
-    //Create a college database
+        //Create a college database
 	void createCollegeDB() throws SQLException, ParseException
 	{   
-		System.out.println("Enter the College Details\nName,Website,Mobile,Founder,Number of Departments,Location,Date(dd:mm:yy)");
+	    System.out.println("Enter the College Details\nName,Website,Mobile,Founder,Number of Departments,Location,Date(dd:mm:yy)");
 	    String details=sc.next();
 	    
 	    String[] detailArr=details.split(","); 
@@ -56,7 +56,6 @@ public class CollegeBO
 			}
 			
 		} 
-		
 		Collections.sort(collegeList,(obj1,obj2)->(obj1.getName().compareTo(obj2.getName())));
 		return collegeList;
 		
@@ -79,7 +78,7 @@ public class CollegeBO
 	}
 	
 	//Method to find College Details Based on Location
-    public List<College> findCollege(String location) throws SQLException
+        public List<College> findCollege(String location) throws SQLException
 	{
 		List<College> collegeList=new ArrayList<>();
 		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/university","root","root");
@@ -94,7 +93,7 @@ public class CollegeBO
 		
 	}
     
-    //Method to return sorted college details based on department 
+        //Method to return sorted college details based on department 
 	public List<College> sortDept() throws SQLException
 	{
 		List<College> collegeList=new ArrayList<>();
@@ -112,7 +111,6 @@ public class CollegeBO
 	
 	//Method to return sorted college details based on Starting Date 
 	public List<College> sortDate() throws SQLException  
-	
 	{   List<College> collegeList=new ArrayList<>();
 		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/university","root","root");
 		PreparedStatement ps=con.prepareStatement("select*from college"); 
@@ -126,10 +124,9 @@ public class CollegeBO
 	}
 	
 	public static void main(String[]args) throws ClassNotFoundException, SQLException, ParseException
-    {
+        {
 		CollegeBO obj=new CollegeBO(); 
-		
-		
+	
 		Class.forName("com.mysql.cj.jdbc.Driver"); 
 		
 		System.out.println("WELCOME TO COLLEGE_BO");
@@ -156,30 +153,30 @@ public class CollegeBO
 			{
 			
 			case 1: 
-                System.out.println("Enter the College Names:"); 
-                String name=sc.next(); 
-                String []namesArray=name.split(",");
-                nameList.addAll(Arrays.asList(namesArray));   
-                collegeDetails= obj.findCollege(nameList);  
-                if(collegeDetails.size()==0)
+                               System.out.println("Enter the College Names:"); 
+                               String name=sc.next(); 
+                               String []namesArray=name.split(",");
+                               nameList.addAll(Arrays.asList(namesArray));   
+                               collegeDetails= obj.findCollege(nameList);  
+                               if(collegeDetails.size()==0)
 					System.out.print("Details not found");
 				else
 				{  
 					System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n","Name","Website","Mobile","Founder","No.of departments","Location","Starting Date");
 
 					for(College object:collegeDetails)
-	                {
-	                	System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n",object.getName(),object.getWebsite(),object.getMobile(),object.getFounder(),object.getDept(),object.getLocation(),object.getDate());
+	                               {
+	                	           System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n",object.getName(),object.getWebsite(),object.getMobile(),object.getFounder(),object.getDept(),object.getLocation(),object.getDate());
 
-	                }  
+	                               }  
 					
 				}
-                break;
+                                break;
                 
 			case 2:
 				System.out.println("Enter the Starting Date"); 
 				SimpleDateFormat df=new SimpleDateFormat("dd:MM:yy");
-			    java.util.Date date=df.parse(sc.next()); 
+			        java.util.Date date=df.parse(sc.next()); 
 				collegeDetails= obj.findCollege(date);  
 				if(collegeDetails.size()==0)
 					System.out.print("Details not found");
@@ -188,13 +185,12 @@ public class CollegeBO
 					System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n","Name","Website","Mobile","Founder","No.of departments","Location","Starting Date");
 					
 					for(College object:collegeDetails)
-	                {
-	                	System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n",object.getName(),object.getWebsite(),object.getMobile(),object.getFounder(),object.getDept(),object.getLocation(),object.getDate());
+	                                {
+	                	          System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n",object.getName(),object.getWebsite(),object.getMobile(),object.getFounder(),object.getDept(),object.getLocation(),object.getDate());
 
-	                }  
+	                                }  
 				}
-				 
-                break; 
+				 break; 
                 
 			case 3:
 				System.out.println("Enter the Location");
@@ -207,13 +203,13 @@ public class CollegeBO
 					System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n","Name","Website","Mobile","Founder","No.of departments","Location","Starting Date");
 
 					for(College object:collegeDetails)
-	                {
-	                	System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n",object.getName(),object.getWebsite(),object.getMobile(),object.getFounder(),object.getDept(),object.getLocation(),object.getDate());
+	                                {
+	                	         System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n",object.getName(),object.getWebsite(),object.getMobile(),object.getFounder(),object.getDept(),object.getLocation(),object.getDate());
 
-	                }  
+	                                }  
 					
 				}
-                break; 
+                                break; 
                 
 			case 4:
 				System.out.println("Sorted College List based on number of department:"); 
@@ -221,7 +217,7 @@ public class CollegeBO
 				System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n","Name","Website","Mobile","Founder","No.of departments","Location","Starting Date");
 				for(College object:collegeDetails)
 				{
-                	System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n",object.getName(),object.getWebsite(),object.getMobile(),object.getFounder(),object.getDept(),object.getLocation(),object.getDate());
+                	         System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n",object.getName(),object.getWebsite(),object.getMobile(),object.getFounder(),object.getDept(),object.getLocation(),object.getDate());
 
 				}
 				break; 
@@ -232,7 +228,7 @@ public class CollegeBO
 				System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n","Name","Website","Mobile","Founder","No.of departments","Location","Starting Date");
 				for(College object:collegeDetails)
 				{
-                	System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n",object.getName(),object.getWebsite(),object.getMobile(),object.getFounder(),object.getDept(),object.getLocation(),object.getDate());
+                	           System.out.format("%-15s %-20s %-15s %15s %-20s %-15s %s\n",object.getName(),object.getWebsite(),object.getMobile(),object.getFounder(),object.getDept(),object.getLocation(),object.getDate());
 
 				}
 				break; 
@@ -244,5 +240,5 @@ public class CollegeBO
 			System.out.println("\n");
 		}
 		
-    }
+         }
 }
