@@ -33,7 +33,7 @@ public class MainCollege {
 			
 			case 1:{
 				List<String> nameList = new ArrayList<String>();
-				System.out.println("Enter number of items to add");
+				System.out.println("Enter number of names to search");
 				int n=sc.nextInt();
 				for(int i=1;i<=n;i++)
 				{
