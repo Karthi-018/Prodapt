@@ -48,7 +48,7 @@ public class Main
 				case 2:
 					System.out.print("\nEnter the starting date to search:");
 					String search_Date = s.next();
-			        DateFormat df = new SimpleDateFormat("dd:mm:yy");
+			        DateFormat df = new SimpleDateFormat("dd:MM:yy");
 			        Date startingDate = df.parse(search_Date);
 					cbo.sortByDate(cbo.findCollege(startingDate));
 					break;
