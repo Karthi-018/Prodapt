@@ -1,0 +1,105 @@
+package university.tst;
+
+import java.sql.*;
+import java.sql.Date;
+import java.util.*;
+
+public class CollegeBO {
+    Scanner sc=new Scanner(System.in);
+    public static List<College> main(String[] args) throws ClassNotFoundException, SQLException {
+        Scanner sc=new Scanner(System.in);
+        int choice=sc.nextInt();
+        switch(choice) {
+
+            case 1:
+                CollegeBO c=new CollegeBO ();
+                List<College> nameList1=new ArrayList<>();
+                System.out.println("Enter name");
+                String n=sc.next();
+                c.findCollege((Date) nameList1);
+            case 2:
+                CollegeBO c1=new CollegeBO ();
+                nameList1 = new ArrayList<>();
+                System.out.println("Enter name");
+                Date startingdate= Date.valueOf(sc.next());
+                nameList1= c1.findCollege(startingdate);
+                for(College i:nameList1) {
+                    System.out.format("%-20s %-5s %s\n",i.getName() +","+i.getWebsite()+","+i.getMobile()+","+i.getFounder()+","+i.getNumberOfDept()+","+i.getLocation()+","+i.getStartingdate());
+                }
+
+                break;
+            case 3:
+                CollegeBO c2=new CollegeBO ();
+                nameList1=new ArrayList<>();
+                System.out.println("Enter name");
+                String location=sc.next();
+                nameList1= c2.findCollege(location);
+                for(College i:nameList1) {
+                    System.out.format("%-20s %-5s %s\n",i.getName() +","+i.getWebsite()+","+i.getMobile()+","+i.getFounder()+","+i.getNumberOfDept()+","+i.getLocation()+","+i.getStartingdate());
+                }
+
+                break;
+        }
+        public List<College> findCollege(List<String> nameList) throws ClassNotFoundException, SQLException{
+            List<College> nameList1=new ArrayList<>();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/prodapt","root","root");
+            //System.out.println("Enter the College Name:");
+            for(College n:nameList1) {
+                PreparedStatement ps=con.prepareStatement("SELECT*FROM college Where name=?");
+                ps.setString(1,n);
+                ResultSet rs=ps.executeQuery();
+                if(rs.next()) {
+                    nameList1.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),(Date)rs.getObject(7)));
+                }
+
+            }
+
+            Collections.sort(nameList1.(t1,t2)->(t1.getname().compareTo(t2.getname())));
+            return nameList1;
+        }
+
+
+    }
+    public List<College> findCollege(Date startingDate) throws SQLException {
+        List<College> nameList1=new ArrayList<>();
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/prodapt","root","root");
+        System.out.println("Enter date:");
+        
+        PreparedStatement ps=con.prepareStatement("select name from college where date=?");
+        ps.setDate(1,startingDate);
+        ResultSet rs=ps.executeQuery();
+        if(rs.next()) {
+            nameList1.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),(Date)rs.getObject(7)));
+        }
+
+    
+
+        Collections.sort(nameList1.(t1,t2)-> t1.getStartingdate().compareTo(t2.getStartingdate()));
+        return nameList1;
+
+
+
+}
+    public List<College> findCollege(String location) throws ClassNotFoundException, SQLException{
+        List<College> nameList1=new ArrayList<>();
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/prodapt","root","root");
+        String location=sc.next();
+        PreparedStatement ps=con.prepareStatement("select name from college where location=?");
+        ps.setString(1, location);
+        ResultSet rs=ps.executeQuery();
+        if(rs.next()) {
+            nameList1.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),(Date)rs.getObject(7)));
+        }
+
+
+
+        Collections.sort(nameList1.(t1,t2)->(t1.getlocation().compareTo(t2.location())));
+        return nameList1;
+
+    }
+
+
+}
