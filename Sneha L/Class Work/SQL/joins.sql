@@ -63,3 +63,9 @@ join departments
 using(department_id) 
 join locations 
 using(location_id);
+---------------NON EQUI JOIN----------------------------------------------------
+select employee_id,last_name,job_id,salary,grade
+from employees 
+join job_grades
+on(salary >=lowest_sal and salary<=highest_sal);
+
