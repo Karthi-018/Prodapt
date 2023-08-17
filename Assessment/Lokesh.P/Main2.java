@@ -22,7 +22,7 @@ public class Main2 {
                     String college_details = sc.next();
                     String[] s = college_details.split(",");
                     int noofdept=Integer.parseInt(s[4]);
-                    DateFormat df = new SimpleDateFormat("mm:ss");
+                    DateFormat df = new SimpleDateFormat("dd:mm:yyyy");
                     Date d = df.parse(s[6]);
                     College c = new College(s[0], s[1], s[2], s[3], noofdept, s[5], d);
                     colbo.createCollege(c);
