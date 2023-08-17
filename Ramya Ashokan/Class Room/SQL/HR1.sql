@@ -22,15 +22,38 @@ set verify on;
 select &&calName1,&calName2 from &tabName where &con order by &calName1;--?
 undefine calName1;
 select * from employees order by first_name;
-select last_name, lower(last_name) as uppercase from employees where last_name='Austin' ;--case function
 
-select concat(first_name,last_name) from employees ;
+--String function
+select last_name, lower(last_name) as uppercase from employees where last_name='Austin' ;--case function
+--concat
+select concat(first_name,last_name) from employees;--only two arguments allowed
+select concat(concat(first_name,' '),last_name)  full_name from employees ;
+select trim(first_name||' '||last_name) full_name from employees;--trim function
+select (first_name ||' '||last_name)full_name from 
+(select first_name,last_name from employees); --subquery
+--length
+select last_name,length(last_name) Length_Name from employees where  length(last_name)>8;
+--instr
+select *from employees;
+select instr(last_name,'l') from employees where employee_id=123;
+select instr(last_name,'l',2,1) from employees where employee_id=123;--vollman->start search from 2 index third parameter represent occurence
 select last_name,instr(last_name,'t') from employees where last_name='Austin' ;
-select substr(last_name,3,2) from employees where last_name='Austin' ;
-select trim('A' from last_name) from employees where last_name='Austin' ;
+--substr
+select substr(last_name,3,2) from employees where last_name='Austin' ;--par 2->start par3->occurence
+--trim (trim the given character
+select trim('A' from last_name) from employees where last_name='Austin' ;--parameter trim character parameter 2column name
+--replace
 select last_name ,replace(last_name,'A','a') from employees where last_name='Austin' ;
-select length(lpad(last_name,10,'*')) from employees  ;
+--padding
+select lpad(last_name,10,'*') from employees  ;
+select rpad(last_name,10,'*') from employees  ;
+select lpad(last_name,10,'*')||'--- '||rpad(last_name,10,'*') from employees  ;
+select rpad(lpad(last_name,10,'*'),20,'*') from employees  ;
+--length
 select length(last_name) from employees  ;
+--Numeric function
+--insert into employees (employee_id,first_name,last_name,email,hire_date,job_id,salary) values(240,'dd','rr','ss','23-03-23','ASDS',567.789);
+select * from employees;
 --number function
 select salary,commission_pct,trunc(commission_pct) from employees  ;
 select &&colname,upper(&colname) from employees where &con;
