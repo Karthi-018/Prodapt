@@ -31,16 +31,19 @@ public class CollegeBO {
 	{
 		List<College> clg=new ArrayList<>();		
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			for(String i:nameList) {
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/university","root","root");
-			PreparedStatement ps=con.prepareStatement("select *from college");
+			PreparedStatement ps=con.prepareStatement("select *from college where name=?");
+			ps.setString(1, i);
+			
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
 				clg.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)));
 			}
+			}
 		}
-		
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
