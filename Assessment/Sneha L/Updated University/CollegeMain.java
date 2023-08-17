@@ -1,4 +1,4 @@
-package University;
+package edu.com.University;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -36,7 +36,7 @@ public class CollegeMain {
 	        }
 			Boolean b=true;
 			while(b) {
-				System.out.println("OPTIONS:\n 1. College list based on name \n 2.College list based on date \n 3.College list based on location");
+				System.out.println("OPTIONS:\n 1. College list based on name \n 2.College list based on date \n 3.College list based on location\n 4.sorted the college name list based on number of department\n 5.sorted the college name list based on location\n 6.sorted the college name list based  on date ");
 				int ch=sc.nextInt();
 				List<College> colg=new ArrayList<>();
 				switch(ch)
@@ -68,12 +68,23 @@ public class CollegeMain {
 					displayDetails(colg);
 					
 					break;
+				
 				case 4:
-					List<College> arrlist=clgbo.sortDate();
-					displayDetails(arrlist);
-					System.out.println("Exiting....");
+					System.out.println("Sorted the list of college name based on department number");
+					List<College> sortdept=clgbo.sortDept();
+					displayDetails(sortdept);
+					break;
+				case 5:
+					System.out.println("Sorted the list of college name based on Location");
+					List<College> sortloc=clgbo.sortLoc();
+					displayDetails(sortloc);
+					break;
+				case 6:
+					System.out.println("Sorted the list of college name based on date");
+					List<College> sortdate=clgbo.sortDate();
+					displayDetails(sortdate);
+					break;
 					
-					return;
 				default:
 					System.out.println("INVALID INPUT");
 					}
