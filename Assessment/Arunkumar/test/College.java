@@ -81,7 +81,6 @@ public class College {
 
     @Override
     public String toString() {
-        System.out.format("%-15s %-20s %-15s %-15s %-20s %-15s %s\n","name","website","mobile","founder","noOfDept","location","startingDate");
         System.out.format("%-15s %-20s %-15s %-15s %-20s %-15s %s\n",name,website,mobile,founder,noOfDept,location,startingDate);
         return "";
     }
