@@ -1,0 +1,113 @@
+package university.tst;
+import java.util.*;
+import java.text.*;
+import java.io.*;
+
+
+
+
+
+
+    public class College {
+        String name;
+        String website;
+        String mobile;
+        String founder;
+        int numberOfDept;
+        String location;
+        Date startingdate;
+
+        College(){
+        }
+
+
+    public College(String name, String website, String mobile, String founder, int numberOfDept, String location,
+                   Date startingdate) {
+        super();
+        this.name = name;
+        this.website = website;
+        this.mobile = mobile;
+        this.founder = founder;
+        this.numberOfDept = numberOfDept;
+        this.location = location;
+        this.startingdate = startingdate;
+    }
+
+    public static String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getFounder() {
+        return founder;
+    }
+
+    public void setFounder(String founder) {
+        this.founder = founder;
+    }
+
+    public int getNumberOfDept() {
+        return numberOfDept;
+    }
+
+    public void setNumberOfDept(int numberOfDept) {
+        this.numberOfDept = numberOfDept;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public Date getStartingdate() {
+        return startingdate;
+    }
+
+    public void setStartingdate(Date startingdate) {
+        this.startingdate = startingdate;
+    }
+    static void(String details)throws Exception{
+
+
+        String[] ds =details.split(",");
+        String name=ds[0];
+        String website=ds[1];
+        String mobile=ds[2];
+        String founder=ds[3];
+        int numberOfDept=ds[4];
+        String location=ds[5];
+        DateFormat df= new SimpleDateFormat("mm:ss");
+        startingdate d=df.parse(ds[6]);
+
+        return new College(name,website,mobile,founder,numberOfDept,location,Startingdate);
+    }
+    @Override
+    public String toString() {
+        System.out.format("%-15s %-20s %-15s %-15s %-20s %-15s %s\n",name,website,mobile,founder,numberOfDept,location,startingDate);
+        return "";
+    }
+
+
+}
