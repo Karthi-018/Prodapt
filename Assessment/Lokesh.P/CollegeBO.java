@@ -21,16 +21,17 @@ public class CollegeBO {
         ps.setString(6,college.getLocation());
         ps.setDate(7, (java.sql.Date) college.getStartingDate());
         int x=ps.executeUpdate();
-        System.out.println("Details added successfully");
+        System.out.println("College Details added successfully");
     }
     public List<College> findCollege(List<String> nameList) throws SQLException, ClassNotFoundException {
         int flag=0;
+        List<College> lis=new ArrayList<>();
         Connection con=getConnect();
         PreparedStatement ps = con.prepareStatement("select * from college where name=?");
         ps.setString(1, nameList.toString());
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
-            System.out.println(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7));
+            lis.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)));
             flag=1;
         }
         if(flag==0)
@@ -43,13 +44,14 @@ public class CollegeBO {
     public List<College> findCollege(Date StartingDate) throws SQLException, ClassNotFoundException {
 
         int flag=0;
+        List<College> list = new ArrayList<>();
 
         Connection con=getConnect();
         PreparedStatement ps = con.prepareStatement("select * from college where startdate=?");
         ps.setString(1, String.valueOf(StartingDate));
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
-            System.out.println(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7));
+            list.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)));
             flag=1;
         }
         if(flag==0)
@@ -62,12 +64,13 @@ public class CollegeBO {
     public List<College> findCollege(String location) throws SQLException, ClassNotFoundException {
 
         int flag=0;
+        List<College> list1=new ArrayList<>();
         Connection con=getConnect();
         PreparedStatement ps = con.prepareStatement("select * from college where location=?");
         ps.setString(1, location);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
-            System.out.println(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7));
+            list1.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)));
             flag=1;
         }
         if(flag==0)
