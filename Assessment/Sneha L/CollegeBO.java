@@ -12,7 +12,7 @@ public class CollegeBO {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/university","root","root");
-			PreparedStatement ps=con.prepareStatement("INSERT INTO itemList values(?,?,?,?,?,?,?)");
+			PreparedStatement ps=con.prepareStatement("INSERT INTO college values(?,?,?,?,?,?,?)");
 			ps.setString(1,college.getName());
 			ps.setString(2, college.getWebsite());
 			ps.setString(3,college.getMobile());
