@@ -1,5 +1,6 @@
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Date;
 
@@ -24,22 +25,24 @@ public class CollegeBO {
         System.out.println("College Details added successfully");
     }
     public List<College> findCollege(List<String> nameList) throws SQLException, ClassNotFoundException {
-        int flag=0;
         List<College> lis=new ArrayList<>();
         Connection con=getConnect();
-        PreparedStatement ps = con.prepareStatement("select * from college where name=?");
-        ps.setString(1, nameList.toString());
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            lis.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)));
-            flag=1;
-        }
-        if(flag==0)
+        for(String name:nameList)
         {
-            System.out.println("No College Found in Database");
-        }
+            PreparedStatement ps=con.prepareStatement("select*from college");
+            ResultSet rs=ps.executeQuery();
+            while(rs.next())
+            {
+                if(rs.getString(1).equals(name))
+                {
+                    lis.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)));
+                }
+            }
 
-        return c;
+        }
+        Collections.sort(lis,(obj1, obj2)->(obj1.getName().compareTo(obj2.getName())));
+        return lis;
+
     }
     public List<College> findCollege(Date StartingDate) throws SQLException, ClassNotFoundException {
 
@@ -47,37 +50,29 @@ public class CollegeBO {
         List<College> list = new ArrayList<>();
 
         Connection con=getConnect();
-        PreparedStatement ps = con.prepareStatement("select * from college where startdate=?");
-        ps.setString(1, String.valueOf(StartingDate));
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            list.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)));
-            flag=1;
-        }
-        if(flag==0)
+        PreparedStatement ps=con.prepareStatement("select*from college where date=?");
+        ps.setDate(1, (java.sql.Date) StartingDate);
+        ResultSet rs=ps.executeQuery();
+        while(rs.next())
         {
-            System.out.println("No College Found in Database");
+            list.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)));
         }
-
-        return c;
+        Collections.sort(list,(obj1,obj2)->(obj1.getStartingDate().compareTo(obj2.getStartingDate())));
+        return list;
     }
     public List<College> findCollege(String location) throws SQLException, ClassNotFoundException {
 
         int flag=0;
         List<College> list1=new ArrayList<>();
         Connection con=getConnect();
-        PreparedStatement ps = con.prepareStatement("select * from college where location=?");
+        PreparedStatement ps=con.prepareStatement("select*from college where location=?");
         ps.setString(1, location);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            list1.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)));
-            flag=1;
-        }
-        if(flag==0)
+        ResultSet rs=ps.executeQuery();
+        while(rs.next())
         {
-            System.out.println("No College Found in Database");
+            list1.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)));
         }
+        return list1;
 
-        return c;
     }
 }
