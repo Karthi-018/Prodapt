@@ -45,20 +45,20 @@ public class MainClass
 					break;
 				case 2:
 
-                    System.out.print("Enter starting date (yyyy-MM-dd): ");
-                    String startingDateStr = sc.next();
-                    Date startingDate = Date.valueOf(startingDateStr);
-                    List<College> collegesByDate = bo.findCollege(startingDate);
-                    bo.displayColleges(collegesByDate);
-                    break;
+                    			System.out.print("Enter starting date (yyyy-MM-dd): ");
+                    			String startingDateStr = sc.next();
+                    			Date startingDate = Date.valueOf(startingDateStr);
+                    			List<College> collegesByDate = bo.findCollege(startingDate);
+                    			bo.displayColleges(collegesByDate);
+                    			break;
 
-                case 3:
+                		case 3:
 
-                    System.out.print("Enter location: ");
-                    String location = sc.next();
-                    List<College> collegesByLocation = bo.findCollege(location);
-                    bo.displayColleges(collegesByLocation);
-                    break;
+                   		 	System.out.print("Enter location: ");
+                   	 		String location = sc.next();
+                    			List<College> collegesByLocation = bo.findCollege(location);
+                    			bo.displayColleges(collegesByLocation);
+                    			break;
 					
 				case 4:
 					//findCollege();
