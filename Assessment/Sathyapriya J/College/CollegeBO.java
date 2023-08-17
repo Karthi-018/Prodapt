@@ -18,6 +18,7 @@ public class CollegeBO
 	
 	PreparedStatement ps;
 	ResultSet rs;
+	
 	public void createCollege(College c) throws SQLException
 	{
 		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/prodapt","root","root");
@@ -45,10 +46,9 @@ public class CollegeBO
 		
 	}
 	
-	public List<College> findCollege(Date startingDate) throws SQLException {
+	public List<College> findCollege(Date startingDate) throws SQLException{
 
         List<College> colleges = new ArrayList<>();
-
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/prodapt", "root", "root");
         String query = "SELECT * FROM college WHERE startingdate = ?";
         ps = con.prepareStatement(query);
@@ -99,11 +99,9 @@ public class CollegeBO
     }
     public void displayColleges(List<College> colleges) 
     {
-
-        String format = "%-15s %-20s %-15s %-15s %-8s %-20s %-15s%n";
         for (College college : colleges) 
         {
-        	System.out.format(format,college.getName(),college.getWebsite(),college.getMobile(),college.getFounder(),college.getNumberOfDept(),college.getLocation(),college.getStartingDate() );
+        	System.out.format("%-15s %-20s %-15s %-15s %-8s %-20s %-15s%n",college.getName(),college.getWebsite(),college.getMobile(),college.getFounder(),college.getNumberOfDept(),college.getLocation(),college.getStartingDate() );
 
         }
 
