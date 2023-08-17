@@ -9,7 +9,7 @@ public class College {
 	private String founder;
 	private int numberOfDept;
 	private String location;
-	private Date stringdate;
+	private Date startingDate;
 	public String getName() {
 		return name;
 	}
@@ -46,14 +46,15 @@ public class College {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public Date getStringdate() {
-		return stringdate;
+	
+	public Date getStartingDate() {
+		return startingDate;
 	}
-	public void setStringdate(Date stringdate) {
-		this.stringdate = stringdate;
+	public void setStartingDate(Date startingDate) {
+		this.startingDate = startingDate;
 	}
 	public College(String name, String website, String mobile, String founder, int numberOfDept, String location,
-			java.util.Date d) throws Exception{
+			Date d) throws Exception{
 		super();
 		this.name = name;
 		this.website = website;
@@ -61,11 +62,15 @@ public class College {
 		this.founder = founder;
 		this.numberOfDept = numberOfDept;
 		this.location = location;
-		this.stringdate = (Date) d;
+		this.startingDate = d;
 	}
 	public College() throws Exception{
 		super();
 	}
+	public String toString() {
+        System.out.format("%-15s %-20s %-15s %-15s %-20s %-15s %s\n",name,website,mobile,founder,numberOfDept,location,startingDate);
+        return "";
+    }
 	
 	
 }
