@@ -1,4 +1,4 @@
-package University;
+package edu.com.University;
 
 import java.util.*;
 
@@ -113,6 +113,45 @@ public class CollegeBO {
 			}
 			Collections.sort(clg,Comparator.comparing(College::getStartingDate));
 			return clg;
+		}
+		
+		public List<College> sortDept() {
+			List<College> clg=new ArrayList<>();
+			try {
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/university","root","root");
+				PreparedStatement ps=con.prepareStatement("select *from college");
+				
+				ResultSet rs=ps.executeQuery();
+				while(rs.next())
+				{
+					clg.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)));
+				}
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			Collections.sort(clg,Comparator.comparing(College::getNumberOfDept));
+			return clg;
+			
+		}
+		public List<College> sortLoc() {
+			List<College> clg=new ArrayList<>();
+			try {
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/university","root","root");
+				PreparedStatement ps=con.prepareStatement("select *from college");
+				
+				ResultSet rs=ps.executeQuery();
+				while(rs.next())
+				{
+					clg.add(new College(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getDate(7)));
+				}
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			Collections.sort(clg,Comparator.comparing(College::getLocation));
+			return clg;
+			
 		}
 }
 	
