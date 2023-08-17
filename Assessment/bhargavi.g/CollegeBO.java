@@ -10,16 +10,13 @@ import java.util.Scanner;
 public class CollegeBO 
 {
 	Scanner sc = new Scanner(System.in);
-	
-	//1 add college details
-	
-	public void addCollege(College college)
+	public void CollegeBO(College college)
 	{
 		
 		try
 		{
-	         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/req4", "root", "root");	
-	         PreparedStatement ps = con.prepareStatement("insert into req4_table values(?, ?,,?, ?, ?, ?)");
+	         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/college", "root", "root");	
+	         PreparedStatement ps = con.prepareStatement("insert into college_table values(?, ?,,?, ?, ?, ?)");
 	         ps.setString(1,college.getName());
 	         ps.setString(2,college.getWebsite());
 	         ps.setString(3,college.getMobile());
@@ -54,7 +51,7 @@ public class CollegeBO
 			    }
 			    if(collegelist.isEmpty())
 			    {
-			    	System.out.println("Nothing");
+			    	System.out.println("None");
 			    }
 			}
 		
