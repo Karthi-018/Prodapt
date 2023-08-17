@@ -23,11 +23,10 @@ public class MainCollege {
 			System.out.println("Connection Successful");
 			int choice;
 			do {
-			System.out.println("1. Create your item");
-			System.out.println("2. add more items");
-			System.out.println("3. Display your item by type");
-			System.out.println("4. Display your item by price");
-			System.out.println("5. Exit");
+			System.out.println("1. Search your clg details by name");
+			System.out.println("2. Search your clg details by date");
+			System.out.println("3. Search your clg details by location");
+			System.out.println("4. Exit");
 			System.out.println("Enter your choice");
 			choice=sc.nextInt();
 			switch(choice) {
