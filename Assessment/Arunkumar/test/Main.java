@@ -43,6 +43,7 @@ public class Main {
                         a.add(g);
                     }
                     List<College> collegeList = new CollegeBO().findCollege(a);
+                    System.out.format("%-15s %-20s %-15s %-15s %-20s %-15s %s\n","name","website","mobile","founder","noOfDept","location","startingDate");
                     for(College c : collegeList){
                         System.out.println(c);
                     }
@@ -53,6 +54,7 @@ public class Main {
                     DateFormat dateFormat = new SimpleDateFormat("yy-MM-dd");
                     Date date1 = dateFormat.parse(dd);
                     List<College> cList = new CollegeBO().findCollege(date1);
+                    System.out.format("%-15s %-20s %-15s %-15s %-20s %-15s %s\n","name","website","mobile","founder","noOfDept","location","startingDate");
                     for(College c : cList){
                         System.out.println(c);
                     }
@@ -61,12 +63,14 @@ public class Main {
                     System.out.println("Enter college location");
                     String location = sc.next();
                     List<College> cLocation = new CollegeBO().findCollege(location);
+                    System.out.format("%-15s %-20s %-15s %-15s %-20s %-15s %s\n","name","website","mobile","founder","noOfDept","location","startingDate");
                     for(College cg : cLocation){
                         System.out.println(cg);
                     }
                     break;
                 case 4:
                     ArrayList<College> all = CollegeBO.sortDept();
+                    System.out.format("%-15s %-20s %-15s %-15s %-20s %-15s %s\n","name","website","mobile","founder","noOfDept","location","startingDate");
                     for(College nn : all){
                         System.out.println(nn);
                     }
