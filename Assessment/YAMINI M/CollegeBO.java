@@ -6,6 +6,9 @@ import java.sql.*;
 import java.util.Date;
 
 public class CollegeBO {
+	
+	public static void main(String[] args) throws Exception{
+		
 	Scanner sc = new Scanner(System.in);
     System.out.println("College University");
    	System.out.println("1.Add List\n 2.Search by Name\n3.Search by Starting Date\n4.Search by Location\n");
@@ -76,7 +79,7 @@ public class CollegeBO {
 	        ps1.setString(4, col.getFounder());
 	        ps1.setInt(5, col.getNumberOfDept());
 	        ps1.setString(6, col.getLocation());
-	        ps1.setDate(7, (java.sql.Date) col.getStartingDate());
+	        ps1.setObject(7, (Date) col.getstartingDate());
 	        int temp=ps1.executeUpdate();
 	        
 	        if(temp==1)
