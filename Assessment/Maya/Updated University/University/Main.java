@@ -64,3 +64,22 @@ public class Main
     }
 }
 
+
+/* ----------------mysql-------------------
+create database college; 
+use college;
+
+create table colleges(
+name varchar(20),
+website varchar(20),
+mobile varchar(20),
+founder varchar(20),
+numberofDept int,
+location varchar(20),
+startingDate date
+);
+
+select * from colleges;
+--------------------------------------------------
+*/
+
