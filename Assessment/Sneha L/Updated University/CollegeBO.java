@@ -28,7 +28,7 @@ public class CollegeBO {
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
+		Collections.sort(clg,Comparator.comparing(College::getName)); 
 		return clg;
 	}
 	//------------------------------------------------------------------------------------------------------------------------
@@ -50,7 +50,7 @@ public class CollegeBO {
 			catch(SQLException e) {
 				e.printStackTrace();
 			}
-			
+			Collections.sort(clg,Comparator.comparing(College::getStartingDate)); 
 			return clg;
 					
 		}
@@ -71,7 +71,7 @@ public class CollegeBO {
 			catch(SQLException e) {
 				e.printStackTrace();
 			}
-			
+			Collections.sort(clg,Comparator.comparing(College::getLocation)); 
 			return clg;
 		}
 		//-------------------------------------------------------------------------------------------------------
