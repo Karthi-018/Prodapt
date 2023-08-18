@@ -1,0 +1,63 @@
+--Natural Joins
+select manager_id,department_id 
+from employees natural join departments;   
+-------------------------------------------------------------------------------------------------------------------------------------------
+--ON clause 
+select manager_id,department_id 
+from employees e join departments d 
+on(e.department_id=d.department_id);  
+
+select e.manager_id,e.department_id,salary 
+from employees e  
+where salary>6000
+join departments d 
+on( e.department_id=d.department_id);  --Error cannot place where clause before joining the tables 
+
+select e.manager_id,e.department_id,salary from employees e  
+join departments d on( e.department_id=d.department_id)
+where salary>6000; --Executes! join combines the data of the tabels,where clause filters the joined datas
+-------------------------------------------------------------------------------------------------------------------------------------------
+--USING CLAUSE 
+select d.manager_id,e.manager_id,department_id 
+from employees e join departments d 
+USING(department_id);   
+
+select e.manager_id,e.department_id,salary 
+from employees e  
+join departments d 
+USING(department_id);
+where salary>6000; --Error cannot use where clause after USING 
+-------------------------------------------------------------------------------------------------------------------------------------------
+--CROSS JOIN
+select manager_id,department_id,last_name,department_name 
+from employees 
+cross join departments; --Error column ambiguously defined 
+
+select e.manager_id,d.department_id,last_name,department_name 
+from employees e 
+cross join departments d; 
+------------------------------------------------------------------------------------------------------------------------------------------- 
+--LEFT OUTER JOIN
+select e.manager_id,d.manager_id,employee_id 
+from employees e LEFT OUTER join departments d 
+on(e.manager_id=d.manager_id) 
+where e.manager_id is not null; 
+------------------------------------------------------------------------------------------------------------------------------------------- 
+--RIGHT OUTER JOIN 
+
+select e.manager_id,d.manager_id,employee_id 
+from employees e RIGHT OUTER join departments d 
+on(e.manager_id=d.manager_id);   
+
+select e.manager_id,d.manager_id,employee_id 
+from employees e RIGHT OUTER join departments d 
+on(e.manager_id=d.manager_id); 
+where d.manager_id is not null;
+
+------------------------------------------------------------------------------------------------------------------------------------------- 
+--FULL OUTER JOIN 
+SELECT employee_id, last_name,e.manager_id,d.manager_id
+FROM employees e
+full outer join departments d
+on(e.manager_id=d.manager_id); 
+------------------------------------------------------------------------------------------------------------------------------------------- 
