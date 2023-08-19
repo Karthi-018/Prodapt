@@ -1,1 +1,247 @@
+select employee_id,last_name,department_id,department_name
+from employees
+natural join departments;
+--------------------------------------------------------------------------
+select * from departments
+order by manager_id;
 
+select employee_id,last_name,employees.department_id,manager_id,department_name
+from employees 
+join departments
+using(manager_id);
+
+----------------------------------------------------------------------------- 
+select employee_id, last_name,employees.department_id,department_name
+from employees
+join departments
+on (employees.department_id=departments.department_id);
+
+-----------------------------------------------------------------------------
+select employee_id,last_name,employees.manager_id,department_id,department_name
+from employees 
+join departments
+using(department_id)
+where employees.manager_id=100
+order by employee_id;
+-----------------------------------------------------------------------------
+select * from employees
+where department_id IS NULL;
+
+----------------------------------------------------------------------------- 
+select employee_id, last_name,department_name,employees.department_id
+from employees
+right outer join departments
+on(employees.department_id = departments.department_id);
+
+-----------------------------------------------------------------------------
+select department_name,employee_id, last_name,employees.department_id
+from employees
+left outer join departments
+on(employees.department_id = departments.department_id);
+
+----------------------------------------------------------------------------
+select employee_id, last_name,department_name,employees.department_id
+from employees
+full outer join departments
+on(employees.department_id = departments.department_id);
+
+-----------------------------------------------------------------------------
+select employee_id, last_name,department_name,employees.department_id
+from employees
+cross join departments;
+
+----------------------------------------------------------------------------- 
+select e.employee_id,e.last_name,e.manager_id,m.employee_id,m.last_name
+from employees e
+join employees m       --self join
+on(e.manager_id = m.employee_id);
+
+---------------------------------------------------------------------------
+
+select employee_id,last_name,job_id,salary,d.department_name,d.location_id,city
+from employees e
+join departments d
+on(e.department_id = d.department_id)    --three way joins 
+join locations l
+on(d.location_id = l.location_id);
+
+------------------------------------------------------------------------------
+
+CREATE TABLE job_grades (
+grade CHAR(1),
+lowest_sal NUMBER(8,2) NOT NULL,
+highest_sal NUMBER(8,2) NOT NULL
+);
+
+ALTER TABLE job_grades
+ADD CONSTRAINT jobgrades_grade_pk PRIMARY KEY (grade);
+
+INSERT INTO job_grades VALUES ('A', 1000, 2999);
+INSERT INTO job_grades VALUES ('B', 3000, 5999);
+INSERT INTO job_grades VALUES ('C', 6000, 9999);
+INSERT INTO job_grades VALUES ('D', 10000, 14999);
+INSERT INTO job_grades VALUES ('E', 15000, 24999);
+INSERT INTO job_grades VALUES ('F', 25000, 40000);
+COMMIT;
+
+SELECT * FROM job_grades;
+
+--------------------------------------------------------------------------
+
+SELECT EMPLOYEE_ID,LAST_NAME,JOB_ID,SALARY,GRADE
+FROM EMPLOYEES E
+JOIN JOB_GRADES J
+ON(E.SALARY BETWEEN LOWEST_SAL AND HIGHEST_SAL);
+
+----------------------------------------------------------------------------
+
+SELECT EMPLOYEE_ID,FIRST_NAME 
+FROM EMPLOYEES 
+WHERE DEPARTMENT_ID = (SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE LAST_NAME = 'King'); 
+
+-------------------------------------------------------------------------------
+SELECT SALARY FROM EMPLOYEES WHERE LAST_NAME='Abel';
+
+SELECT EMPLOYEE_ID,FIRST_NAME,LAST_NAME,SALARY
+FROM EMPLOYEES
+WHERE SALARY = (SELECT SALARY FROM EMPLOYEES WHERE LAST_NAME='Abel');
+
+SELECT EMPLOYEE_ID,SALARY
+FROM EMPLOYEES
+WHERE SALARY >(SELECT SALARY FROM EMPLOYEES WHERE EMPLOYEE_ID = 100);
+
+SELECT * FROM EMPLOYEES;
+
+
+
+SELECT EMPLOYEE_ID,LAST_NAME,SALARY,DEPARTMENT_ID
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID IN(SELECT DEPARTMENT_ID FROM EMPLOYEES WHERE LAST_NAME = 'Taylor' ) AND 
+SALARY > ANY(SELECT SALARY FROM EMPLOYEES WHERE LAST_NAME='Taylor') ;
+
+SELECT EMPLOYEE_ID,DEPARTMENT_ID,SALARY FROM EMPLOYEES
+WHERE SALARY IN(SELECT MIN(SALARY) FROM EMPLOYEES GROUP BY DEPARTMENT_ID);
+
+--------------------------------------------------------------------------------------
+--SET OPERATOR
+
+SELECT EMPLOYEE_ID,JOB_ID
+FROM EMPLOYEES
+UNION
+SELECT EMPLOYEE_ID,JOB_ID 
+FROM JOB_HISTORY;
+
+SELECT EMPLOYEE_ID,DEPARTMENT_ID
+FROM EMPLOYEES
+INTERSECT
+SELECT EMPLOYEE_ID,DEPARTMENT_ID
+FROM JOB_HISTORY;
+
+SELECT EMPLOYEE_ID,DEPARTMENT_ID
+FROM EMPLOYEES
+MINUS
+SELECT EMPLOYEE_ID,DEPARTMENT_ID
+FROM JOB_HISTORY;
+
+SELECT EMPLOYEE_ID,JOB_ID,SALARY,DEPARTMENT_ID,LAST_NAME
+FROM EMPLOYEES
+UNION
+SELECT EMPLOYEE_ID,JOB_ID,0,0,TO_CHAR(NULL)
+FROM JOB_HISTORY;
+
+
+SELECT EMPLOYEE_ID,JOB_ID
+FROM EMPLOYEES
+UNION ALL
+SELECT EMPLOYEE_ID,JOB_ID 
+FROM JOB_HISTORY;
+----------------------------------------------------------------------------
+--Insert and Update
+
+UPDATE EMPLOYEES
+SET SALARY = (SELECT SALARY FROM EMPLOYEES WHERE LAST_NAME = 'Abel')
+WHERE EMPLOYEE_ID = 101;
+
+
+------------------------------------------------------------------------------
+--CONSTRAINTS
+
+CREATE TABLE HIRE_DATES
+(ID NUMBER(8),HIRE_DATE DATE DEFAULT SYSDATE);
+INSERT INTO HIRE_DATES VALUES(1,'17-04-19');
+INSERT INTO HIRE_DATES(ID) VALUES(2);
+INSERT INTO HIRE_DATES(ID) VALUES(123456789);
+SELECT * FROM HIRE_DATES;
+
+
+
+CREATE TABLE HIRE_DATE21
+(ID NUMBER(8),HIRE_DATE DATE);
+INSERT INTO HIRE_DATE21 VALUES(1,'17-04-19');
+INSERT INTO HIRE_DATE21(ID) VALUES(2);
+SELECT * FROM HIRE_DATE21;
+
+
+CREATE TABLE DEPT80
+AS
+SELECT EMPLOYEE_ID,LAST_NAME,SALARY*12 ANNSAL,HIRE_DATE
+FROM EMPLOYEES 
+WHERE DEPARTMENT_ID =80;
+
+SELECT * FROM DEPT80;
+
+
+
+ALTER TABLE DEPT80 READ WRITE;
+SELECT EMPLOYEE_ID,ANNSAL
+INSERT INTO DEPT80 VALUES;
+
+------------------------------------------------------------------------------
+--VIEWS
+
+CREATE VIEW EMPVU80
+AS SELECT EMPLOYEE_ID,LAST_NAME,SALARY
+FROM EMPLOYEES
+--WHERE DEPARTMENT_ID=80;
+
+DESCRIBE EMPVU80;
+
+
+CREATE OR REPLACE VIEW DEPT_SUM_VU
+(NAME,MINSAL,MAXSAL,AVGSAL)
+AS SELECT D.DEPARTMENT_NAME,MIN(E.SALARY),MAX(E.SALARY),AVG(E.SALARY)
+FROM EMPLOYEES E JOIN DEPARTMENTS D
+ON(E.DEPARTMENT_ID = D.DEPARTMENT_ID)
+GROUP BY D.DEPARTMENT_NAME;
+
+SELECT * FROM DEPT_SUM_VU;
+SELECT MAX(SALARY) FROM EMPVU80;
+
+SELECT SALARY FROM EMPVU80;
+DELETE FROM EMPVU80 WHERE LAST_NAME='King';  
+
+DROP TABLE JOB_GRADES;
+SELECT *FROM JOB_GRADES;
+FLASHBACK TABLE HR.JOB_GRADES TO BEFORE DROP;
+
+SELECT FIRST_NAME FROM EMPLOYEES
+WHERE LAST_NAME='King' and department_id =80;
+---------------------------------------------------------------------------
+--SEQUENCE
+
+CREATE SEQUENCE DEPT_DEPTID_SEQ
+INCREMENT BY 10
+START WITH 120
+MAXVALUE 9999
+NOCACHE
+NOCYCLE;
+
+
+INSERT INTO DEPARTMENTS VALUES(DEPT_DEPTID_SEQ.NEXTVAL,'TRAINING',NULL,NULL);
+
+
+
+
+
+
+ 
