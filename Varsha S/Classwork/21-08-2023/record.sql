@@ -56,7 +56,7 @@ BEGIN
 END;
 /
 --------------------------------------------------------------------------------
---to display full row without creating reference error
+--to takes full row and displays whatever we gives without creating reference 
 DECLARE
     emp employees%rowtype;
 BEGIN
