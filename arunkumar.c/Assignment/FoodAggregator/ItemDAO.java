@@ -60,7 +60,7 @@ public class ItemDAO {
 				items.add(new Item(rs.getString(1),rs.getDouble(2),rs.getString(3)));
 			}
 			if(items.isEmpty()) {
-				throw new ItemNotFoundException("no items found with the specific price");
+				throw new Exception("no items found with the specific price");
 			}
 		}
 		catch(SQLException e) {
@@ -84,19 +84,6 @@ List<Item> displayAll(){
 				}
 				
 		}
-	 
-		/*
-		 * void displayAll()throws SQLException{ try { Connection
-		 * con=DriverManager.getConnection("jdbc:mysql://localhost:3306/food","root",
-		 * "root"); PreparedStatement ps=con.prepareStatement("select * from fooditem");
-		 * ResultSet rs=ps.executeQuery();
-		 * 
-		 * System.out.format("%-20s %-5s %s\n","NAME","PRICE","TYPE"); while(rs.next())
-		 * { System.out.format("%-20s %-5s %s\n",rs.getString(1),rs.getDouble(2),rs.
-		 * getString(3)); }
-		 * 
-		 * }
-		 */
 		catch(SQLException e)
 		{
 			e.printStackTrace();
