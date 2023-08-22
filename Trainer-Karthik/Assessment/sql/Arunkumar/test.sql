@@ -9,7 +9,7 @@
 --8.b)SELECT COUNT(*) as "Last name count with letter n" FROM employees where substr(last_name,-1)='n';
 --9.SELECT employees.department_id,departments.department_name,departments.location_id,count(employees.department_id) from employees join departments on(employees.department_id = departments.department_id) group by employees.department_id,departments.department_name,departments.location_id;
 --10.select job_id from employees where department_id=10 or department_id=20;
---11.SELECT job_id,count(job_id) from employees where job_id like 'AD_%' group by job_id order by count(job_id) desc;
+--11.SELECT job_id,count(job_id) Frequency from employees where job_id like 'AD_%' group by job_id order by count(job_id) desc;
 --12.select last_name,hire_date from employees where extract(DAY FROM HIRE_DATE)<=15;
 --13.SELECT last_name,salary,round(salary/1000) as Thousands from employees;
 --14.select emp.last_name,mp.last_name,mp.salary,jp.grade from employees emp join employees mp on(emp.manager_id=mp.employee_id) join job_grades jp on(mp.salary>jp.lowest_sal and mp.salary<jp.highest_sal);
