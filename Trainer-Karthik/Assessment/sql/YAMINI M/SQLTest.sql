@@ -74,7 +74,7 @@ from employees
 where to_char(hire_date,'DD')<16;
 
 -----13-----
-select last_name,salary,Trunc(salary,-3)/1000 INTHOUSANDS
+select last_name,salary,Trunc(salary)/1000 INTHOUSANDS
 from employees;
 
 -----14------
