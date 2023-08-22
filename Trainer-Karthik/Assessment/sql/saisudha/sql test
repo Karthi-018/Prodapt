@@ -1,0 +1,51 @@
+1.select*from employees where to_char(hire_date) like 'dd-mm-1997';
+--select hire_date from employees;
+-------------------------------------------------------------
+2.select last_name,job_id,salary,commission_pct from employees 
+order by salary desc;
+----------------------------------------------------------------
+select 'The salary if '||last_name||' after a 10% raise is '||round(salary*(10/100)+salary,-1) "New Salary" 
+from employees where commission_pct is null;  
+------------------------------------------------------------------
+select last_name,trunc((months_between(sysdate,hire_date)/12),0) "YEAR",substr((months_between(sysdate,hire_date)/12),4,1)"MONTHS" from employees
+order by hire_date;
+--substr(round((months_between(sysdate,hire_date)/12),3),4,1)
+select last_name,hire_date from employees;
+-----------------------------------------------------------------
+select last_name from employees
+WHERE  last_name like 'J%' or last_name like 'K%'or last_name like 'L%' or last_name like 'M%'  ;
+--('j%','k%','l%','m%');
+-----------------------------------------------------
+select last_name,salary,commission_pct,
+DECODE (commission_pct , 0 , 'NO'
+        ,'YES'
+) 
+from employees;
+---------------------------------------------------------------------
+select department_name,location_id,last_name,job_id,salary 
+from employees
+natural join departments
+where location_id=&loc;
+------------------------------------------------------------------------
+select last_name from employees 
+where last_name like '%n';
+------------------------------------
+
+select d.department_id,department_name,location_id,count(employee_id) "No.of Emp"
+from employees e join departments d
+on(e.department_id=d.department_id)
+group by d.department_id,department_name,location_id;
+-----------------------------------------------------------------------
+11.select e.job_id,count(employee_id) frequency from employees e
+join departments d
+on(e.department_id=d.department_id)
+where department_name='Administration' and department_name='Executive'
+group by(job_id);
+
+-------------------------------------------------------------
+13.select last_name,salary,substr(salary,1,2) "Thousands" from employees;
+-------------------------------------------------------------------------
+14.select last_name,first_name "manager" ,salary,grade
+from employees
+join departments
+on(e.department_id=d.department_id);
