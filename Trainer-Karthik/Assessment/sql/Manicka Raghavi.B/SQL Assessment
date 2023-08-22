@@ -1,0 +1,71 @@
+question 1.
+select*from employees 
+where extract(year from hire_date)>1997; 
+
+question 2. 
+select last_name,job_id,salary,commission_pct 
+from employees where commission_pct>0
+order by salary desc; 
+
+question 3. 
+select 'The salary if '||last_name||' after a 10% raise is '||round(salary*(10/100)+salary,-1) "New Salary" 
+from employees where commission_pct is null;    
+
+question 4 
+select last_name,extract(year from sysdate)-extract(year from hire_date)"YEAR",mod(months_between(sysdate,hire_date),12)"Months"
+from employees order by 2,3 desc; 
+
+question 5 
+select last_name from employees 
+where last_name like 'J%' or last_name like 'K%' or last_name like 'L%' or last_name like 'M%'; 
+
+question 6 
+select last_name,salary,DECODE(commission_pct,null,'No','Yes')"Commission" 
+from employees; 
+
+question 7 
+select d.department_name "Department Name",d.location_id "Location ID",e.last_name"Last Name",e.job_id"Job Id",salary 
+from employees e join departments d on(d.department_id=e.department_id) 
+where location_id=&location;
+
+question 8 
+select count(employee_id)"LastName count with letter n" 
+from employees where last_name like '%n'; 
+
+select count(nvl2(last_name,1,0))"LastName count with letter n" 
+from employees where last_name like '%n'; 
+
+question 9 
+select d.department_id,department_name,location_id,count(employee_id) "No.of Emp"
+from employees e join departments d
+on(e.department_id=d.department_id)
+group by d.department_id,department_name,location_id; 
+
+question 10 
+select job_id " Job_Id" from employees e join departments d on (d.department_id=e.department_id) 
+where d.department_id in(10,20); 
+
+question 11 
+select job_id,count(employee_id)"Frequency" from employees e join departments d on (d.department_id=e.department_id) 
+where department_name='Administration' or department_name='Executive' 
+group by job_id 
+order by count(employee_id) desc;  
+
+question 12 
+select last_name,hire_date from employees where extract(day from hire_date)<16;  
+
+question 13 
+select last_name,salary, trunc(salary/1000,0)"Thousands" from employees;
+
+question 14 
+select e.last_name, m.last_name,m.salary,grade 
+from employees e join employees m on(e.manager_id=m.employee_id)
+join job_grades on(grade=(select grade from job_grades where m.salary between lowest_sal and highest_sal))  
+where m.salary>15000 order by m.salary; 
+
+question 15 
+select emp.department_id,emp.department_name,last_name,emp.employees,emp.salary,e.last_name
+from employees e,
+(select d.department_id,d.department_name,count(employee_id)"Employees",round(avg(salary))"Salary"
+ from employees e join departments d on(d.department_id=e.department_id) 
+ group by d.department_id,d.department_name,last_name) as emp;
