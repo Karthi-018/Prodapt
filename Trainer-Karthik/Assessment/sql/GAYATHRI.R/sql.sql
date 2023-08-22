@@ -1,5 +1,6 @@
 1----------------------------
-select * from employees where  hire_date > '31:12:1997' and job_id like '%clerk';
+Select * from employees 
+where job_id='ST_CLERK' and hire_date > '31-DEC-1997';
 
 2---------------------------
 select last_name,job_id,salary,commission_pct from employees 
@@ -49,6 +50,10 @@ where location_id=&loc;
 
 10----------
 select job_id from (select job_id from employees where department_id in(10,20));
+
+13_-----------------
+  select last_name,salary,Trunc(salary,-3)/1000 INTHOUSANDS
+from employees;
 
 
 15----------------
