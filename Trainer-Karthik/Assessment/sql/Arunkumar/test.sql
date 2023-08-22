@@ -1,4 +1,4 @@
---1.SELECT * FROM employees WHERE hire_date>'31-12-1996';
+--1.SELECT * FROM employees WHERE hire_date>'31-12-1996' and job_id like '%CLERK';
 --2.SELECT last_name,job_id,salary,commission_pct FROM employees WHERE commission_pct is not null order by salary desc;
 --3.SELECT ('The salary if '||last_name||'after 10% raise is '||round(salary+(salary/10))) as newsalary from employees where commission_pct is not null;
 --4.select last_name,round(months_between(sysdate,hire_date)/12) as year,round(mod(months_between(sysdate,hire_date),12)) as months from employees order by year desc,months desc;
