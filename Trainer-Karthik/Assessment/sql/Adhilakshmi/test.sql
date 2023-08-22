@@ -27,6 +27,10 @@ select count(*)as "Last Name Count with letter n"
 from employees
 where last_name Like '%n';
 -------------------------------------------------
+9.select department_id,department_name,location_id,count(employee_id)from departments
+   join employees using(department_id)
+   group by(department_name,location_id,department_id);
+-----------------------------------------------------------------
 10.select job_id
 from employees
 where department_id in(10,20);
