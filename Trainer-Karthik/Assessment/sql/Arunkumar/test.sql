@@ -6,7 +6,7 @@
 --6.SELECT last_name,salary,DECODE(commission_pct ,null,'NO','YES') as Commission from employees;
 --7.select department_name,location_id,last_name,job_id,salary  from employees join departments using(department_id) where location_id=&n;
 --8.a)SELECT COUNT(*) as "Last name count with letter n" FROM employees where last_name like '%n';
---8.b)SELECT COUNT(*) as "Last name count with letter n" FROM employees where last_name like '%_n';
+--8.b)SELECT COUNT(*) as "Last name count with letter n" FROM employees where substr(last_name,-1)='n';
 --9.SELECT employees.department_id,departments.department_name,departments.location_id,count(employees.department_id) from employees join departments on(employees.department_id = departments.department_id) group by employees.department_id,departments.department_name,departments.location_id;
 --10.select job_id from employees where department_id=10 or department_id=20;
 --11.SELECT job_id,count(job_id) from employees where job_id like 'AD_%' group by job_id order by count(job_id) desc;
