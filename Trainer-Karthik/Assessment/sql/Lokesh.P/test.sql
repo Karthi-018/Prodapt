@@ -1,0 +1,17 @@
+--1.select * from employees where department_id=(select department_id from departments where department_name='CLERKS') AND HIRE_DATE>'31-12-1997';
+--2.select Last_name,JOB_ID,Salary,Commission_pct from employees where commission_pct is not null order by salary desc;
+--3.select ('The Salary if'|| last_name ||'after a 10% raise is'||round(salary+salary*0.1)) "New Salary" from employees where commission_pct is not null;
+--4.select last_name,round(months_between(sysdate,hire_date)/12) as year,round(mod(months_between(sysdate,hire_date),12)) as months from employees order by year desc,months desc;
+--5.select last_name from employees where last_name like 'J%' or last_name like 'K%' or last_name like 'L%' or last_name like 'M%';
+--6.select Last_name,Salary,decode (commission_pct,null,'no','yes') Commission from  employees;
+--7.select department_name,location_id,last_name,job_id,salary  from employees join departments using(department_id) where location_id=&n;
+--8.select count(*) "Last Name count with letter n" from employees where last_name like '%n';
+--8.select count(last_name)"Last Name count with letter n" from employees where last_name like '%n';
+--8.SELECT COUNT(*) as "Last name count with letter n" FROM employees where last_name like '%_n';
+--9.SELECT employees.department_id,departments.department_name,departments.location_id,count(employees.department_id) from employees join departments on(employees.department_id = departments.department_id) group by employees.department_id,departments.department_name,departments.location_id;
+--10.select job_id from employees where department_id=10 or department_id=20;
+--11.select job_id,count(*) Frequency from employees group by job_id order by Frequency desc;
+--12.select last_name,hire_date from employees where extract(DAY FROM HIRE_DATE)<=15;
+--13.select last_name,salary,round(salary/1000) Thousands from employees;
+--14.select em.last_name "Last Name",ma.last_name "Manager",ma.salary "Salary",j.grade "Grade Level" from employees em join employees ma on(em.manager_id=ma.employee_id) join job_grades j on(ma.salary>j.lowest_sal and ma.salary<j.highest_sal);
+--15. select e.department_id,department_name,count(*),avg(salary),last_name from employees e right join departments group by department_id order by department_id;
