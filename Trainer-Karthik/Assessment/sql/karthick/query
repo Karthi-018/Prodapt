@@ -1,4 +1,4 @@
-1.select * from employees where hire_date>'01-01-1997';
+1.select * from employees where hire_date>='01-01-1997';
 
 2.select last_name,job_id,salary,commission_pct from employees where commission_pct>0 order by salary desc;
 
