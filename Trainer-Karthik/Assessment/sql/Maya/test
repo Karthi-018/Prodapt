@@ -1,0 +1,91 @@
+
+--1---------------------------------------------
+
+--select * from employees where hire_date>'31-12-1996' ;
+
+--2----------------------------------------
+
+--select last_name,job_id,salary,commission_pct from employees where commission_pct is not null order by salary desc ;
+
+--3--------------------------------------------------------
+
+--SELECT ('The salary of '||last_name||' after 10% raise is '||round(salary+(salary/10))) as "New Salary" from employees where commission_pct is not null;
+
+--4----------------------------------------------------------------------------
+
+--select last_name,round(months_between(sysdate,hire_date)/12,0) YEAR,round(months_between(sysdate,hire_date),0) MONTHS from employees order by year desc;
+
+
+--5----------------------------------------------------------------------------
+
+--select last_name from employees where last_name like 'J%' or last_name like 'K%' or last_name like 'L%' or last_name like 'M%';
+
+--6-----------------------------------------------------------------------------
+
+--select last_name,salary,DECODE(commission_pct ,null,'NO','YES') as Commission from employees;
+
+
+
+--7-----------------------------------------------------------------------------
+
+
+--select department_name,location_id,last_name,job_id,salary
+--from employees e
+--join departments d
+--on(e.department_id=d.department_id)
+--where location_id=&location;
+
+
+
+
+
+--8---------------------------------------------------------------------------
+
+--select count(last_name) as "Last Name count with letter n" from  employees where last_name like '%n' ;
+--select count(*) as "Last Name count with letter n" from  employees where last_name like '%n' ;
+
+--9---------------------------------------------------------------------------
+
+--select d.department_id,d.department_name,d.location_id,count(e.employee_id) as "No of Emp"
+--from departments d
+--join employees e
+--on(e.department_id=d.department_id)
+--group by d.department_id,d.department_name,d.location_id;
+
+
+--10----------------------------------------------------------------------------
+
+--select job_id from employees
+--where department_id=10 or department_id=20;
+
+--11-----------------------------------------------------------------------------
+
+
+--select e.job_id ,count(e.employee_id)as frequency from employees e
+--join departments d
+--on e.department_id=d.department_id
+--where d.department_name in ('Administration','Executive')
+--group by e.job_id
+--order by frequency desc;
+
+
+--12----------------------------------------------------------------------------
+
+--select last_name,hire_date from employees where to_number(to_char(hire_date,'DD'))<16;
+
+--13---------------------------------------------------------------------------
+
+--select last_name,salary,round(salary/1000,0) Thousands from employees;
+
+--14---------------------------------------------------------------------------
+
+--select emp.last_name,e.last_name,e.salary,j.grade
+--from employees emp
+--join employees e
+--on(emp.manager_id=e.employee_id)
+--join job_grades j
+--on(e.salary>j.lowest_sal and e.salary<j.highest_sal);
+
+---15--------------------------------------------------------------------------
+
+
