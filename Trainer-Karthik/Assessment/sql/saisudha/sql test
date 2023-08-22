@@ -1,5 +1,8 @@
 1.select*from employees where to_char(hire_date) like 'dd-mm-1997';
 --select hire_date from employees;
+--
+select * from employees e
+where to_number(to_char(e.hired_date,'yyyy'))=1997;
 -------------------------------------------------------------
 2.select last_name,job_id,salary,commission_pct from employees 
 order by salary desc;
