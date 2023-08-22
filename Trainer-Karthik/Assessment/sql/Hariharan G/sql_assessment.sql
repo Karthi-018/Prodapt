@@ -42,7 +42,7 @@ select count(last_name) as "Last Name count with letter n"
 from employees
 where last_name like'%n';
 --query2
-select last_name as "Last Name count with letter n"
+select count(last_name) as "Last Name count with letter n"
 from employees where last_name not like'%[a..m]' and last_name not like'%[o..z]' ;
 --where charat(length(last_name)-1)='n';
 --where length()
