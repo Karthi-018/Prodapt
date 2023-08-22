@@ -65,7 +65,7 @@ select job_id from employees where department_id between 10 and 20;
 
 --12.
 
-select * from employees where to_char(employees.hire_date, 'dd') < = 15;
+select * from employees where to_number(to_char(employees.hire_date, 'dd')) < = 15;
 
 
  --13.
