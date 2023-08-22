@@ -1,0 +1,140 @@
+SELECT * FROM departments;
+1--
+SELECT
+    *
+FROM
+    employees
+WHERE
+    job_id IN ( 'SH_CLERK', 'ST_CLERK', 'PU_CLERK' )
+    AND hire_date > TO_DATE('1997-12-31', 'YYYY-MM-DD');
+2--
+SELECT
+    last_name,
+    job_id,
+    salary,
+    commission_pct
+FROM
+    employees
+WHERE
+    commission_pct IS NOT NULL
+ORDER BY
+    salary DESC;
+3---
+SELECT
+    round(salary * 0.1) AS "New Salary"
+FROM
+    employees
+WHERE
+    commission_pct IS NULL;
+4---
+SELECT
+    last_name,
+    floor(months_between(SYSDATE, hire_date) / 12) AS "year",
+    trunc(months_between(SYSDATE, hire_date) - floor(months_between(SYSDATE, hire_date) / 12) * 12) AS "months"
+FROM
+    employees
+ORDER BY
+    "year" DESC, "months" DESC;
+
+5---
+SELECT last_name
+FROM employees
+WHERE last_name LIKE 'J%' OR last_name LIKE 'K%' OR last_name LIKE 'L%' OR last_name LIKE 'M%';
+
+6--
+SELECT last_name, salary,
+DECODE(commission_pct,
+        NULL, 'no',
+        'yes'
+    ) AS commission_status
+FROM employees;
+select * from locations;
+
+7--
+define call=l.location_id;
+SELECT
+    d.department_name,
+    l.location_id,
+    e.last_name,
+    e.job_id,
+    e.salary
+FROM
+    employees e
+JOIN
+    departments d ON (e.department_id = d.department_id)
+JOIN
+    locations l ON (d.location_id = l.location_id)
+where
+    l.location_id =&call;
+--undefine call;
+
+8--
+SELECT
+    COUNT(last_name) AS "Last name count with letter n"
+FROM
+    employees
+WHERE
+    last_name LIKE '%n';
+9--
+SELECT
+    d.department_name,
+    COUNT(e.employee_id) AS "No of Emp",
+    d.department_id,
+    l.location_id
+FROM
+    employees e
+    JOIN departments d ON ( e.department_id = d.department_id )
+    JOIN locations   l ON ( d.location_id = l.location_id )
+GROUP BY
+    d.department_id,
+    d.department_name,
+    l.location_id;
+10--
+SELECT
+    job_id
+FROM
+    employees
+WHERE
+    department_id IN ( 10, 20 );
+11---
+SELECT e.job_id, COUNT(employee_id) AS "frequency"
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id
+WHERE d.department_name IN ('Administration', 'Executive')
+GROUP BY e.job_id
+ORDER BY "frequency" DESC;
+
+12----
+SELECT
+    last_name,
+    hire_date
+FROM
+    employees
+WHERE
+    (hire_date) <= 15;
+
+13----
+SELECT
+    last_name,
+    salary,
+    round(
+        salary / 1000, 0
+    ) AS "Thousands"
+FROM
+    employees;
+    
+14---
+SELECT
+    e.last_name AS "Last Name",
+    m.last_name AS "Manager",
+    m.salary AS "Manager Salary",
+    m.grade_level AS "Salary Grade Level"
+FROM
+    employees e
+JOIN
+    employees m ON e.manager_id = m.employee_id
+JOIN
+    job_history jh ON m.employee_id = jh.employee_id
+WHERE
+    m.salary > 15000;
+
