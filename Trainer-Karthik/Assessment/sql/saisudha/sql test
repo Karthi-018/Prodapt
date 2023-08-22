@@ -43,6 +43,9 @@ where department_name='Administration' and department_name='Executive'
 group by(job_id);
 
 -------------------------------------------------------------
+12.select * from employees e
+where to_number(to_char(e.hired_date,'dd'))<=15;
+--------------------------------------------------------------
 13.select last_name,salary,substr(salary,1,2) "Thousands" from employees;
 -------------------------------------------------------------------------
 14.select last_name,first_name "manager" ,salary,grade
