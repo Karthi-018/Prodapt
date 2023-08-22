@@ -1,0 +1,5 @@
+15.select department_id,department_name,count(employee_id),avg(salary),last_name
+from employees
+natural join departments
+group by(department_id,department_name,last_name);
+
