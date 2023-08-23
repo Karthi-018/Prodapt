@@ -1,0 +1,147 @@
+--DECODE EXPRESSION
+select employee_id,last_name,salary,job_id,
+DECODE( job_id, 'IT_PROG',salary*10+salary
+            ,'HR_REP' ,salary*6+salary
+          ,'FI_ACCOUNT' , salary*15+salary
+           , 0 
+) as "CASEEXP"
+from employees;
+
+--CASE EXPRESSION
+SELECT  CASE job_id when 'IT_PROG' then salary*10+salary
+            when 'HR_REP' then salary*6+salary
+            when 'FI_ACCOUNT' then salary*15+salary
+            else 0 
+END as "CASEEXP"
+from employees; 
+
+--MULTI ROW FUNCTONS and General Functions 
+select count(*) from employees; 
+
+select last_name,sum(salary) from employees //cannot combine multi row and single row functions
+
+select sum(salary)"total salary",round(avg(salary),2)"Average Salary",max(salary)"Max Salary",min(salary)"Min Salary", 
+max(hire_date)"MAX Hired Date",min(hire_date)"Min Hired Date"
+from employees;  
+
+select round(avg(salary),2)"AVG SALARY",round(sum(salary)/count(*),2)"AVG USING COUNT*",
+round(sum(salary)/count(manager_id),2)"AVG USING COUNT MANAGER ID",
+round(sum(salary)/count(nvl(manager_id,0)),2) as "AVG USING COUNT,NVL-MANAGER ID"
+from employees; 
+
+select department_id, count(department_id),sum(salary),avg(salary),max(salary),min(salary)
+from employees where department_id is not null
+group by department_id
+order by department_id desc;  
+
+select department_id, count(department_id),sum(salary),avg(salary),max(salary),min(salary)
+from employees where department_id<>110
+group by department_id
+order by department_id desc;  
+
+select department_id,job_id ,count(job_id),count(department_id),sum(salary),avg(salary),max(salary),min(salary)
+from employees 
+group by department_id,job_id
+having department_id=60
+order by department_id desc ;  
+
+--DESCRIBE
+describe employees; --or desc employees;
+
+--String Functions 
+select initcap(first_name) FIRSTname from employees;
+select replace(first_name,'a','zzzzzz')as modiff from employees;
+
+select concat(first_name,last_name)||q'[ is a combination of 2 columns]' "hgh",salary from employees; 
+select concat(first_name,last_name)||q'[ is a combination of 2 columns]' ||salary from employees;
+select concat(first_name,last_name)||salary||job_id from employees;
+select concat(first_name,last_name)||' ssjkdk.....sdhjhd' as "jdskdj" from employees;
+select concat(first_name,last_name)||q'a is a combi's ''''''aaaaaa'  "'''" from employees;
+
+select trim( concat(first_name,last_name) ) from employees;
+select trim('d' from first_name) from employees; --removes the first and last consective 'd' from name
+select trim('d' from lower(first_name)) from employees; 
+select ltrim(first_name,'E') from employees; -- remove leading characters 
+select rtrim(first_name,'E') from employees; -- remove trailing characters 
+
+select length(first_name) from EMPLOYEES; 
+
+SELECT first_name ,INSTR(FIRST_NAME,'a') from employees; 
+
+--DATE TO CHAR
+select to_char(hire_date,'YYYY mon dd') from employees; 
+select to_char(hire_date,'yyyy mon dd') from employees;
+select to_char(hire_date,'ddth month year') from employees; 
+select to_char(hire_date,'YYYY MM ddth') from employees; 
+select to_char(hire_date,'dy') from employees;
+select to_char(hire_date,'HH MI ss') from employees;
+select to_char(hire_date,'MI SS HH') from employees;  
+select to_char(hire_date,'') from employees; --prints null 
+select to_char(hire_date,'Q "QUARTER" YYYY') from employees;
+
+--NUMBER TO CHAR
+select salary,to_char(salary,'$') from employees; 
+select salary,to_char(salary,'$99,99,9.9') from employees;
+select salary,to_char(salary,'') from employees; //prints #
+
+--CHAR TO DATE
+select to_date('10 8 23','dd-mm-yy') from employees;
+select to_date('10 Aug 23','dd-mm-yy') from employees;
+select to_date('10th August 2013','ddth-mm-yy') from employees; -- no th it will be an error 
+select to_date('10 August 2013','DD-MM-YYYY') from employees;
+select to_date('10- August -23','ddth-mm-yyyy') from employees;-- prints the standard date onlyy  
+select to_date('10 August 23','dd-mm-yy') from employees;
+
+select sysdate from dual;
+
+select (to_char('18-AUG-22')) from dual;
+
+
+--BETWEEN OPERATOR
+select employee_id from employees where employee_id not between 100 and 110;
+
+--DEFINE AND UNDEFINE 
+define name=employee_id;
+select &name from employees;
+select &&colss,&name from employees order by &colss desc;
+undefine colss;
+
+--GENERAL FUNCTIONS
+select employee_id,commission_pct,salary,salary*nvl(commission_pct,0) from employees where nvl(employee_id,1)>110; 
+
+select employee_id,nvl2(commission_pct,employee_id,0) from employees;
+
+select nullif(LENGTH(first_name),LENGTH(LAST_NAME)) from employees;
+
+select coalesce(commission_pct,employee_id,0.00) from employees;  
+
+--GROUP BY,ORDER BY
+SELECT 	job_id, last_name
+FROM employees
+WHERE UPPER(job_id) like UPPER('S__M%') -- &job_title is the varibable name and is used to take dynamic query
+ORDER BY job_id, last_name
+
+SELECT 	count(job_id),count(*), employee_id,department_id as "dpet"
+FROM  employees where department_id is not null
+GROUP BY  department_id ,employee_id
+having employee_id>110;
+order by department_id;
+
+SELECT job_id,(salary) PAYROLL
+FROM	employees
+WHERE job_id <> 'AD_PRES'
+GROUP BY job_id
+ORDER BY payroll;
+
+SELECT employee_id, job_id, salary, commission_pct
+FROM employees
+ORDER BY commission_pct desc nulls last;
+
+--AND & OR
+SELECT last_name, salary, department_id
+FROM employees WHERE salary >= 4500
+AND department_id = 50
+OR  department_id = 60
+
+--DISTINCT
+select distinct employee_id,'Active'from employees; 
