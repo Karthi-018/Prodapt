@@ -1,0 +1,100 @@
+----------------------------------------------------------------------RECORD TYPE----------------------------------------------------------------------------------------------------------------
+
+---TYPE 1 ---
+DECLARE
+    TYPE emp IS RECORD (
+        v_name   VARCHAR(25),
+        v_job_id VARCHAR(25),
+        v_salary employees.salary%TYPE
+    );
+    emp_ref emp;
+BEGIN
+    SELECT last_name,job_id,salary
+    INTO
+        emp_ref.v_name,
+        emp_ref.v_job_id,
+        emp_ref.v_salary
+    FROM
+        employees
+    WHERE
+        employee_id = 100;
+
+    dbms_output.put_line(emp_ref.v_name
+                         || ' '
+                         || emp_ref.v_job_id
+                         || ' '
+                         || emp_ref.v_salary);
+
+END; 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--- TYPE 2---
+DECLARE
+    TYPE emp1 IS RECORD (
+        e employees%rowtype
+    );
+    emp_ref emp1;
+BEGIN
+    SELECT *
+    INTO emp_ref.e
+    FROM
+        employees
+    WHERE
+        employee_id = 101;
+
+    dbms_output.put_line(emp_ref.e.last_name
+                         || emp_ref.e.job_id
+                         || emp_ref.e.salary);
+END; 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---TYPE 3------
+DECLARE
+    emp employees%rowtype;
+BEGIN
+    SELECT *
+    INTO emp
+    FROM
+        employees
+    WHERE
+        employee_id = 112;
+
+    dbms_output.put_line(emp.last_name
+                         || ' '
+                         || emp.job_id
+                         || ' '
+                         || emp.salary);
+
+END;
+---------------------------------------------------------------------- RECORD ROWTYPE ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE copyemp AS ( SELECT *FROM employees);
+DELETE FROM copyemp WHERE employee_id = 118;
+SELECT *FROM copyemp;
+
+DECLARE
+    emp employees%rowtype;
+BEGIN
+    SELECT *
+    INTO emp
+    FROM
+        employees
+    WHERE
+        employee_id = 118;
+
+    INSERT INTO copyemp VALUES (
+        emp.employee_id,
+        emp.first_name,
+        emp.last_name,
+        emp.email,
+        emp.phone_number,
+        emp.hire_date,
+        emp.job_id,
+        emp.salary,
+        emp.commission_pct,
+        emp.manager_id,
+        emp.department_id );
+              --(or) 
+    INSERT INTO copyemp VALUES emp;
+
+END; 
+
+SELECT * FROM copyemp WHERE employee_id = 118;
