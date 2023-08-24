@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Prodapt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<style>
+	body{
+		background-color:#F7BFFD ;
+		height: 1000px;
+		color:#F07BFD;
+		font-family:roboto;
+	}
+	.form{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.element{
+		margin-top:20px;
+	}
+	.gform{
+		display: grid;
+		grid-template-columns:1fr;
+	}
+	.outer{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	.in-field{
+		border-radius: 40px;
+		border-style: solid;
+		border-color: #F07BFD;
+		background-color:#F9C3FF ;
+		padding: 5px 15px;
+	}
+	.co{
+		background-color: #F7BFFD;
+	}
+	.bg{
+		background-color: #F07BFD;
+	}
+	.button{
+		padding: 8px 15px;
+		background-color:#F9C3FF;
+		color: #F07BFD;
+		border-style: solid;
+		border-radius: 4px;
+		margin-left: 60px;
+		border-color: #F07BFD;
+	}
+	.button:hover{
+		background-color:#F07BFD;
+		color: white;
+	}
+	.cg{
+		color: #F7BFFD;
+	}
+	form{
+		margin-top:50px;
+		padding: 20px;
+		border-style: solid;
+		border-color: #F07BFD;
+		border-radius: 30px;
+	}
+</style>
+</head>
+<body>
+	<div class="form bg cg"><marquee><h3>Employee Registration Form</h3></marquee></div>
+	<div class="form co">
+		<form action="reg" method="post">
+			<div class="gform">
+				<div style="display: flex;justify-content: center;align-items: center;"><h1>REGISTRATION FORM</h1></div>
+				<div class="element">
+					<div class="outer">
+						<div><label for="fname">First Name </label></div>
+						<div><input id="fname" class="in-field" type="text" name="fname"></div>
+					</div>
+				</div> 
+				<div class="element">
+					<div class="outer">
+						<div><label for="lname">Last Name </label></div>
+						<div><input class="in-field" id="lname" type="text" name="lname"></div>
+					</div>
+				</div> 
+				<div class="element">
+					<div class="outer">
+						<div><label for="email">Email </label></div>
+						<div><input class="in-field" id="email" type="text" name="email"></div>
+					</div>
+				</div> 
+				<div class="element">
+					<div class="outer">
+						<div><label for="phone">Phone </label></div>
+						<div><input  class="in-field"id="phone" type="text" name="phone"></div>
+					</div>	 
+				</div> 
+				<div class="element">
+					<div class="outer">
+						<div><label for="password">Password</label></div>
+						<div><input class="in-field" id="password" type="password" name="password"></div>
+					</div>
+				</div> 
+				<div class="element">
+					<div class="outer">
+						<div><input class="button" type="submit"></div>
+						<div><input class="button" type="reset"></div>
+					</div>
+				</div> 
+			</div>
+		</form>
+	</div>
+</body>
+</html>
