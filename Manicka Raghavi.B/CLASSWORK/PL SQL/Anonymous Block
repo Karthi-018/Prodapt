@@ -1,0 +1,131 @@
+------------------------------------------------------------------------ ANONYMOUS BLOCK---------------------------------------------------------------------------------------------------------------------------------------------------
+
+set SERVEROUTPUT on; 
+DECLARE
+    v_last_name VARCHAR(25); 
+  
+BEGIN
+    
+      SELECT last_name INTO v_last_name FROM employees 
+      where employee_id=101; 
+      dbms_output.put_line('The employee'|| q'['s ]'|| 'last name is:'|| v_last_name);
+
+END;  
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+set SERVEROUTPUT on; 
+DECLARE
+    v_last_name VARCHAR(25); 
+    v_name varchar(20);
+    v_emp_id    NUMBER := 125; 
+    v_names VARCHAR2(20):='Raghavi'; 
+    v_event varchar(20); 
+BEGIN
+    
+      SELECT last_name INTO v_last_name FROM employees  
+      WHERE employee_id = v_emp_id;  
+    
+    v_names:='Ragz';
+    v_event:=q'!Father's Day!';
+    dbms_output.put_line(v_event);
+    dbms_output.put_line('The employee'|| q'['s ]'|| 'last name is:'|| v_names);
+    dbms_output.put_line('The employee'|| q'['s ]'|| 'last name is:'|| v_last_name);
+
+    dbms_output.put_line('The employee'|| q'['s ]'|| 'last name is:'|| v_name); 
+        v_name:='JOHN';
+    dbms_output.put_line('The employee'|| q'['s ]'|| 'last name is:'|| v_name);
+    
+END;  
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+set SERVEROUTPUT on;
+DECLARE
+    v_months NUMBER;
+BEGIN
+    SELECT months_between(sysdate, hire_date)INTO v_months
+    FROM employees
+    WHERE last_name = 'Abel';
+    dbms_output.put_line(round(v_months,0));
+END; 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+set serveroutput on;
+DECLARE
+    v_salary NUMBER := 18000;
+BEGIN
+    UPDATE employees
+    SET salary = v_salary
+    WHERE last_name = 'Taylor';
+END; 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+set SERVEROUTPUT on;
+DECLARE 
+--employee_id number:=101; --ERROR
+    v_employee_id NUMBER := 101;
+BEGIN
+    SELECT employee_id
+    INTO v_employee_id
+    FROM employees
+    WHERE employee_id = v_employee_id;
+
+    dbms_output.put_line((v_employee_id));
+END;  
+------------------------------------------------------------------------NESTED BLOCKS----------------------------------------------------------------------------------------------------------
+
+set SERVEROUTPUT on;
+DECLARE
+    v_father VARCHAR(20) := 'Boomi';
+BEGIN
+    DECLARE
+        v_child VARCHAR(20) := 'Ragz';
+    BEGIN
+        dbms_output.put_line(v_father|| q'[ ]'|| v_child);
+    END;
+    dbms_output.put_line(v_father);
+END;
+-----------------------------------------------------------------------DYNAMIC QUERY------------------------------------------------------------------------------------------------------------------------------------
+set serveroutput on;
+DECLARE
+    v_salary   NUMBER := &value;
+    v_name     employees.last_name%TYPE := '&name';
+    new_name   employees.last_name%TYPE;
+    new_salary employees.salary%TYPE;
+BEGIN
+    UPDATE employees
+    SET salary = v_salary
+    WHERE last_name = v_name;
+
+    SELECT last_name,salary
+    INTO new_name,new_salary
+    FROM employees
+    WHERE last_name = v_name AND salary = v_salary;
+    dbms_output.put_line(new_name);
+END;
+----------------------------------------------------------------------WITHOUT DECLARE--------------------------------------------------------------------------------------------------------------
+
+begin 
+insert into employees(employee_id,first_name,last_name,email,hire_date,job_id,salary) 
+VALUES(218,'Ruth','Cores','RCORES',current_date,'AD_ASST',4000);
+end;
+
+------------------------------------------------------------------------BIND VARIABLES------------------------------------------------------------------------------------------------------------- 
+set SERVEROUTPUT on;
+variable  b_name VARCHAR2(20);
+BEGIN
+    SELECT last_name
+    INTO :b_name
+    FROM employees
+    WHERE last_name = 'Abel';
+
+END;
+/
+print b_name;  
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+variable b_emp_salary number
+BEGIN
+    SELECT salary
+    INTO :b_emp_salary
+    FROM employees
+    WHERE employee_id = 178;
+
+END;
+/
+print b_emp_salary;
