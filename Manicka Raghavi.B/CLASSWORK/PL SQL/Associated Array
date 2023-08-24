@@ -1,0 +1,28 @@
+set serveroutput on;
+DECLARE
+    TYPE emp_type IS
+        TABLE OF employees%rowtype INDEX BY PLS_INTEGER;
+    emp     emp_type;
+    v_count NUMBER := 1;
+BEGIN
+    WHILE v_count <= 10 LOOP
+        SELECT *
+        INTO
+            emp
+        (v_count)
+        FROM
+            employees
+        WHERE
+            employee_id = v_count + 100;
+
+        dbms_output.put_line(emp(v_count).employee_id
+                             || ' '
+                             || emp(v_count).last_name
+                             || ' '
+                             || emp(v_count).job_id
+                             || ' '
+                             || emp(v_count).salary);
+
+        v_count := v_count + 1;
+    END LOOP;
+END;    
