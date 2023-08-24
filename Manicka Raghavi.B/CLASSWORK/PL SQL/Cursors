@@ -1,0 +1,76 @@
+---------------------------------------------------------------------Cursors------------------------------------------------------------------------------------------------------------------------------------
+
+set serveroutput on
+
+DECLARE
+    CURSOR emp IS
+    SELECT
+        last_name,
+        job_id,
+        salary
+    FROM
+        employees
+    WHERE
+        department_id = 30;
+
+    v_ln  employees.last_name%TYPE;
+    v_jid employees.job_id%TYPE;
+    v_sal employees.salary%TYPE;
+BEGIN
+    OPEN emp;
+    LOOP
+        FETCH emp INTO
+            v_ln,
+            v_jid,
+            v_sal;
+        EXIT WHEN emp%notfound;
+        dbms_output.put_line(v_ln|| v_jid|| v_sal); -- if we are placing the print stmt in end of the loop,then last values of the cursor will be printed
+    END LOOP;
+    CLOSE emp;
+END;
+-----------------------------------------------------------------------For Loop Cursors---------------------------------------------------------------------------------------------------------------- 
+DECLARE
+    CURSOR emp IS
+    SELECT
+        employee_id,
+        first_name,
+        last_name,
+        department_id,
+        job_id,
+        salary
+    FROM
+        employees
+    WHERE
+        department_id = 30;
+
+BEGIN
+    FOR emp_record IN emp LOOP
+        dbms_output.put_line(emp_record.employee_id|| ' '|| emp_record.first_name|| ''|| emp_record.last_name|| ' '|| emp_record.department_id|| ' '|| emp_record.job|| ' '|| emp_record.salary);
+    END LOOP;
+END;      
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+BEGIN
+    FOR er IN (SELECT first_name FROM employees WHERE department_id = 30)
+    LOOP
+        dbms_output.put_line(er.first_name);
+    END LOOP;
+END;
+-------------------------------------------------------------------Cursors Using Basic Loops----------------------------------------------------------------------------------------------------------------
+
+DECLARE
+    CURSOR emp IS
+    SELECT
+        last_name
+    FROM
+        employees;
+
+    empr emp%rowtype;
+BEGIN
+    OPEN emp;
+    LOOP
+        FETCH emp INTO empr;
+        EXIT WHEN emp%notfound;
+        dbms_output.put_line(empr.last_name);
+    END LOOP;
+
+END;
