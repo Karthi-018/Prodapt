@@ -1,0 +1,100 @@
+--------------------------------------------------------------------SET OPERATIONS-----------------------------------------------------------------------------------
+
+---UNION---
+select employee_id,job_id 
+from employees
+union 
+select employee_id,job_id 
+from job_history order by employee_id; --Display current and prev job id
+
+select employee_id,job_id,salary 
+from employees
+union 
+select employee_id,job_id,0 
+from job_history order by salary desc; --Display prev and current job along with their current salary
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---UNION ALL---
+select employee_id,job_id 
+from employees
+union all
+select employee_id,job_id 
+from job_history order by employee_id;  
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---INTERSECT--- 
+select employee_id,job_id 
+from employees
+intersect
+select employee_id,job_id 
+from job_history order by employee_id;
+
+select employee_id,department_id
+from employees
+INTERSECT
+select employee_id,department_id 
+from job_history order by employee_id; --Prev and Current job and department is same
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---MINUS--- 
+select employee_id,job_id 
+from employees
+minus
+select employee_id,job_id 
+from job_history order by employee_id; --Display prev and current job_id that are not same 
+
+--------------------------------------------------------------------DB OBJECTS-----------------------------------------------------------------------------------------
+
+---view---
+create view empview
+as select employee_id,last_name,salary
+from employees  
+where department_id=80; 
+
+describe empview; 
+select *from empview;
+update empview set salary=10 where employee_id=145; 
+
+delete from empview where salary=(select max(salary) from empview);
+
+select salary from employees where employee_id=145; -- values changed in view table reflected in the subquery table 
+rollback; 
+
+create or replace view dept_sum_view 
+(name,minsal,maxsal,avgsal)
+as select d.department_name,MIN(e.salary),MAX(e.salary),AVG(e.salary)
+from employee e=join departments d 
+on(e.departments_id=d.departments_id) 
+group by d.department_name;
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---sequence---  
+create sequence dept_depid_seq
+increment by 10
+start with 350
+maxvalue 9999
+no cache
+no cycle; 
+
+drop sequence dept_depid_seq; 
+
+insert into departments
+VALUES (dept_depid_seq.nextVal,'Training',null,null); --after max value we cannot use seq since there is no cycle 
+
+select*from departments;   
+select dept_depid_seq.nextVal,dept_depid_seq.currVal from dual; 
+select dept_depid_seq.currVal,dept_depid_seq.nextVal from dual; 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---synonym--- 
+create synonym emp for employees; 
+select*from emp; 
+select*from employees;  
+delete synonym emp;--cannot delete the table alias name
+drop synonym emp; 
+
+create synonym seqs for name_table; --creating alias name for sequence 
+select seqs.nextVal from dual;
+select seqs.currVal from dual;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
