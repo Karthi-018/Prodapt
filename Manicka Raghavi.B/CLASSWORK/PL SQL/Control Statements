@@ -1,0 +1,86 @@
+----------------------------------------------------------------BASIC LOOP-DO-WHILE ----------------------------------------------------------------------------------------------------------------------------------
+set serveroutput on;
+DECLARE
+    v_count NUMBER := 1;
+BEGIN
+    LOOP
+        dbms_output.put_line('WELCOME');
+        v_count := v_count + 1;
+        EXIT WHEN v_count > 10;
+    END LOOP;
+END;
+-----------------------------------------------------------------------IF ELSE------------------------------------------------------------------------------------------------------------------------------------
+set serveroutput on;
+DECLARE
+    v_age NUMBER := &value;
+BEGIN
+    IF v_age < 18 THEN
+        dbms_output.put_line('Im a child');
+    ELSE
+        dbms_output.put_line('Im an adult');
+    END IF;
+END;  
+---------------------------------------------------------------------While LOOP--------------------------------------------------------------------------------------------------------------------------------
+
+set serveroutput on;
+DECLARE
+    v_count   NUMBER := 1;
+    v_name    VARCHAR(30);
+    v_id      NUMBER;
+    v_dept_id NUMBER;
+    v_job_id  VARCHAR(20);
+    v_salary  NUMBER;
+BEGIN
+    WHILE v_count <= 10 LOOP
+        SELECT
+            employee_id,
+            first_name,
+            department_id,
+            job_id,
+            salary
+        INTO
+            v_id,
+            v_name,
+            v_dept_id,
+            v_job_id,
+            v_salary
+        FROM
+            employees
+        WHERE
+            employee_id = 100 + v_count;
+
+        dbms_output.put_line(v_id
+                             || ' '
+                             || v_name
+                             || ' '
+                             || v_dept_id
+                             || ' '
+                             || v_job_id
+                             || ' '
+                             || v_salary);
+
+        v_count := v_count + 1;
+    END LOOP;
+END;  
+-----------------------------------------------------------------------CASE THEN--------------------------------------------------------------------------------------------------------------------
+
+set serveroutput on;
+
+DECLARE
+    v_grade VARCHAR(1) := upper('&value');
+BEGIN
+    CASE v_grade
+        WHEN 'A' THEN
+            dbms_output.put_line('Excellent');
+        WHEN 'B' THEN
+            dbms_output.put_line('Good');
+        WHEN 'C' THEN
+            dbms_output.put_line('Average');
+        WHEN 'D' THEN
+            dbms_output.put_line('Below Average');
+        WHEN 'E' THEN
+            dbms_output.put_line('Fail');
+        ELSE
+            dbms_output.put_line('0');
+    END CASE;
+END;
