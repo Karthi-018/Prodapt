@@ -1,0 +1,83 @@
+--------------------------------------------------------------------------DML---------------------------------------------------------------------------------------------------------------------------------------------------
+
+---Insert Operatons---
+insert into table1(managerid) values(16);
+insert into table1 values(15,122);
+insert into table1 values(&num,&num2);
+insert into table1(departmentid)values(23); 
+commit; 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---Delete Operations---
+delete from table1 where departmentid=122; -- deletes a particular value
+delete from table1; --deletes all the rows of the table
+rollback;
+delete table1; ----deletes all the rows of the table
+rollback; 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+
+--- Update Operations ---
+update table1 set managerid=12 , departmentid=72 where departmentid=122; 
+select*from table1;  
+
+update employees SET salary =0  where last_name='Abel'; 
+
+update employees set salary=0; --salary set to 0 for all employees
+-------------------------------------------------------------------------DDL-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+---CREATE---
+create table practice(id int primary key,code int unique,name varchar(23) not null,dates date default current_date,salary INTEGER check(salary>300)); 
+
+insert into practice values(10,null,'Boomi','12-04-1997',50000); //unique can accept null values 
+insert into practice values(11,null,'Nathan','23 March 72',&value);  
+
+create table practices( id int,code int, name varchar(20) not null, dates date default sysdate,salary int,
+                       constraint p1 primary key(id),
+                       constraint p3 check(name is not null), 
+                       constraint p2 unique(code),
+                       constraint p5 check(salary>100) ) ; -- cannot declare default as table level constraint
+
+create table hire_dates(id  Number(8),hire_date DATE DEFAULT SYSDATE); --for id we can store 8 digits,if it is Number(8,2) it can store upto 2 decimal places if we give more than 2 decimal digits it will throw an error 
+insert into hire_dates values(1,'01-08-23'); 
+select*from hire_dates; 
+insert into hire_dates(id)values(2); 
+insert into hire_dates(id)values(1234567890);  --Values larger than specified 
+
+--without default kyeword
+create table hire_dates1(id  Number(8),hire_date DATE); 
+insert into hire_dates1 values(1,'01-08-23'); 
+select*from hire_dates1; 
+insert into hire_dates1(id)values(2);  
+
+create table hire_dates2(id  Number(8) default 0,hire_date DATE); 
+insert into hire_dates2 (hire_date)values('24-06-72'); 
+select*from hire_dates2; 
+insert into hire_dates2 values(1234567890,'24-12-72'); --even though we have set the default constraint there is an error since the given input is not in correct format 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---DROP---
+drop table practice;   
+flashback table hr.practice to before drop;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+
+---TRUNCATE---
+truncate table practice; 
+flashback table hr.practice to before truncate;//feature not enabled cannot flashback truncate method  
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+
+---ALTER---
+alter table employees read only;
+alter table employees read write; 
+
+--Can change the password 
+alter user hr --user
+identified by hr; --pwd 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+
+create user username identified by password; 
+create user userA identified by Reset123;
+
+select *from user_tab_privs_made; 
+select*from user_sys_privs;
+
