@@ -1,0 +1,48 @@
+--------------------------------------------------------------------IMPLICIT EXCEPTION---------------------------------------------------------------------------------------------------------------------------------------------------
+set serveroutput on;
+DECLARE
+    v_name VARCHAR(50);
+BEGIN
+    SELECT first_name
+    INTO v_name
+    FROM employees
+    WHERE last_name = 'Taylor';
+    dbms_output.put_line(v_name);
+EXCEPTION
+    WHEN too_many_rows THEN
+        dbms_output.put_line('Exception occured due to many rows returned in this statment');
+END;
+/ 
+---------------------------------------------------------------------EXPLICIT EXCEPTION---------------------------------------------------------------------------------------------------------------------------------------------------
+
+--example 1 --multiple values in the row
+set serveroutput on;
+DECLARE
+    e_user_define EXCEPTION;
+    PRAGMA exception_init ( e_user_define, -01422 );
+    v_name VARCHAR(50);
+BEGIN
+    SELECT first_name
+    INTO v_name
+    FROM employees
+    WHERE last_name = 'Taylor';
+    dbms_output.put_line(v_name);
+EXCEPTION
+    WHEN e_user_define THEN
+        dbms_output.put_line('Exception occured due to many rows returned in this statment');
+END;   
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--example 2 --duplicate exceptions  
+set serveroutput on;
+DECLARE
+    e_user_define EXCEPTION;
+    PRAGMA exception_init ( e_user_define, -00001 );
+    v_number NUMBER := 100;
+BEGIN
+    INSERT INTO employees (employee_id,first_name,last_name,email,hire_date,job_id) 
+    VALUES (v_number,'raghavi','boomi','xyz.com',sysdate,'AD_PRES');
+
+EXCEPTION
+    WHEN e_user_define THEN
+        dbms_output.put_line('Exception due to unique constraint');
+END;
