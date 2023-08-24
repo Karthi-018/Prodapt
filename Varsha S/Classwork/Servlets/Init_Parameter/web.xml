@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>initparam</display-name>
+<servlet>
+    <servlet-name>myServlet</servlet-name>
+    <servlet-class>initparam.edu.InitParam</servlet-class>
+    
+    <init-param>
+    <param-name>className</param-name>
+    <param-value>com.mysql.jdbc.Driver</param-value>
+    </init-param>
+    
+    <init-param>
+    <param-name>URL</param-name>
+    <param-value>jdbc:mysql://localhost:3306/ems</param-value>
+    </init-param>
+    
+    <init-param>
+    <param-name>userName</param-name>
+    <param-value>root</param-value>
+    </init-param>
+    
+    <init-param>
+    <param-name>password</param-name>
+    <param-value>root</param-value>
+    </init-param>
+    
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>myServlet</servlet-name>
+    <url-pattern>/Name</url-pattern>
+  </servlet-mapping>
+</web-app>
