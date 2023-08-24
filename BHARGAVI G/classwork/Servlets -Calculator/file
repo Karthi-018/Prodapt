@@ -1,0 +1,112 @@
+=-------------------------html file-------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="./CALCULATOR" method="post">
+<label>Number1 </label><input type ="text" name="n1" value="" placeholder="ENTER NUMBER 1">
+<label>Number2 </label><input type ="text" name="n2" value="" placeholder="ENTER NUMBER 2">
+<input type ="radio" name="opr" value="add"> ADD
+
+<input type ="radio"  name="opr"value="Sub"> SUB
+
+<input type ="radio" name="opr" value="Mul"> MUL
+
+<input type ="radio"  name="opr" value="Div"> DIV
+
+<input type ="submit" values="submit" </input>
+<input type ="reset" values="Reset" </input>
+</form>
+	
+</body>
+</html>
+
+
+-----------------------------------------Servlet main file------------------------------
+package calculator;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Demo  extends HttpServlet{
+	
+//		//instead of do get use (service) as default?//
+	public void service(HttpServletRequest req,HttpServletResponse res) throws IOException
+		{
+			String N1=req.getParameter("n1");
+			String N2=req.getParameter("n2");
+			String n=req.getParameter("opr");
+			int n1=Integer.parseInt(N1);
+			int n2=Integer.parseInt(N2);
+			String result=null;
+			switch(n)
+			{
+			
+			case "add":
+				result=("The sum is "+(n1+n2));
+				break;
+			case "Sub":
+				result=("The sub is "+(n1-n2));
+				break;
+			case "Mul":
+				result=("The mul is "+(n1*n2));
+				break;
+			case "Div":
+				result=("The div is "+(n1/n2));
+			break;
+			}
+			
+			PrintWriter out= res.getWriter();
+			out.println(result);
+			out.println("<!DOCTYPE html>\r\n"
+					+ "<html>\r\n"
+					+ "<head>\r\n"
+					+ "<meta charset=\"ISO-8859-1\">\r\n"
+					+ "<title>Insert title here</title>\r\n"
+					+ "</head>\r\n"
+					+ "<body>\r\n"
+					+ "<form action=\"./CALCULATOR\" method=\"post\">\r\n"
+					+ "<label>Number1 </label><input type =\"text\" name=\"n1\" value=\"\" placeholder=\"ENTER NUMBER 1\">\r\n"
+					+ "<label>Number2 </label><input type =\"text\" name=\"n2\" value=\"\" placeholder=\"ENTER NUMBER 2\">\r\n"
+					+ "<input type =\"radio\" name=\"opr\" value=\"add\"> ADD\r\n"
+					+ "\r\n"
+					+ "<input type =\"radio\"  name=\"opr\"value=\"Sub\"> SUB\r\n"
+					+ "\r\n"
+					+ "<input type =\"radio\" name=\"opr\" value=\"Mul\"> MUL\r\n"
+					+ "\r\n"
+					+ "<input type =\"radio\"  name=\"opr\" value=\"Div\"> DIV\r\n"
+					+ "\r\n"
+					+ "<input type =\"submit\" values=\"submit\" </input>\r\n"
+					+ "<input type =\"reset\" values=\"Reset\" </input>\r\n"
+					+ "</form>\r\n"
+					+ "	\r\n"
+					+result
+					+ "</body>\r\n"
+					+ "</html>");
+			
+	
+			
+			
+}
+}
+
+--------------------------------xml file-----------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>calculator</display-name>
+ <servlet>
+ <servlet-name> myServlet</servlet-name>
+ <servlet-class> calculator.Demo</servlet-class>
+ </servlet>
+<servlet-mapping> 
+<servlet-name> myServlet</servlet-name>
+<url-pattern> /CALCULATOR</url-pattern>
+</servlet-mapping>
+</web-app>
