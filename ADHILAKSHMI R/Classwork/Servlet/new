@@ -1,1 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="./myCalculator">
+		<input type="text" name="n1" placeholder="Enter the Number 1">
+		<input type="text" name="n2" placeholder="Enter the Number 2"><br><br>
+		<input type="radio" name="opr" value="add"/> ADD   
+		<input type="radio" name="opr" value="sub"/> SUB
+		<input type="radio" name="opr" value="mul"/> MUL
+		<input type="radio" name="opr" value="div"/> DIV
+		<input type="radio" name="opr" value="mod"/> MOD<br><br>
+		<input type="submit" value="Calculate">
+		<input type="reset" value="Reset">
+	</form>
+	</body>
+</html>
+
+------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Calculator</display-name>
+  <servlet>
+  <servlet-name>myServlet</servlet-name>
+  <servlet-class>edu.proj.Demo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>myServlet</servlet-name>
+  <url-pattern>/myCalculator</url-pattern>
+  </servlet-mapping>
+  </web-app>
+
+-----------------------------------------------------------------
+package edu.proj;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServlet;
+
+public class Demo extends HttpServlet {
+public void service(HttpServletRequest req,HttpServletResponse res)throws IOException{
+	String num1=req.getParameter("n1");
+	String num2=req.getParameter("n2");
+	int n1=Integer.parseInt(num1);
+	int n2=Integer.parseInt(num2);
+	String n=req.getParameter("opr");
+	String result=null;
+	switch(n) {
+	case "add":result="The sum of two number is" +(n1+n2);break;
+	case "sub":result="The sub of two number is" +(n1-n2);break;
+	case "mul":result="The mul of two number is" +(n1*n2);break;
+	case "div":result="The div of two number is" +(n1/n2);break;
+	case "mod":result="The mod of two number is" +(n1%n2);break;
+	}
+	PrintWriter out = res.getWriter();
+	out.println("<!DOCTYPE html>\r\n"
+			+ "<html>\r\n"
+			+ "<head>\r\n"
+			+ "<meta charset=\"ISO-8859-1\">\r\n"
+			+ "<title>Insert title here</title>\r\n"
+			+ "</head>\r\n"
+			+ "<body>\r\n"
+			+ "	<form action=\"./myCalculator\">\r\n"
+			+ "		<input type=\"text\" name=\"n1\" placeholder=\"Enter the Number 1\">\r\n"
+			+ "		<input type=\"text\" name=\"n2\" placeholder=\"Enter the Number 2\"><br><br>\r\n"
+			+ "		<input type=\"radio\" name=\"opr\" value=\"add\"/> ADD   \r\n"
+			+ "		<input type=\"radio\" name=\"opr\" value=\"sub\"/> SUB\r\n"
+			+ "		<input type=\"radio\" name=\"opr\" value=\"mul\"/> MUL\r\n"
+			+ "		<input type=\"radio\" name=\"opr\" value=\"div\"/> DIV\r\n"
+			+ "		<input type=\"radio\" name=\"opr\" value=\"mod\"/> MOD<br><br>\r\n"
+			+ "		<input type=\"submit\" value=\"Calculate\">\r\n"
+			+ "		<input type=\"reset\" value=\"Reset\">\r\n"
+			+ "	</form>\r\n"
+			+ "	\r\n"
+			+ "\r\n"
+			+ "</body>\r\n"
+			+ "</html>"+result);
+}
+}
 
