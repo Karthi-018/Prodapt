@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+	.form{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.inner{
+		margin-top: 20px;
+	}
+	.gform{
+		display: grid;
+
+        grid-template-columns:1fr;
+	}
+	.in{
+		
+        display: grid;
+
+        grid-template-columns: 3fr 5fr;
+
+	}
+</style>
+</head>
+<body>
+	<div class="form">
+		<h1>Welcome to EMS</h1>
+	</div>
+	<div class="form">
+		<form action="login" method="post">
+			<div class="gform">
+			<div class="inner">
+				<div class="in">
+					<label>UserName:</label>
+					<input type="text" name="uname" value="">
+				</div>
+				
+			</div>
+			<div class="inner">
+				<div class="in">
+					<label>Password:</label>
+					<input type="password" name="pass" value="">
+				</div>
+				
+			</div>
+			<div class="inner">
+				<div class="in">
+				
+					<div><input type="submit" name="login" value="login"></div>
+					<div><input type="reset" name="reset" value="reset"></div>
+				</div>
+				
+			</div>
+			</div>
+		</form>
+		
+	</div>
+
+</body>
+</html>
