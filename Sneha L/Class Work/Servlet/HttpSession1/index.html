@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>HttpSession Example</title>
+
+    <style>
+
+        body {
+
+            background-color: #f5f3f8;
+
+            font-family: Arial, sans-serif;
+
+        }
+
+        h1 {
+
+            color: #6a3093;
+
+        }
+
+        form {
+
+            background-color: #e6e1f2;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            margin: 20px 0;
+
+        }
+
+        input[type="text"], input[type="submit"], input[type="reset"] {
+
+            margin: 10px;
+
+            padding: 10px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            font-size: 16px;
+
+        }
+
+        input[type="submit"], input[type="reset"] {
+
+            background-color: #6a3093;
+
+            color: white;
+
+            cursor: pointer;
+
+        }
+
+        input[type="submit"]:hover, input[type="reset"]:hover {
+
+            background-color: #4b1a65;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>HTTPSESSION EXAMPLE</h1>
+
+    <form action="firstserv" method="post">
+
+        <input type="text" name="uname" value="" placeholder="Enter your username">
+
+        <br>
+
+        <input type="submit" value="Create">
+
+        <input type="reset" value="Reset">
+
+    </form>
+
+    <form action="secondserv" method="post">
+
+        <input type="submit" value="Retrieve">
+
+    </form>
+
+    <form action="logout" method="post">
+
+        <input type="submit" value="Logout">
+
+    </form>
+
+</body>
+
+</html>
