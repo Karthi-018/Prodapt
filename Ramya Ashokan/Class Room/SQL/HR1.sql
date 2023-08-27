@@ -6,7 +6,7 @@ select first_name,last_name,salary,salary*12  as "Annual_Income" from employees;
 select  first_name||' '||last_name as Name from employees;--||concat two columns
 select  first_name||' is a '||job_id  as "Employee_Details" from employees;--||concat two columns
 select  first_name||q'& "Employees Manager is "&' ||manager_id  as "Employee_Details" from employees;--use queue q ->for printing special character like '' "" in string use delimiter[not in numbers and alphabet]
-select distinct First_name from employees;
+select distinct First_name from employees;  
 select  first_name||' '|| last_name as Name from employees;
 
 --Restricting and Sorting
@@ -36,7 +36,7 @@ select last_name,length(last_name) Length_Name from employees where  length(last
 --instr
 select *from employees;
 select instr(last_name,'l') from employees where employee_id=123;
-select instr(last_name,'l',2,1) from employees where employee_id=123;--vollman->start search from 2 index third parameter represent occurence
+select instr(last_name,'l',2,2) from employees where employee_id=123;--vollman->start search from 2 index third parameter represent occurence
 select last_name,instr(last_name,'t') from employees where last_name='Austin' ;
 --substr
 select substr(last_name,3,2) from employees where last_name='Austin' ;--par 2->start par3->occurence

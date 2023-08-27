@@ -1,5 +1,7 @@
 select table_name from user_tables;
-
+drop table job_grades;
+select * from job_grades;
+flashback table hr.job_grades to before drop;
 CREATE TABLE job_grades (
 
 grade 		CHAR(1),
