@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="ISO-8859-1">
+
+<title>Login</title>
+
+<style>
+
+  body {
+
+    background-color: rgb(23, 23, 23);
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+  }
+
+  
+
+  h1 {
+
+    color: rgb(225, 0, 0);
+
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  }
+
+  
+
+  table {
+
+    border: 2px solid rgb(225, 0, 0);
+
+    box-shadow:0 0 45px 1px rgb(223, 0, 0,0.5);
+
+    padding: 20px;
+
+  }
+
+  
+
+  label {
+
+    color: red;
+
+  }
+
+  
+
+  input[type="email"], input[type="password"] {
+
+    border: 2px solid red;
+
+    padding: 5px;
+
+    background-color: #222;
+
+    color: white;
+
+  }
+
+  
+
+  input[type="submit"], input[type="reset"] {
+
+    background-color: rgb(225, 0, 0);
+
+    border: none;
+
+    color: white;
+
+    padding: 10px 20px;
+
+    margin-top: 10px;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s;
+
+  }
+
+  
+
+  input[type="submit"]:hover, input[type="reset"]:hover {
+
+    background-color: rgb(255, 255, 255);
+    color: rgb(72, 0, 0);
+
+  }
+
+
+a:visited {
+  color: rgb(128, 128, 128);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+  <center>
+
+    <h1>Login</h1>
+
+    <form action="loginpg" method="post">
+
+      <table>
+
+        <tr><td><label>Email</label></td><td><input type="email" value="" name="email" placeholder="Enter email "></td></tr>
+
+        <tr><td><label>Password</label></td><td><input type="password" value="" name="passwd" placeholder="Enter password"></td></tr>
+
+      </table>
+
+      <input type="submit" value="SUBMIT"> <input type="reset" value="CLEAR">
+
+    </form>
+
+
+  </center>
+
+</body>
+
+</html>
