@@ -27,7 +27,7 @@ public class AddServ extends HttpServlet
 		//RequestDispatcher rd= req.getRequestDispatcher("sq");          //sending "data" of addServ to square
 		//rd.forward(req, res);
 		
-		res.sendRedirect("sq?sum="+k);                                 //redirecting it to Square servlet
+		res.sendRedirect("sq?k="+k);                                 //redirecting it to Square servlet
 		
 		
 
