@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+div {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+</style>
+</head>
+<body>
+	<center>
+	<h1> LOGIN PAGE</h1>
+	<div>
+<form action="./loginServlet" method = "post">
+	<table cellpadding = "13">
+		<tr>
+			<td>
+				<label>EMAIL ID</label>
+			</td>
+			<td>
+				<input type ="text" name = "email" value="" placeholder="Enter your Email ID">
+			</td><BR><BR>
+		</tr>
+		<tr>
+			<td>
+				<label>PASSWORD</label>
+			</td>
+			<td>
+				<input type = "password " name = "pwd" value="" placeholder="Enter password">
+			</td>
+		</tr>	
+		
+	</table>
+	<BR><BR>
+<input type="submit" value="login">
+	    <input type = "reset" value="clear">
+</form>
+</div>
+</center>
+</body>
+</html>
