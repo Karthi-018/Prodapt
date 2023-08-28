@@ -19,13 +19,13 @@ public class AddServ extends HttpServlet
 		int k=i+j;
 		
 		
-		PrintWriter out=res.getWriter();                               //printing on webserver
-		out.println("Result is"+k);
+		//PrintWriter out=res.getWriter();                               //printing on webserver
+		//out.println("Result is"+k);
 		
-		req.setAttribute("k",k);                      	               
+		//req.setAttribute("k",k);                      	               
 		
-		RequestDispatcher rd= req.getRequestDispatcher("sq");          //sending "data" of addServ to square
-		rd.forward(req, res);
+		//RequestDispatcher rd= req.getRequestDispatcher("sq");          //sending "data" of addServ to square
+		//rd.forward(req, res);
 		
 		res.sendRedirect("sq?sum="+k);                                 //redirecting it to Square servlet
 		
