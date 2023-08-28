@@ -10,5 +10,7 @@
 <% String name=(String)request.getAttribute("label");
 	out.println(name);
 %>
+
+${label}
 </body>
 </html>
