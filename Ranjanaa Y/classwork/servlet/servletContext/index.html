@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+body 
+{
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+  
+  
+}
+input[type=submit] {
+  width: 100%;
+  background-color: rgb(39, 211, 211);
+  color: rgb(0, 0, 0);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=reset] {
+  width: 100%;
+  background-color: rgb(39, 211, 211);
+  color: rgb(0, 0, 0);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[value=Register] {
+	font-weight: bold;
+	font-size: 15px;
+  font-family: lucida sans unicode;
+  color: rgb(0, 0, 0);
+}
+input[value=clear] {
+	font-weight: bold;
+	font-size: 15px;
+  font-family: lucida sans unicode;
+  color: rgb(0, 0, 0);
+}
+div {
+  background-color: rgb(192, 192, 192);
+  font-family: lucida sans unicode;
+  width: 350px;
+  font-weight: bold;
+	font-size: 15px;
+  border: 10px solid rgb(0, 0, 0);
+  padding: 20px;
+  margin: 20px;
+}
+</style><center>
+<h1><u>WELCOME TO EMS PORTAL</u></h1></center>
+<body style='background-image: url("emp.jpg")'>
+	
+<form action="./registerServlet" method = "post">
+	
+	<center>
+		<div>Already a user ? <a href="login.html">login</a>
+	<table cellpadding ="11">
+		<tr>
+			<td><font size=3">
+				<label>FIRST NAME</label></font>
+			</td>	
+			<td><font size="3">
+				<input type ="text" name="fname" value="" placeholder="Enter your firstname"></font>
+			</td>
+		</tr>
+		<br>
+		<tr>	
+			<td><font size="3">
+				<label>LAST NAME</label></font>
+			</td>	
+			<td><font size="3">
+				<input type ="text" name="lname" value="" placeholder="Enter your lastname"></font>
+			</td>
+		</tr>
+		<tr>	
+			<td><font size="3">
+				<label>EMAIL</label></font>
+			</td>
+			<td><font size="3">
+				<input type ="text" name="email" value="" placeholder="Enter you email ID"></font>
+			</td>
+		</tr>
+		<br>
+		<tr>	
+			<td><font size="3">
+				<label>PHONE NUMBER</label></font>
+			</td>
+			<td><font size="3">
+				<input type ="text" name="phno" value="" placeholder="Enter your phonenumber"></font>
+			</td>
+		</tr>
+		<br>	
+		<tr>
+			<td><font size="3">
+				<label>PASSWORD</label></font>
+			</td>
+			<td><font size="3">
+				<input type ="password" name="pwd" value="" placeholder="Enter your password"></font>
+			</td>
+		</tr>
+	</table>
+	<br><br>
+	
+	<input type="submit" value="Register">
+	<input type = "reset" value="clear">
+	</div>
+	</center></form>
+</body>
+</html>
