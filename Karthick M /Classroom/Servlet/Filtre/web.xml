@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Sample_web</display-name>
+  <servlet>
+  <servlet-name>myServlet</servlet-name>
+  <servlet-class>a.Pag</servlet-class>
+  <init-param>
+  <param-name>dclass</param-name>
+  <param-value>com.mysql.jdbc.Driver</param-value>
+  </init-param>
+  <init-param>
+  <param-name>url</param-name>
+  <param-value>jdbc:mysql://localhost:3306/prodapt</param-value>
+  </init-param>
+  <init-param>
+  <param-name>id</param-name>
+  <param-value>root</param-value>
+  </init-param>
+  <init-param>
+  <param-name>pwd</param-name>
+  <param-value>root</param-value>
+  </init-param>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>myServlet</servlet-name>
+  <url-pattern>/Ems</url-pattern>
+  </servlet-mapping>
+  <filter>
+  <filter-name>filter1</filter-name>
+  <filter-class>a.FilterServlet</filter-class>
+  </filter>
+  <filter-mapping>
+  <filter-name>filter1</filter-name>
+  <url-pattern>/Ems</url-pattern>
+  </filter-mapping>
+</web-app>
