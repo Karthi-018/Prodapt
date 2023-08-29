@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>FilterDemo</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  
+  <context-param>
+ <param-name>driverClass</param-name>
+  <param-value>oracle.jdbc.driver.OracleDriver</param-value>
+   </context-param>
+   <context-param>
+  <param-name>connectionUrl</param-name>
+  <param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+   </context-param>
+   <context-param>
+  <param-name>connectionUsername</param-name>
+  <param-value>hr</param-value>
+   </context-param>
+   <context-param>
+  <param-name>connectionPassword</param-name>
+  <param-value>hr</param-value>
+  </context-param>
+ <!--  <context-param>
+ <param-name>driverClass</param-name>
+  <param-value>oracle.jdbc.driver.OracleDriver</param-value>
+   </context-param>
+   <context-param>
+  <param-name>connectionUrl</param-name>
+  <param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+   </context-param>
+   <context-param>
+  <param-name>connectionUsername</param-name>
+  <param-value>hr</param-value>
+   </context-param>
+   <context-param>
+  <param-name>connectionPassword</param-name>
+  <param-value>hr</param-value>
+  </context-param> -->
+  
+  
+  <filter>
+  <filter-name>FilterName</filter-name>
+  <filter-class>FilterDemo.FilterClass</filter-class>
+  <!-- <init-param>
+ <param-name>driverClass</param-name>
+  <param-value>oracle.jdbc.driver.OracleDriver</param-value>
+   </init-param>
+   <init-param>
+  <param-name>connectionUrl</param-name>
+  <param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+   </init-param>
+   <init-param>
+  <param-name>connectionUsername</param-name>
+  <param-value>hr</param-value>
+   </init-param>
+   <init-param>
+  <param-name>connectionPassword</param-name>
+  <param-value>hr</param-value>
+  </init-param> -->
+  </filter>
+  
+  <filter-mapping>
+  <filter-name>FilterName</filter-name>
+  <url-pattern>/Servlet1</url-pattern>
+  </filter-mapping>
+  
+  
+  <servlet>
+  <servlet-name>Servlet</servlet-name>
+  <servlet-class>FilterDemo.Servlet1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Servlet</servlet-name>
+  <url-pattern>/Servlet1</url-pattern>
+  </servlet-mapping>
+</web-app>
