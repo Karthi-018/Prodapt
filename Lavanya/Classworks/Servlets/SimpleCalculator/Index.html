@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+Simple Calculator 
+<form action="./CalculatorServlet" method="get">
+	<label>Number 1</label>
+	<input type="text" name="n1" value="" placeholder="Enter number 1"><br><br>
+	<label>Number 2</label>
+	<input type="text" name="n2" value="" placeholder="Enter number 2"><br><br>
+    <input type="radio" name="opr" value="add">
+        <label>Add</label><br>	
+    <input type="radio" name="opr" value="sub">
+        <label>Sub</label><br>	
+    <input type="radio" name="opr"  value="mul">
+        <label>Mul</label><br>	
+    <input type="radio" name="opr" value="div">
+        <label>Div</label><br>
+     <input type="submit" value="calculate">
+     <input type="reset" value="reset">
+    
+</form>
+</body>
+</html>
