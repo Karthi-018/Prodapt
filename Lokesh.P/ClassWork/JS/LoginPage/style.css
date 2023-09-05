@@ -1,0 +1,12 @@
+function display()
+{
+    let uname=document.getElementById("uname").value;
+    let password=document.getElementById("password").value;
+    if(uname=='Admin' && password=="Reset123")
+    {
+    swal("login success "," ","success");
+    }
+    else{
+        swal("invalid credentials try again"," ","error");
+    }
+}
