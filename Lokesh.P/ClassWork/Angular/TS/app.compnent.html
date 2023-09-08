@@ -1,0 +1,17 @@
+<h1 [style.text-align]="taline" [style.background-color]="randomcolor">Welcome to Angular demo</h1>
+<h2 [ngStyle]="{'color':randomcolor,'background-color':'orange','text-align':'center','font-size':'50px'}">Welcome</h2>
+
+<h1 class="main tsize">This is without Class Binding Demo</h1>
+<h1 [class]="'main'">This is with Class Binding Demo from css</h1>
+<h1 [class]="myheading">This is without Class Binding Demo from ts</h1>
+
+
+<p [ngClass]="['main','tsize']">hello</p>
+<p [ngClass]="[myheading,'tsize']">world</p>
+
+
+
+
+
+
+
