@@ -1,0 +1,112 @@
+<!-- <div> {{title}} </div> <br>
+<demo [myName]="fname" [sName]="lname"></demo> -->
+
+<!-- <h1>This Name is printing from Parent AppComponent  {{uname}} </h1>
+
+<demo (changeName)="newName($event)"> This is message form the Parent <br><br>
+
+    <input type="text"> <button>print</button>
+</demo> -->
+<!-- <input type="text" name="iname" [(ngModel)]="uname">
+
+<demo [myName]="uname"></demo> -->
+
+
+
+<!-- Type the Content <input type="text" name="iname" [(ngModel)]="uname" placeholder="Enter your Name">
+Type the Student Name <input type="text" name="iname" [(ngModel)]="Student.sname" placeholder="Enter your Name">
+
+
+<app-lifecycle-hooks [parentName]="uname" [empName]="Student.sname"></app-lifecycle-hooks> -->
+
+<!-- <p *ngIf="choice" > This Message is printed whem choice is TRUE</p>
+<p *ngIf="!choice" > This Message is printed whem choice is FALSE</p>
+
+<button (click)="bttnClick(!choice)"> {{bttnName}} </button> -->
+
+<p *ngIf="uname.value == 'admin' && pwd.value=='Reset@123'">welcome Admin</p>
+<p *ngIf="uname.value != 'admin' || pwd.value!='Reset@123'">Invalid Login</p>
+UserName <input type="text" #uname [(ngModel)]="uname.value"> <br>
+Password <input type="password" #pwd [(ngModel)]="pwd.value">
+
+
+<p *ngFor="let i of [1,2,3,4,5]"> {{i}} </p>
+
+<ol >
+    <li *ngFor="let ename of empNames"> {{ename}} </li>
+</ol>
+
+<table style="border: 1px solid black;">
+    <thead>
+        <tr style="border: 1px solid black;">
+            <th >ID</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Department</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of empArr" style="border: 1px solid black;">
+            <td>{{e.eid}}</td>
+            <td>{{e.ename}}</td>
+            <td>{{e.salary}}</td>
+            <td>{{e.dept}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
