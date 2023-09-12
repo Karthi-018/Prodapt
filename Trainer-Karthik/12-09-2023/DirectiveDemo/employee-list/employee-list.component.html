@@ -1,0 +1,15 @@
+
+<h4>All Employee Detilas</h4>
+<button (click)="addEmp()">Add Employee</button>
+<select [(ngModel)]="dept" name="d" class="form-select" aria-label="Default select example">
+    <option selected>Open this select menu</option>
+    <option value="all">ALL</option>
+    <option *ngFor="let department of depts" value="{{department}}">{{department}}</option>
+   
+  </select>
+  <br><br>
+<div>
+    <div *ngFor="let e of employees | dept:dept">
+      <app-employee [employee]="e"></app-employee><br>
+    </div>
+</div>

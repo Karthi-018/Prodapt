@@ -1,0 +1,18 @@
+<p> <input type="text" placeholder="Enter the Number" #num (input)="num.value"> </p>
+<p> <input type="text" placeholder="Enter the Power" #power (input)="power.value"> </p>
+
+<h4>Output : {{num.value | powerof:power.value}}</h4>
+
+
+<!-- {{num | number:'2.2-2'}} <br><br>
+
+{{today |date:'short'}} <br><br>
+
+{{num | currency:'CAD'}} <br><br>
+
+{{employee | json}} <br><br>
+
+{{myArr}}
+
+<p *ngFor="let i of myArr | slice:0:3">{{i}}</p> -->
+
