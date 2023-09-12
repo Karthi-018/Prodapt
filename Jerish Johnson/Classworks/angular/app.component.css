@@ -1,0 +1,9 @@
+.main{
+    background-color: rgb(235, 58, 235);
+    border: 3px solid black;
+}
+
+.tsize{
+    height: 50px;
+    width: 50%;
+}

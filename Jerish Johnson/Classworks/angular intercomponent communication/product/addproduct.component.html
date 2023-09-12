@@ -1,0 +1,14 @@
+
+<!-- <div>{{title}}</div> -->
+
+<div>this is from my child {{myusername}} </div>
+
+<input type="text" name="iname" [(ngModel)]="myusername">
+<button (click)="setname(myusername)"  > Send</button><br><br>
+
+{{uname}}
+
+
+<ng-content></ng-content>
+<!-- this name is printing from the child {{uname}} -->
+
