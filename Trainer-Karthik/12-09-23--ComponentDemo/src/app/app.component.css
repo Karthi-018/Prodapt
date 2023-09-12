@@ -1,0 +1,35 @@
+div
+{
+    font-style: italic;
+    color: greenyellow;
+}
+
+td
+{
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
+}
+th
+{
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
+}
+
+.it
+{
+    background-color: greenyellow;
+    color: black;
+}
+
+.hr
+{
+    background-color: blueviolet;
+    color: black;
+}
+.admin
+{
+    background-color: yellow;
+    color: black;
+}
