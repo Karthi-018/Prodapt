@@ -1,0 +1,20 @@
+<!-- {{eid.value }} <br> -->
+<form [formGroup]="empForm" novalidate>
+
+    <div>Employee ID  <input type="text" formControlName="eid" [class.is-invalid]="eid.invalid && eid.touched">
+        <div *ngIf="eid.touched">
+            <div *ngIf="eid.invalid">
+                    <small style="color: crimson;" *ngIf="eid.errors?.['required']"> Employee Id Cant be empty</small>
+                    <small style="color: crimson;" *ngIf="eid.errors?.['minlength']"> Employee Id should have Min 3 Characters</small>
+                    <small style="color: crimson;" *ngIf="eid.errors?.['pattern']"> Employee Id should be like 'E123'</small>
+            </div>
+        </div>
+    </div><br>
+    <div>Employee Name  <input type="text" formControlName="ename"></div><br>
+    <div>Employee salary  <input type="text" formControlName="salary"></div><br>
+    <div>Department <select name="" id="" formControlName="dept">
+        <option value="default">--select department</option>
+        <option *ngFor="let dept of depts" value="{{dept}}">{{dept}}</option>
+    </select> </div>
+
+</form>

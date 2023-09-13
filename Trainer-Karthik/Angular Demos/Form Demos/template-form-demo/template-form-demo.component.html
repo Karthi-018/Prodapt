@@ -48,3 +48,22 @@
       <button type="button" class="btn btn-danger">Clear</button>
 
 </form>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Salary</th>
+      <th>Dept</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of employeelist">
+        <td> {{e.eid}} </td>
+        <td> {{e.eName}} </td>
+        <td> {{e.salary}} </td>
+        <td> {{e.dept}} </td>
+    </tr>
+  </tbody>
+</table>
