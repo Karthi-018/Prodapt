@@ -1,0 +1,50 @@
+<!-- <div>Employee TS data : {{emp | json}}</div> <br>
+<div>From Data : {{empForm.value | json}}</div> <br> -->
+<form #empForm="ngForm" (ngSubmit)="dataSubmited()">
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Employee ID</label>
+        <input type="text" class="form-control" id="eid" placeholder="Enter ID" [(ngModel)]='emp.eid' name="eid" #eid="ngModel" required [class.is-invalid]="eid.invalid && eid.touched" pattern="^[E].[0-9]+">
+        <div *ngIf="eid.touched"> 
+            <div *ngIf="eid.invalid"> 
+            <small class="text-danger" *ngIf="eid.errors?.['required']">Employee Id Can't be empty</small>
+            <small class="text-danger" *ngIf="eid.errors?.['pattern']">Employee Id Should be like 'E123'</small>
+            </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Employee Name</label>
+        <input type="text" class="form-control" id="ename" placeholder="Enter Name" [(ngModel)]='emp.eName' name="ename" #ename="ngModel" required [class.is-invalid]="ename.invalid && ename.touched" pattern="^[A-za-z]+$" minlength="3">
+        <div *ngIf="ename.touched"> 
+            <div *ngIf="ename.invalid"> 
+            <small class="text-danger" *ngIf="ename.errors?.['required']">Employee Name Can't be empty</small>
+            <small class="text-danger" *ngIf="ename.errors?.['pattern']">Employee Name Should have only alphabets</small>
+            <small class="text-danger" *ngIf="ename.errors?.['minlength']">Employee Name Should have Min 3 Character</small>
+            </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Employee Salary</label>
+        <input type="text" class="form-control" id="salary" placeholder="Enter Salary" [(ngModel)]='emp.salary' name="salary" #salary="ngModel" required [class.is-invalid]="salary.invalid && salary.touched" pattern="^[0-9]+$">
+        <div *ngIf="salary.touched"> 
+            <div *ngIf="salary.invalid"> 
+            <small class="text-danger" *ngIf="salary.errors?.['required']">Employee salary Can't be empty</small>
+            <small class="text-danger" *ngIf="salary.errors?.['pattern']">Employee salary Should have only numbers</small>
+            <small class="text-danger" *ngIf="salary.errors?.['min']">Employee salary Should have only numbers</small>
+            </div>
+        </div>
+      </div>
+    
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Employee Department</label>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]='emp.dept' name="dept" #dept="ngModel" required [class.is-invalid]="dept.invalid && dept.touched && hasError" (blur)="validate(dept.value)" (change)="validate(dept.value)">
+            <option value="default">--Select Department--</option>
+            <option *ngFor="let dept of departments" value="{{dept}}">{{dept}}</option>
+            
+          </select>
+          <small class="text-danger" [class.d-none]="dept.untouched || !hasError">Select Employee Department</small>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="empForm.form.invalid || hasError">Add Employee</button> &nbsp; &nbsp;
+      <button type="button" class="btn btn-danger">Clear</button>
+
+</form>
