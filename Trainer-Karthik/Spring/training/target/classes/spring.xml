@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+  
+  <context:component-scan base-package="edu.training.model"></context:component-scan>
+  
+  <bean id="sd" class="edu.training.model.Snapdragon">
+
+  </bean>
+  
+  <!--  <bean id="aphone" class="edu.training.model.AndroidPhone">
+  <property name="cpu" value="Snapdragon"></property>
+  </bean>
+  <bean id="iphone" class="edu.training.model.iPhone">
+  <constructor-arg name="cpu" value="ABc"></constructor-arg>
+  <property name="cpu" value="Snapdragon"></property>
+  </bean>-->
+  
+</beans>
