@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="app.component.css"> <!-- Add a separate CSS file -->
+
+    <title>Your Shop</title>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+
+                <img src="https://t3.ftcdn.net/jpg/05/24/67/34/360_F_524673483_l6BieJxFUe0acXaVt6CJbjBTCBtxrI4U.jpg" alt="Logo" class="logo">
+
+                <h2 class="brand-text">Shopkart</h2>
+
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" routerLink="/products">Products</a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#">Customer</a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav><br><br>
+    <router-outlet></router-outlet>
+    <!-- Add your content here -->
+
+</body>
+
+</html>

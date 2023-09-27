@@ -1,0 +1,83 @@
+<form #productForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Product ID</label>
+        <input type="text" class="form-control" id="pid" placeholder="Enter ProductID" [(ngModel)]='pro.pid' name="pid" #pid="ngModel" required [class.is-invalid]="pid.invalid && pid.touched" pattern="^[P].[0-9]+">
+        <div *ngIf="pid.touched"> 
+            <div *ngIf="pid.invalid"> 
+            <small class="text-danger" *ngIf="pid.errors?.['required']">ProductId Can't be empty</small>
+            <small class="text-danger" *ngIf="pid.errors?.['pattern']">ProductId Should be like 'P123'</small>
+            </div>
+        </div>
+      </div>
+
+    <div class="mb-3">
+        
+      <label for="exampleFormControlInput1" class="form-label">Product Name</label>
+        <input type="text" id="pname" name="pname" class="form-control" placeholder="Enter ProductName" #pname="ngModel" [class.is-invalid]="pname.invalid && pname.touched" required
+                minlength="3" [(ngModel)]="pro.pname">
+        <div *ngIf="pname.invalid && pname.touched">
+        <small *ngIf="pname.errors?.['required']">Product Name is required.</small>
+        <small *ngIf="pname.errors?.['minlength']">Product Name must be at least 3 characters long.</small>
+        </div>
+        </div>
+        
+         
+        
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Description</label>
+        <textarea id="des" name="des" class="form-control" placeholder="Enter description" #des="ngModel" [class.is-invalid]="des.invalid && des.touched" required
+                minlength="15" [(ngModel)]="pro.des"></textarea>
+        <div *ngIf="des.invalid && des.touched">
+        <small *ngIf="des.errors?.['required']">Description is required.</small>
+        <small *ngIf="des.errors?.['minlength']">Description must be at least 15 characters long.</small>
+        </div>
+        </div>
+         
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Price</label>
+        <input type="number" id="price" name="price" class="form-control" placeholder="Enter Price" #price="ngModel" [class.is-invalid]="price.invalid && price.touched"required
+                min="0.01" [(ngModel)]="pro.price">
+        <div *ngIf="price.invalid && price.touched">
+        <small *ngIf="price.errors?.['required']">Price is required.</small>
+        <small *ngIf="price.errors?.['min']">Price must be greater than zero.</small>
+        </div>
+        </div>
+        
+         
+        
+        <div class="mb-3"> 
+          <label for="exampleFormControlInput1" class="form-label">Quantity</label>
+        <input type="number" id="qty" name="qty" placeholder="Enter quantity" class="form-control" #qty="ngModel" [class.is-invalid]="qty.invalid && qty.touched" required
+                min="1" [(ngModel)]="pro.qty">
+        <div *ngIf="qty.invalid && qty.touched">
+        <small *ngIf="qty.errors?.['required']">Quantity is required.</small>
+        <small *ngIf="qty.errors?.['min']">Quantity must be greater than zero.</small>
+        </div><br>
+        </div>
+    
+        <div class="mb-3"> 
+          <label for="exampleFormControlInput1" class="form-label">Categories:</label>
+        
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="pro.cato" name="selectedCategory" #cato="ngModel" required [class.is-invalid]="cato.invalid && cato.touched ">
+            <option value="Default">--select category--</option>
+            <option *ngFor="let c of category" value="{{c}}">{{c}}</option>
+        </select>
+        </div><br><br> 
+        
+        
+        
+    
+        <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Create</button>
+        <button type="button" class="btn btn-secondary">Clear</button>
+        
+       
+        </form>
+        
+        
+        
+        
+       
+    
+  
+    

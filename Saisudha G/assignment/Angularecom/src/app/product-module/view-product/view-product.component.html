@@ -1,0 +1,15 @@
+ 
+<div *ngFor="let product of productlist" class="card" style="width: 18rem;">
+    <div class="card-body">
+      
+      <p class="card-text">
+        ProductId:{{ product.pid }}<br>
+        ProductName:{{ product.pname }}<br>
+        Description:{{ product.des }}<br>
+        Price:{{ product.price }}<br>
+        Quantity:{{ product.qty }}</p>
+        <a class="btn btn-primary"  role="button"  [routerLink]="['/edit',product.pid]" >Edit</a>
+        <a class="btn btn-primary"  role="button" (click)="deleteProduct(product.pid)">Delete</a>
+        <router-outlet></router-outlet>
+    </div><br><br>
+  </div><br><br>

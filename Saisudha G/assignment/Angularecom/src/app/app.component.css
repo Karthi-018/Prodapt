@@ -1,0 +1,54 @@
+/* Navbar styling */
+.navbar {
+    background-color: #333; /* Change the background color as desired */
+}
+
+ 
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff; /* Text color for the brand */
+}
+
+ 
+
+.logo {
+    width: 50px; /* Adjust the width as needed */
+    margin-right: 10px; /* Add some spacing between the logo and text */
+}
+
+ 
+
+.brand-text {
+    font-size: 1.5rem; /* Adjust the font size as needed */
+}
+
+
+.navbar-nav {
+    margin-left: auto; /* Push the navigation items to the right */
+}
+
+ 
+
+.navbar-nav .nav-link {
+    color: #fff; /* Text color for the navigation links */
+    margin-right: 15px; /* Add spacing between the links */
+    text-decoration: none;
+}
+
+ 
+
+.navbar-nav .nav-link:hover {
+    text-decoration: underline; /* Underline the link on hover */
+}
+
+ 
+
+/* Optional: Style the active link differently */
+.navbar-nav .nav-link.active {
+    font-weight: bold; /* Make the active link bold */
+}
+
+
