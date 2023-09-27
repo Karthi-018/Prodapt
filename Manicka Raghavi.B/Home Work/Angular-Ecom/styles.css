@@ -1,0 +1,11 @@
+html{
+    height: 150vh;
+    
+    background: -webkit-linear-gradient(left top, #858585, #525252);
+    background: -moz-linear-gradient(left top, #858585, #525252);
+    background: -o-linear-gradient(left top, #858585, #525252);
+    background: -ms-linear-gradient(left top, #858585, #525252);
+    background: linear-gradient(to right bottom, #858585, #525252); 
+  
+   
+  }
