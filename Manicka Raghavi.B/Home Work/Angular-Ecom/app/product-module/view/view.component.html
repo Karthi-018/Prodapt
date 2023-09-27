@@ -1,0 +1,42 @@
+<html>
+<app-product></app-product>
+<br>
+<router-outlet></router-outlet> 
+
+ <select [(ngModel)]='category' value="category" class="c1">
+      <option value="All">All</option>
+      <option *ngFor="let c of categories" value="{{c}}">{{c}}</option>
+    </select><i class="bi bi-filter"></i><br>
+  <div class="container"> 
+  <table class="styled-table table table-striped table table-bordered b1 " >
+    <thead >
+      <tr>
+        <th>PRODUCT ID</th>
+        <th>PRODUCT NAME</th>
+        <th>PRODUCT DESCRIPTION</th>
+        <th>PRODUCT CATEGORY</th> 
+        <th>PRODUCT PRICE</th>
+        <th>PRODUCT QUANTITY</th> 
+        <th>ACTION</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let p of p1|category:category" class="table tr">
+        <td> {{p.id}} </td>
+        <td> {{p.name}} </td>
+        <td> {{p.description}}</td>
+        <td> {{p.category}} </td> 
+        <td> {{p.price}} </td>
+        <td> {{p.quantity}} </td> 
+        <td> 
+            <div class="action-buttons">
+              <button [routerLink]="['/edits',p.id]" class="btn btn-primary">EDIT</button>
+              <button (click)="onDelete(p.id)" class="btn btn-danger">DELETE</button>
+            </div>                  
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</html>

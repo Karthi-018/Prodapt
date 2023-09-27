@@ -1,0 +1,69 @@
+<html>
+<app-product></app-product>
+
+<br>
+<router-outlet></router-outlet> 
+<form [formGroup]="productForm" novalidate (ngSubmit)="onDataSubmitted()">
+  <div class="center-container" *ngFor="let p of products"> 
+    <div class="card b1 border-dark mb-3 border border-3" style="width: 30rem;">
+    
+      <div class="card-header">
+        <h5 class="card-title">EDIT PRODUCT-{{p.id}}</h5>
+      </div>
+      <div class="card-body">
+          <div class="mb-3 bordered-div">
+            <label for="pid" class="form-label">PRODUCT ID:</label> {{p.id}}
+          </div>  
+          
+          <div class="mb-3 bordered-div">
+            <label for="pid" class="form-label">PRODUCT NAME:</label> {{p.name}}
+          </div> 
+
+          <div class="mb-3 bordered-div">
+            <label for="pid" class="form-label">PRODUCT DESCRIPTION:</label> {{p.description}}
+          </div> 
+
+          <div class="mb-3">
+            <label for="pid" class="form-label">PRODUCT CATEGORY:</label> {{p.category}}
+          </div> 
+
+          
+          <div class="mb-3">
+            <label for="pid" class="form-label">PRODUCT PRICE:</label> {{p.price}}
+          </div> 
+
+          <div class="mb-3">
+            <label for="price" class="form-label">PRODUCT PRICE</label>
+            <input type="text" class="rounded-input" formControlName="product_price" value="{{p.price}}" [class.is-invalid]="product_price.invalid && product_price.touched" >
+              <div *ngIf="product_price.touched && product_price.invalid">
+              <small style="color: red;" *ngIf="product_price.errors?.['required']">Product Price can't be empty</small>
+              <small style="color: red;" *ngIf="product_price.errors?.['pattern']">Price must be greater than 0</small>
+              </div>
+          </div>  
+
+          <div class="mb-3">
+            <label for="pid" class="form-label">PRODUCT QUANTITY:</label> {{p.quantity}}
+          </div>
+          
+          <div class="mb-3">
+            <label for="quantity" class="form-label">PRODUCT QUANTITY</label>
+            <input type="text" class="rounded-input" formControlName="product_quantity" value={{p.quantity}} [class.is-invalid]="product_quantity.invalid && product_quantity.touched">
+            <div *ngIf="product_quantity.touched && product_quantity.invalid">
+            <small style="color: red;" *ngIf="product_quantity.errors?.['required']">Product Quantity can't be empty</small>
+            <small style="color: red;" *ngIf="product_quantity.errors?.['pattern']">Quantity must be greater than 0</small>
+            </div>
+          </div> 
+
+
+</div>
+<div class="card-footer text-body-secondary c1">
+  <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">UPDATE PRODUCT</button> &nbsp; &nbsp;
+  <button  type="reset" class="btn btn-danger">CLEAR</button>  
+</div> 
+
+     </div>
+     </div>
+
+</form>
+
+</html>

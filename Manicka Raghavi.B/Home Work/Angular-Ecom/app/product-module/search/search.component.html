@@ -1,0 +1,45 @@
+<html>
+
+<app-product></app-product> 
+<router-outlet></router-outlet> 
+<br>
+
+<div class="parent-container">
+  <input type="text" class="rounded-input " [(ngModel)]="searchItem"  placeholder="SEARCH PRODUCT" name="searchProduct">
+  <button (click)="onSearch(searchItem)" class="btn btn-primary">SEARCH</button> 
+</div> <br><br>
+<div *ngIf="products && products.length>0">
+  <div class="container">
+  <table class="styled-table table table-striped table table-bordered b1 " >
+    <thead >
+      <tr>
+        <th>PRODUCT ID</th>
+        <th>PRODUCT NAME</th>
+        <th>PRODUCT DESCRIPTION</th>
+        <th>PRODUCT CATEGORY</th> 
+        <th>PRODUCT PRICE</th>
+        <th>PRODUCT QUANTITY</th> 
+        <th>ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of products">
+          <td> {{p.id}} </td>
+          <td> {{p.name}} </td>
+          <td> {{p.description}}</td>
+          <td> {{p.category}} </td> 
+          <td> {{p.price}} </td>
+          <td> {{p.quantity}} </td> 
+          <td> 
+             <div class="action-buttons">
+              <button [routerLink]="['/edits',p.id]" class="btn btn-primary">EDIT</button>
+              <button (click)="onDelete(p.id)" class="btn btn-danger">DELETE</button>
+             </div>  
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</html>
+

@@ -1,0 +1,244 @@
+
+.rounded-input {
+
+    padding: 10px 20px;
+
+    border: 2px solid #000;
+
+    border-radius: 30px;
+
+    width: 400px;
+
+    box-sizing: border-box;
+
+    outline: none;
+
+    transition: border-color 0.3s ease;
+
+    padding-right: 50px;
+
+    background-color: white;
+
+    transition: all 0.3s; /* Transition effect for smoother focus */
+
+    position: relative;
+
+}
+
+ 
+
+.rounded-input:focus {
+
+    border-color: #87CEEB;
+
+    background-color: #f4f4f4;
+
+    border-width: 2px;
+
+    box-shadow: 0 0 10px #87CEEB;
+
+}
+
+ 
+
+.action-buttons {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+ 
+
+.styled-table {
+
+    border-collapse: collapse;
+
+    border: 4px solid black;
+
+}
+
+ 
+
+.container {
+
+    display: grid;
+
+}
+
+ 
+
+.b1 {
+
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+
+}
+
+ 
+
+.th {
+
+    font-weight: bold !important;
+
+}
+
+ 
+
+table tr {
+
+    background-color: white !important;
+
+}
+
+ 
+
+.btn-primary {
+
+    background-image: linear-gradient(45deg, #ff9a00, #ffd500);
+
+    border: none;
+
+    color: white;
+
+    font-weight: bold;
+
+    transition: transform 0.2s;
+
+    border-radius: 30px;
+
+    padding: 10px 20px;
+
+}
+
+ 
+
+.btn-primary:hover,
+
+.btn-primary:focus {
+
+    transform: scale(1.05);
+
+}
+
+ 
+
+.btn-danger {
+
+    background-image: linear-gradient(45deg, #009688, #00bcd4);
+
+    border: none;
+
+    color: white;
+
+    font-weight: bold;
+
+    transition: transform 0.2s;
+
+}
+
+ 
+
+.btn-danger:hover,
+
+.btn-danger:focus {
+
+    transform: scale(1.05);
+
+}
+
+ 
+
+.parent-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+}
+
+ 
+
+.search-button {
+
+    position: absolute;
+
+    right: 10px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background-image: linear-gradient(45deg, #ff9a00, #ffd500);
+
+    border: none;
+
+    color: white;
+
+    font-weight: bold;
+
+    transition: transform 0.2s;
+
+    border-radius: 30px;
+
+    padding: 10px 20px;
+
+}
+
+ 
+
+.search-button:hover,
+
+.search-button:focus {
+
+    transform: translateY(-50%) scale(1.05);
+
+}
+
+
+
+.search-button:hover {
+
+    background-color: #ffd500; /* Slight change in background */
+
+    box-shadow: 0 0 10px #ffd500; /* Adding a shadow for a lifted effect */
+
+}
+
+ 
+
+
+.rounded-input::before {
+
+    content: '\1F50D'; 
+
+    position: absolute;
+
+    left: 10px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-family: "Arial"; 
+
+}
+
+ 
+
+
+.rounded-input:hover, .rounded-input:focus {
+
+    box-shadow: 0 0 10px #87CEEB;
+
+}
+
+.search-button, .rounded-input {
+
+    border-radius: 50px;
+
+}
