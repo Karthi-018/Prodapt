@@ -1,0 +1,38 @@
+.wrap {
+    height:max-content;
+    /* max-content fits everything it needs!!! takes away need for overflow cuz it magically emlarges the div if needed */
+    position: relative;
+  text-align:center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: larger;
+}
+
+.parallax {
+    background-image: url("https://img.freepik.com/premium-photo/technology-e-commerce-internet-global-marketing-purchasing-plan-bank-concept_36325-2908.jpg?w=900");
+  
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 820px ;
+}
+
+.wrap p {
+
+    font-size: 1.2em; /* Adjust the font size */
+  
+    color: #333; /* Set the text color */
+  
+  }
+  
+   
+  
+  /* Style for the 'THANK YOU' message */
+  
+  .wrap .thankyou {
+  
+    font-weight: bold;
+  
+    color: #ff6600; /* Set a different color */
+  
+  }

@@ -1,0 +1,153 @@
+table {
+
+    width: 80%;
+  
+    margin: 0 auto;
+  
+    border-collapse: collapse;
+  
+    margin-bottom: 20px;
+  
+    border-radius: 10px; /* Rounded borders for the table */
+  
+    overflow: hidden; /* Hide overflowing content due to rounded borders */
+  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+
+    border: 2px solid #ccc;
+  
+  }
+  
+   
+  
+  thead {
+  
+    background-color: #f5f5f5;
+  
+  }
+  
+   
+  
+  th, td {
+  
+    padding: 12px;
+  
+    text-align: left;
+  
+    border-bottom: 1px solid #ddd;
+  
+  }
+  
+   
+  
+  tr:nth-child(even) {
+  
+    background-color: #f9f9f9;
+  
+  }
+  
+   
+  
+  tr:nth-child(odd) {
+  
+    background-color: #e0e0e0;
+  
+  }
+  
+   
+  
+  tr:hover {
+  
+    background-color: #ccc;
+  
+  }
+
+  .button {
+
+    background-color: #f5f5f5; /* Use the same color as the table */
+  
+    padding: 8px 12px;
+  
+    border: none;
+  
+    color: black;
+  
+    text-align: center;
+  
+    text-decoration: none;
+  
+    display: inline-block;
+  
+    font-size: 14px;
+  
+    margin: 4px 2px;
+  
+    cursor: pointer;
+  
+    border-radius: 5px;
+  
+  }
+  .button:hover {
+
+    background-color: #eee; /* Change color on hover */
+  
+  }
+  .sel {
+
+    color: black; /* Adjust the text color to match the existing styles */
+
+  font-size: 20px; /* Adjust the font size to match the existing styles */
+
+  margin: 0 auto 20px; /* Adjust margin to match the existing styles and center the div */
+
+  width: 90%; /* Adjust the width if needed */
+
+  text-align: center; 
+
+  font-weight: bold;
+  
+  }
+  
+   .sel span{
+    font-size: 25px;
+   }
+  
+  .sel select {
+  
+    padding: 10px 12px; /* Adjust padding to match the existing styles */
+  
+    border: 2px solid #ccc; /* Match the border style */
+  
+    border-radius: 5px; /* Match the border radius */
+  
+  }
+  
+   
+  
+  .sel select:hover {
+  
+    background-color: #eee; /* Match the hover background color */
+  
+  }
+  
+
+
+
+  .btn-custom {
+    font-size: 1.2rem; /* Adjust the font size */
+    padding: 10px 20px; /* Adjust the padding */
+    margin-right: 10px; /* Add margin to create space between buttons */
+    color: #fff; /* Adjust the text color */
+    border-radius: 5px; /* Adjust the border radius */ 
+    transition: background-color 0.3s ease; /* Add a smooth hover effect */
+  }
+  .button-container{
+    display: flex;
+    justify-content: center;
+  }
+  .btn-custom:last-child {
+    margin-right: 0; /* Remove margin from the last button */
+  }
+  .btn-custom:hover {
+    background-color: #555; /* Adjust hover background color */
+  }

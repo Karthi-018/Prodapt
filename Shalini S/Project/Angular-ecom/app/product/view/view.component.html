@@ -1,0 +1,47 @@
+<br><br>
+<div class="button-container">
+<button  class="btn btn-secondary btn-lg btn-custom" routerLink="/create">CREATE</button>
+<button class="btn btn-secondary btn-lg btn-custom" routerLink="/view">VIEW</button>
+<button  class="btn btn-secondary btn-lg btn-custom" routerLink="/search">SEARCH</button>
+</div>
+<br><br>
+<router-outlet></router-outlet>
+
+<!--------------------------------THIS IS THE ACTUAL VIEW---------------------------------------------------->
+<div class="sel">
+  CATEGORY:
+  <select [(ngModel)]="cat" name="cat">
+    <option value="all">All</option>
+    <option *ngFor="let i of categories" value="{{i}}">{{i}}</option>
+  </select>
+</div>
+
+<!------------------------------------------------------------------------->
+<br><br>
+ <table>
+  <thead>
+  <tr>
+    <th>PRODUCT ID</th>
+    <th>PRODUCT NAME</th>
+    <th>DESCRIPTION</th>
+    <th>PRICE</th>
+    <th>QUANTITY</th>
+    <th>CHOICE</th>
+  </tr>
+</thead>
+
+<tbody>
+<tr *ngFor="let i of proArr| cat:cat"  >
+  <td>{{i.pid}}</td>
+  <td>{{i.pname}}</td>
+  <td>{{i.pdesc}}</td>
+  <td>{{i.price}}</td>
+  <td>{{i.quantity}}</td>
+  <td>
+    <button class="button"  routerLink="/edit/{{i.pid}}">EDIT</button>
+    <button class="button" (click)="onDelete(i.pid)" routerLink="/delete">DELETE</button>
+  </td>
+</tr>  
+</tbody>
+
+</table>

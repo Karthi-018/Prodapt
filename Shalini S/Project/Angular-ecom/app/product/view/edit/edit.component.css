@@ -1,0 +1,74 @@
+form{
+    max-width: 400px;
+    margin:0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h3{
+    text-align: center;
+}  
+h4{
+  text-align: center;
+} 
+  label {
+  
+    display: block;
+  
+    margin-bottom: 5px;
+  
+  }
+   
+  
+  input {
+  
+    width: 100%;
+  
+    padding: 8px;
+  
+    margin-bottom: 10px;
+  
+  }
+
+  
+  button {
+  
+    padding: 10px 20px;
+  
+    background-color: #3498db;
+  
+    color: #fff;
+  
+    border: none;
+  
+    cursor: pointer;
+  
+  }
+  
+  button:hover {
+  
+    background-color: #2980b9;
+  
+  }
+
+
+
+  .btn-custom {
+    font-size: 1.2rem; /* Adjust the font size */
+    padding: 10px 20px; /* Adjust the padding */
+    margin-right: 10px; /* Add margin to create space between buttons */
+    color: #fff; /* Adjust the text color */
+    border-radius: 5px; /* Adjust the border radius */ 
+    transition: background-color 0.3s ease; /* Add a smooth hover effect */
+  }
+  .button-container{
+    display: flex;
+    justify-content: center;
+  }
+  .btn-custom:last-child {
+    margin-right: 0; /* Remove margin from the last button */
+  }
+  .btn-custom:hover {
+    background-color: #555; /* Adjust hover background color */
+  }

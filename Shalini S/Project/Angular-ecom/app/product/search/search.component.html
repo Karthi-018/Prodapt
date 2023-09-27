@@ -1,0 +1,45 @@
+<br><br>
+<div class="button-container">
+<button  class="btn btn-secondary btn-lg btn-custom" routerLink="/create">CREATE</button>
+<button class="btn btn-secondary btn-lg btn-custom" routerLink="/view">VIEW</button>
+<button  class="btn btn-secondary btn-lg btn-custom" routerLink="/search">SEARCH</button>
+</div>
+<br><br>
+
+<router-outlet></router-outlet>
+
+
+<br><br>
+<div class="search-container">
+  <form (submit)="onSearch()" >
+    <input type="text" class="search-box" id="searchItem" [(ngModel)]="searchItem" name="search-box" placeholder="SEARCH PRODUCT">
+    <button type="submit" class="search-button">Search</button>
+</form>
+</div>
+
+<div *ngIf="searchResult && showResults">
+    <!-- <div *ngFor="let product of searchResult"> -->
+  <!-- {{ product.name }} - Price: {{ product.price }} - Quantity: {{ product.quantity }} -->  
+  <br><br>
+  <table>
+   <thead>
+   <tr>
+     <th>PRODUCT NAME</th>
+     <th>PRICE</th>
+     <th>QUANTITY</th>
+   </tr>
+ </thead>
+ 
+ <tbody>
+ <tr *ngFor="let i of searchResult">
+   <!-- <td>{{i.pid}}</td> -->
+   <td>{{i.pname}}</td>
+   <!-- <td>{{i.pdesc}}</td> -->
+   <td>{{i.price}}</td>
+   <td>{{i.quantity}}</td>
+ </tr>  
+ </tbody>
+ 
+ </table>
+
+</div>

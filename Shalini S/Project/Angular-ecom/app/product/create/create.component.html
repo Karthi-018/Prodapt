@@ -1,0 +1,78 @@
+<br><br>
+<div class="button-container">
+<button  class="btn btn-secondary btn-lg btn-custom" routerLink="/create">CREATE</button>
+<button class="btn btn-secondary btn-lg btn-custom" routerLink="/view">VIEW</button>
+<button  class="btn btn-secondary btn-lg btn-custom" routerLink="/search">SEARCH</button>
+</div>
+<br><br>
+
+<router-outlet></router-outlet>
+
+<h3>CREATE PRODUCT</h3>
+<form #empForm="ngForm" (ngSubmit)="dataSubmited()">
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Product ID</label>
+        <input type="text" class="form-control" id="eid" placeholder="Enter ID" [(ngModel)]='pro.pid' name="pid" #pid="ngModel" required [class.is-invalid]="pid.invalid && pid.touched" pattern="^[P].[0-9]+">
+        <div *ngIf="pid.touched"> 
+            <div *ngIf="pid.invalid"> 
+            <small class="text-danger" *ngIf="pid.errors?.['required']">Product Id Can't be empty</small>
+            <small class="text-danger" *ngIf="pid.errors?.['pattern']">Product Id Should be like 'P123'</small>
+            </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Product Name</label>
+        <input type="text" class="form-control" id="pname" placeholder="Enter Name" [(ngModel)]='pro.pname' name="pname" #pname="ngModel" required [class.is-invalid]="pname.invalid && pname.touched" pattern="^[A-Za-z'' ']+$" minlength="3">
+        <div *ngIf="pname.touched"> 
+            <div *ngIf="pname.invalid"> 
+            <small class="text-danger" *ngIf="pname.errors?.['required']">Product Name Can't be empty</small>
+            <small class="text-danger" *ngIf="pname.errors?.['pattern']">Product Name Should have only alphabets</small>
+            <small class="text-danger" *ngIf="pname.errors?.['minlength']">Product Name Should have Min 3 Character</small>
+            </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Description</label>
+        <input type="text" class="form-control" id="pdesc" placeholder="Enter Description" [(ngModel)]='pro.pdesc' name="pdesc" #pdesc="ngModel" required [class.is-invalid]="pdesc.invalid && pdesc.touched"  minlength="15">
+        <div *ngIf="pname.touched"> 
+            <div *ngIf="pname.invalid"> 
+            <small class="text-danger" *ngIf="pdesc.errors?.['required']">Product Description Can't be empty</small>
+            <small class="text-danger" *ngIf="pdesc.errors?.['minlength']">Product Description Should have Min 15 Character</small>
+            </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Price</label>
+        <input type="text" class="form-control" id="price" placeholder="Enter Price" [(ngModel)]='pro.price' name="price" #price="ngModel" required [class.is-invalid]="price.invalid && price.touched">
+        <div *ngIf="price.touched"> 
+            <div *ngIf="price.invalid"> 
+            <small class="text-danger" *ngIf="price.errors?.['required']">Price Can't be empty</small>
+            
+            </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Quantity</label>
+        <input type="text" class="form-control" id="quantity" placeholder="Enter Quantity" [(ngModel)]='pro.quantity' name="quantity" #quantity="ngModel" required [class.is-invalid]="quantity.invalid && quantity.touched || pro.quantity<=0" min="1">
+        <div *ngIf="quantity.touched"> 
+            <div *ngIf="quantity.invalid"> 
+            <small class="text-danger" *ngIf="price.errors?.['required']">Quantity Can't be empty</small>
+            <small class="text-danger" *ngIf="pro.quantity <= 0">Quantity should be greater than 0</small>
+            </div>
+        </div>
+      </div>
+    
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Category</label>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]='pro.category' name="category" #category="ngModel" required [class.is-invalid]="category.invalid && category.touched && hasError" (blur)="validate(category.value)" (change)="validate(category.value)">
+            <option value="default">--Select Category--</option>
+            <option *ngFor="let c of categories" value="{{c}}">{{c}}</option>
+            
+          </select>
+          <small class="text-danger" [class.d-none]="category.untouched || !hasError">Select Category</small>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="empForm.form.invalid || hasError">Add Product</button> &nbsp; &nbsp;
+      <button type="button" class="btn btn-danger">Clear</button>
+
+</form>
