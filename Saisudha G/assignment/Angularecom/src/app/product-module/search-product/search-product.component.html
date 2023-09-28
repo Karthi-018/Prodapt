@@ -1,2 +1,14 @@
-<input type="text" value="" placeholder="Enter Product">
-<input type="submit" value="Search">
+<form>
+<input type="text" class="form-control" name="pname"  placeholder="Enter Product.." [(ngModel)]="find">
+
+<input type="submit"class="form-control"  value="Search" (click)="viewopr()">
+
+</form>
+<div *ngFor="let l of searchlist">
+{{l.pid}}
+{{l.pname}}
+{{l.des}}
+{{l.cato}}
+{{l.price}}
+{{l.qty}}
+</div>
