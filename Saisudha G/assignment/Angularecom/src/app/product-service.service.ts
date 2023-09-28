@@ -30,6 +30,9 @@ export class ProductServiceService {
   {
     return this.httpclient.put(this.url,update);
   }
+  searchproduct(pname:String){
+    return this.httpclient.get(this.url+`/search/${pname}`);
+  }
 
   
  
